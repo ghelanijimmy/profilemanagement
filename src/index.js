@@ -1,8 +1,8 @@
-import './index.css'
+import styles from "./css/_index.scss"
 
 import React from 'react'
 import {render} from 'react-dom'
 
-import App from './App'
+import Form from './Form'
 
-render(<App/>, document.querySelector('#app'))
+render(<Form ref={(PMApp) => {window.PMApp = PMApp}} />, document.getElementById('PMApp'))

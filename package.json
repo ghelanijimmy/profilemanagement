@@ -12,12 +12,21 @@
     "test:watch": "nwb test-react --server"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.17",
+    "@fortawesome/free-solid-svg-icons": "^5.8.1",
+    "@fortawesome/react-fontawesome": "^0.1.4",
+    "marked": "^0.6.2",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "react-modal": "^3.8.1",
+    "react-router-dom": "^5.0.0"
   },
   "devDependencies": {
-    "nwb": "0.23.x"
+    "nwb": "0.23.x",
+    "nwb-sass": "^0.9.0"
   },
+  "distName": "profilemanagement",
+  "libraryName": "SWProfileManagement",
   "author": "",
   "license": "MIT",
   "repository": ""

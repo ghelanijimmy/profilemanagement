@@ -8,6 +8,23 @@
     <meta name="description" content="">
   </head>
   <body>
-    <div id="app"></div>
+  <ul>
+    <li><a class="pmappclick" href="#" data-acctype="login">Sign In</a></li>
+    <li><a class="pmappclick" href="#" data-acctype="create">Create Account</a></li>
+  </ul>
+    <div id="PMApp"></div>
+
+  <script>
+    let numOfClicks = document.getElementsByClassName('pmappclick').length;
+
+    for(let x=0; x<numOfClicks; x++){
+      document.getElementsByClassName('pmappclick')[x].addEventListener('click', function(e){
+        window.PMApp.setState({
+          appType: e.target.getAttribute('data-acctype')
+        })
+      })
+    }
+  </script>
+
   </body>
 </html>
