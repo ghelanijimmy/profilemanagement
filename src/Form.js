@@ -1,35 +1,20 @@
-import React, {Component} from 'react'
-import {SignUp} from "./components/signup/signup";
+import React, { Component, useState } from "react";
+import { SignUp } from "./components/signup/signup";
+import styles from "./css/_index.scss";
+import Login from "./components/login/login";
 
-class Form extends Component {
-  
-  constructor(props){
-    super(props)
-    
-    this.state = {
-      appType: ''
-    }
-  }
-  
-  componentDidMount() {
-    console.log(this.state)
-  }
-  
-  componentDidUpdate(prevProps, prevState, snapshot) {
-    console.log(this.state)
-  }
-  
-  render() {
-    
-    if(this.state.appType === 'login'){
-      return <div>LOGIN</div>
-    } else if(this.state.appType === 'create') {
-      return <SignUp />
-    } else {
-      return ''
-    }
-    
-  }
-}
+const Form = React.forwardRef((props, ref) => {
+  const [appType, setAppType] = useState("");
 
-export default Form
+  window.PMApp = setAppType;
+
+  if (appType === "login") {
+    return <Login />;
+  } else if (appType === "create") {
+    return <SignUp />;
+  } else {
+    return null;
+  }
+});
+
+export default Form;
