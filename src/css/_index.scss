@@ -1,4 +1,28 @@
 @import "variables";
+//HEADER INIT
+header {
+  background-color: $orange;
+  display: flex;
+  justify-content: space-between;
+  padding: 1em;
+  align-items: center;
+  opacity: 1 !important;
+  ul {
+    display: flex;
+    margin: 0;
+
+    li {
+      margin: 0 .5em;
+      list-style: none;
+      color: $white;
+
+      a {
+        text-decoration: none;
+        color: $white;
+      }
+    }
+  }
+}
 
 html, body, #app {
   height: 100%;
@@ -9,10 +33,98 @@ body {
   padding: 0;
 }
 
-p, label, span, li {
-  color: $grayBlue;
+* {
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+//COLORS
+p {
+  color: $grayBlack;
+}
+label {
+  color: $midGray;
+}
+input {
+  color: $lightGray;
+}
+a {
+  color: $blue;
 }
 
 .appBackground {
   background-color: $babyBlue;
+}
+
+.Title {
+  font-size: 1.5em;
+  color: $blue;
+  font-weight: bold;
+  margin-top: .5em;
+  margin-bottom: .5em;
+}
+
+//FORM STYLES
+form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+
+  & > * {
+    flex-basis: 100%;
+  }
+
+  & > span {
+    margin-bottom: .5em;
+
+    &.inputFlex {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+
+      & > * {
+        flex-basis: 100%;
+      }
+
+      &.flexHalf {
+        flex-basis: 47% !important;
+      }
+
+      input {
+        width: 100%;
+      }
+    }
+  }
+
+  label {
+    font-size: .875em;
+  }
+
+  input {
+    margin: 0;
+    padding: .5em;
+    border: 1px solid $borderGray;
+  }
+
+  .forgotPassword {
+    font-size: .875em;
+    text-align: right;
+    margin-bottom: .5em;
+  }
+}
+
+//DISPLAY STYLES
+.dBlock {
+  display: block !important;
+}
+.dFlex {
+  display: flex !important;
+}
+.flexHalf {
+  flex-basis: 50% !important;
+}
+.flexFull {
+  flex-basis: 100% !important;
 }

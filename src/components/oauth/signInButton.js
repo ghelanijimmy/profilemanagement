@@ -1,10 +1,11 @@
 import React from "react";
+import oauthStyles from "./_oauth.scss";
 
-const SignInButton = (props) => {
+const SignInButton = props => {
   return (
-    <div>
+    <div className={oauthStyles.oauthWrapper}>
       <img />
-        <span>Sign in with {props.copyBrand}</span>
+      <span>Sign in with {props.copyBrand}</span>
     </div>
   );
 };

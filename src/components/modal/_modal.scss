@@ -1,0 +1,33 @@
+@import "../../css/variables";
+.modalBase {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%) scaleY(0);
+  background-color: $babyBlue;
+  opacity: 0;
+  overflow: hidden;
+  transition: all .2s linear;
+  padding: 1.375em 1.875em;
+}
+.modalOpen {
+  transform: translate(-50%, -50%) scaleY(1);
+  max-width: 380px;
+  box-sizing: border-box;
+  opacity: 1;
+  transition: all .2s linear;
+  box-shadow: 0 0 20px -10px black;
+}
+
+.modalClose {
+  //transform: translate(-50%, -50%) scaleY(0);
+  opacity: 0;
+  transition: all .2s linear;
+}
+.modalOverlay {
+  background-color: rgba($black,.5);
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+}

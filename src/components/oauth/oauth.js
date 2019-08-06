@@ -1,7 +1,7 @@
 import React from "react";
 import SignInButton from "./signInButton";
 
-const Oauth = () => {
+export const Oauth = () => {
   return (
     <React.Fragment>
       <SignInButton brand={"fb"} copyBrand={"Facebook"} />
@@ -9,5 +9,3 @@ const Oauth = () => {
     </React.Fragment>
   );
 };
-
-export default Oauth;
