@@ -34,7 +34,7 @@ const Form = React.forwardRef((props, ref) => {
         overlayClassName={modalStyle.modalOverlay}
         closeTimeoutMS={200}
       >
-        <Login />
+        <Login appType={appType} />
       </Modal>
     );
   } else if (appType === "create") {
@@ -54,7 +54,7 @@ const Form = React.forwardRef((props, ref) => {
         overlayClassName={modalStyle.modalOverlay}
         closeTimeoutMS={200}
       >
-        <SignUp />
+        <SignUp appType={appType} />
       </Modal>
     );
   } else {
