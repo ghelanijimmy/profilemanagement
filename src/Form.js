@@ -58,8 +58,9 @@ const Form = React.forwardRef((props, ref) => {
         overlayClassName={modalStyle.modalOverlay}
         closeTimeoutMS={200}
       >
-        <SignUp appType={appType} modal={currentModal}/>
+        <SignUp appType={appType} modal={currentModal} />
       </Modal>
+      //TODO Create "x" icon for close modal
     );
   } else {
     return null;
