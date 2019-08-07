@@ -30,3 +30,19 @@
   width: 100%;
   top: 0;
 }
+
+.modalFooter {
+  padding: 1.25em 1.875em;
+  background-color: $grayBlue;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+    span {
+      @extend %boldFont;
+      a {
+        display: block;
+        text-align: right;
+        @extend %boldFont;
+      }
+    }
+}

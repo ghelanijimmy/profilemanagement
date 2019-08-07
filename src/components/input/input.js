@@ -45,5 +45,22 @@ export const Input = props => {
         </label>
       </span>
     );
+  } else if (props.type === "select") {
+    return (
+      <span className={props.fullWidth ? styles.flexFull : styles.flexHalf}>
+        <label className={props.block ? styles.dBlock : ""} htmlFor={props.id}>
+          {props.placeholder}
+        </label>
+        <select
+          className={props.block ? styles.dBlock : ""}
+          id={props.id}
+          autoComplete={"off"}
+        >
+          <option value={"Toronto"} defaultChecked={true}>
+            Toronto
+          </option>
+        </select>
+      </span>
+    );
   }
 };

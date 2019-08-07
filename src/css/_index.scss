@@ -1,4 +1,26 @@
 @import "variables";
+
+//FONT IMPORT
+@font-face {
+  font-family: ptsansregular;
+  src: url("../assets/fonts/PTSans-Regular.eot?#iefix") format("embedded-opentype"),
+  url("../assets/fonts/PTSans-Regular.woff") format("woff"),
+  url("../assets/fonts/PTSans-Regular.ttf") format("truetype"),
+  url("../assets/fonts/PTSans-Regular.svg#PTSans-Regular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: ptsansbold;
+  src: url("../assets/fonts/PTSans-Bold.eot?#iefix") format("embedded-opentype"),
+  url("../assets/fonts/PTSans-Bold.woff") format("woff"),
+  url("../assets/fonts/PTSans-Bold.ttf") format("truetype"),
+  url("../assets/fonts/PTSans-Bold.svg#PTSans-Bold") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
 //HEADER INIT
 header {
   background-color: $orange;
@@ -36,16 +58,17 @@ body {
 * {
   box-sizing: border-box;
   font-size: 16px;
+  @extend %regularFont;
 }
 
 //COLORS
-p {
+p, span, li {
   color: $grayBlack;
 }
 label {
   color: $midGray;
 }
-input {
+input, select, option {
   color: $lightGray;
 }
 a {
@@ -59,7 +82,7 @@ a {
 .Title {
   font-size: 1.5em;
   color: $blue;
-  font-weight: bold;
+  @extend %boldFont;
   margin-top: .5em;
   margin-bottom: .5em;
 }
@@ -70,7 +93,7 @@ form {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  padding: 1.375em 1.875em;
+  padding: 1.25em 1.875em;
 
   & > * {
     flex-basis: 100%;
@@ -108,6 +131,10 @@ form {
     padding: .5em;
     border: 1px solid $borderGray;
   }
+  select {
+    padding: .5em;
+    width: 100%;
+  }
 
   .forgotPassword {
     font-size: .875em;
@@ -128,4 +155,10 @@ form {
 }
 .flexFull {
   flex-basis: 100% !important;
+}
+.flexThreeFour {
+  flex-basis: 80% !important;
+}
+.flexOneFour {
+  flex-basis: 20% !important;
 }

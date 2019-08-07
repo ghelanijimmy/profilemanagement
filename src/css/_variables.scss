@@ -10,3 +10,12 @@ $grayBlack: #333333;
 $white: #ffffff;
 $black: #000000;
 $borderGray: #CCCCCC;
+
+
+//FONTS
+%boldFont {
+  font-family: ptsansbold, sans-serif;
+}
+%regularFont {
+  font-family: ptsansregular, sans-serif;
+}

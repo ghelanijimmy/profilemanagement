@@ -1,27 +1,26 @@
 import React from "react";
 import styles from "../../css/_index.scss";
+import modalStyles from "./_modal.scss";
 
 const Modal = props => {
   if (props.appType === "login") {
     return (
-      <div>
+      <div className={modalStyles.modalFooter}>
         <span className={`${styles.flexHalf} ${styles.inputFlex}`}>
-          <span>Don't have an account?</span>
+          Don't have an account?
         </span>
         <span className={`${styles.flexHalf} ${styles.inputFlex}`}>
-          <span>
-            <a>Create your profile</a>
-          </span>
+          <a>Create your profile</a>
         </span>
       </div>
     );
   } else {
     return (
-      <div>
-        <span className={`${styles.flexHalf}`}>
-          <a>Already have an account?</a>
+      <div className={modalStyles.modalFooter}>
+        <span className={`${styles.flexThreeFour}`}>
+          Already have an account?
         </span>
-        <span className={`${styles.flexHalf}`}>
+        <span className={`${styles.flexOneFour}`}>
           <a>Sign In</a>
         </span>
       </div>
