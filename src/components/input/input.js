@@ -32,7 +32,15 @@ export const Input = props => {
     );
   } else if (props.type === "checkbox") {
     return (
-      <span className={props.fullWidth ? styles.flexFull : styles.flexHalf}>
+      <span
+        className={
+          props.fullWidth && props.bg !== true
+            ? styles.flexFull
+            : props.bg && props.fullWidth
+            ? `${styles.flexFull} ${styles.inputBG}`
+            : styles.flexHalf
+        }
+      >
         <input
           className={props.block ? styles.dBlock : ""}
           type={props.type}
@@ -60,6 +68,18 @@ export const Input = props => {
             Toronto
           </option>
         </select>
+      </span>
+    );
+  } else if (props.type === "submit") {
+    return (
+      <span className={styles.flexFull}>
+        <input
+          type={props.type}
+          className={styles.dBlock}
+          id={props.id}
+          autoComplete={"off"}
+          value={props.placeholder}
+        />
       </span>
     );
   }

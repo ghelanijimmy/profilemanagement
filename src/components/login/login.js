@@ -34,8 +34,9 @@ export const Login = props => {
         <a className={`${styles.flexHalf} ${styles.forgotPassword}`}>
           Forgot password?
         </a>
+        <Input type={"submit"} id={"signup"} placeholder={"Sign In"} />
       </form>
-      <Modal appType={props.appType} modal={props.modal}/>
+      <Modal appType={props.appType} modal={props.modal} />
     </React.Fragment>
   );
 };

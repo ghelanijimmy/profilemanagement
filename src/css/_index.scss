@@ -102,6 +102,12 @@ form {
   & > span {
     margin-bottom: .5em;
 
+    &.inputBG {
+      background-color: $grayBlue;
+      padding: .5em;
+      margin-top: .5em;
+    }
+
     &.inputFlex {
       display: flex;
       flex-wrap: wrap;
@@ -130,10 +136,22 @@ form {
     margin: 0;
     padding: .5em;
     border: 1px solid $borderGray;
+
+    &[type="submit"] {
+      background-color: $blue;
+      color: $white;
+      width: 100%;
+      padding: .6875em;
+      margin-top: .5em;
+    }
   }
   select {
     padding: .5em;
     width: 100%;
+  }
+
+  input[type="checkbox"] {
+    margin-right: .5em;
   }
 
   .forgotPassword {
@@ -161,4 +179,14 @@ form {
 }
 .flexOneFour {
   flex-basis: 20% !important;
+}
+.marginTop0 {
+  margin-top: 0;
+}
+.marginBottom0{
+  margin-bottom: 0;
+}
+.marginTopBottom0 {
+  margin-top: 0;
+  margin-bottom: 0;
 }

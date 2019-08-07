@@ -1,12 +1,13 @@
 import React from "react";
 import { Input } from "../input/input";
 import Modal from "../modal/modal";
+import styles from "../../css/_index.scss";
 
 export const SignUp = props => {
   return (
     <React.Fragment>
       <form>
-        <h3>Create Sunwing Account</h3>
+        <p className={styles.Title}>Create Sunwing Account</p>
         <Input
           type={"email"}
           id={"email"}
@@ -49,6 +50,21 @@ export const SignUp = props => {
           block={true}
           fullWidth={true}
         />
+        <Input
+          type={"checkbox"}
+          id={"sendEmail"}
+          placeholder={
+            "Send me emails with travel deals, special offers, and other information."
+          }
+          block={false}
+          fullWidth={true}
+          bg={true}
+        />
+        <Input type={"submit"} id={"signup"} placeholder={"Create Account"} />
+        <p className={styles.marginTopBottom0}>
+          By creatig an account, I agree to the <a>Terms of Use</a> and the{" "}
+          <a>Privacy Policy</a>
+        </p>
       </form>
       <Modal appType={props.appType} modal={props.modal} />
     </React.Fragment>
