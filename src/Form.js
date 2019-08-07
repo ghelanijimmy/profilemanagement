@@ -14,6 +14,10 @@ const Form = React.forwardRef((props, ref) => {
     else modalState(false);
   };
 
+  const currentModal = type => {
+    setAppType(type);
+  };
+
   window.PMApp = setAppType;
   window.PMSignInModal = setModalState;
 
@@ -34,7 +38,7 @@ const Form = React.forwardRef((props, ref) => {
         overlayClassName={modalStyle.modalOverlay}
         closeTimeoutMS={200}
       >
-        <Login appType={appType} />
+        <Login appType={appType} modal={currentModal} />
       </Modal>
     );
   } else if (appType === "create") {
@@ -54,7 +58,7 @@ const Form = React.forwardRef((props, ref) => {
         overlayClassName={modalStyle.modalOverlay}
         closeTimeoutMS={200}
       >
-        <SignUp appType={appType} />
+        <SignUp appType={appType} modal={currentModal}/>
       </Modal>
     );
   } else {

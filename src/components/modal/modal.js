@@ -10,7 +10,7 @@ const Modal = props => {
           Don't have an account?
         </span>
         <span className={`${styles.flexHalf} ${styles.inputFlex}`}>
-          <a>Create your profile</a>
+          <a onClick={() => props.modal("create")}>Create your profile</a>
         </span>
       </div>
     );
@@ -21,7 +21,7 @@ const Modal = props => {
           Already have an account?
         </span>
         <span className={`${styles.flexOneFour}`}>
-          <a>Sign In</a>
+          <a onClick={() => props.modal("login")}>Sign In</a>
         </span>
       </div>
     );

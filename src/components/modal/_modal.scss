@@ -43,6 +43,7 @@
         display: block;
         text-align: right;
         @extend %boldFont;
+        cursor: pointer;
       }
     }
 }

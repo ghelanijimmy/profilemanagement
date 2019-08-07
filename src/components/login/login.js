@@ -35,7 +35,7 @@ export const Login = props => {
           Forgot password?
         </a>
       </form>
-      <Modal appType={props.appType} />
+      <Modal appType={props.appType} modal={props.modal}/>
     </React.Fragment>
   );
 };

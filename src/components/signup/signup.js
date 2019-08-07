@@ -50,7 +50,7 @@ export const SignUp = props => {
           fullWidth={true}
         />
       </form>
-      <Modal appType={props.appType} />
+      <Modal appType={props.appType} modal={props.modal} />
     </React.Fragment>
   );
 };
