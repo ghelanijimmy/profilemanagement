@@ -35,7 +35,13 @@ export const SignUp = props => {
           block={true}
           fullWidth={false}
         />
-        <Input type={"select"} id={"gateway"} block={true} fullWidth={true} placeholder={"Gateway"}/>
+        <Input
+          type={"select"}
+          id={"gateway"}
+          block={true}
+          fullWidth={true}
+          placeholder={"Gateway"}
+        />
         <Input
           type={"tel"}
           id={"mobile"}
