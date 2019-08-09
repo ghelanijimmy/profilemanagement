@@ -2,12 +2,19 @@ import React from "react";
 import styles from "../../css/_index.scss";
 
 export const Input = props => {
-  if (
-    props.type === "email" ||
-    props.type === "password" ||
-    props.type === "text" ||
-    props.type === "tel"
-  ) {
+  const showPass = e => {
+    e.preventDefault();
+    const element = document.getElementById(props.id);
+    if (element.type === "password") {
+      element.type = "text";
+      e.target.innerText = "Hide";
+    } else {
+      element.type = "password";
+      e.target.innerText = "Show";
+    }
+  };
+
+  if (props.type === "email" || props.type === "text" || props.type === "tel") {
     return (
       <span
         className={
@@ -29,6 +36,43 @@ export const Input = props => {
           className={props.block ? styles.dBlock : ""}
         />
       </span>
+    );
+  } else if (props.type === "password") {
+    return (
+      <div
+        className={
+          props.fullWidth
+            ? `${styles.flexFull} ${styles.inputFlex} ${styles.passwordWrapper}`
+            : `${styles.flexHalf} ${styles.inputFlex} ${styles.passwordWrapper}`
+        }
+      >
+        <span className={styles.flexThreeFour}>
+          <label
+            className={props.block ? styles.dBlock : ""}
+            htmlFor={props.id}
+          >
+            {props.placeholder}
+          </label>
+          <input
+            type={props.type}
+            placeholder={props.placeholder}
+            id={props.id}
+            autoComplete={
+              props.autocomplete !== undefined ? props.autocomplete : "off"
+            }
+            className={props.block ? styles.dBlock : ""}
+          />
+        </span>
+        <span className={styles.flexOneFour}>
+          <button
+            id={props.showPasswordId}
+            onClick={showPass}
+            className={`${styles.btn} ${styles.dBlock}`}
+          >
+            {props.showPasswordPlaceholder}
+          </button>
+        </span>
+      </div>
     );
   } else if (props.type === "checkbox") {
     return (

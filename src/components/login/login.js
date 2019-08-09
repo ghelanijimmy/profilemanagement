@@ -23,6 +23,8 @@ export const Login = props => {
           placeholder={"Password"}
           block={true}
           fullWidth={true}
+          showPasswordId={"showLogin"}
+          showPasswordPlaceholder={"Show"}
         />
         <Input
           type={"checkbox"}

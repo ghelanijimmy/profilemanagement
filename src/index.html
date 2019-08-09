@@ -1,47 +1,47 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>profilemanagement</title>
-    <meta name="description" content="" />
-  </head>
-  <style>
-    .hideOnLoad {
-      opacity: 0;
-    }
-  </style>
-  <body>
-    <header class="hideOnLoad">
-      <img
-        src="https://www.sunwing.ca/Content/images/global/header/sunwing-experience-the-difference-white-logo.png"
-      />
-      <ul>
-        <li><a class="pmappclick" href="#" data-acctype="login">Sign In</a></li>
-        <li>
-          <a class="pmappclick" href="#" data-acctype="create"
-            >Create Account</a
-          >
-        </li>
-      </ul>
-    </header>
-    <div id="PMApp"></div>
+<head>
+	<meta charset="utf-8" />
+	<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, shrink-to-fit=no"
+	/>
+	<meta http-equiv="x-ua-compatible" content="ie=edge" />
+	<title>profilemanagement</title>
+	<meta name="description" content="" />
+</head>
+<style>
+	.hideOnLoad {
+		opacity: 0;
+	}
+</style>
+<body>
+<header class="hideOnLoad">
+	<img
+			src="https://www.sunwing.ca/Content/images/global/header/sunwing-experience-the-difference-white-logo.png"
+	/>
+	<ul>
+		<li><a class="pmappclick" href="#" data-acctype="login">Sign In</a></li>
+		<li>
+			<a class="pmappclick" href="#" data-acctype="create"
+			>Create Account</a
+			>
+		</li>
+	</ul>
+</header>
+<div id="PMApp"></div>
 
-    <script>
-      let numOfClicks = document.getElementsByClassName("pmappclick").length;
+<script>
+	let numOfClicks = document.getElementsByClassName("pmappclick").length;
 
-      for (let x = 0; x < numOfClicks; x++) {
-        document
-          .getElementsByClassName("pmappclick")
-          [x].addEventListener("click", function(e) {
-            window.PMApp(e.target.getAttribute("data-acctype"));
-            window.PMSignInModal();
-          });
-      }
-    </script>
-  </body>
+	for (let x = 0; x < numOfClicks; x++) {
+		document
+			.getElementsByClassName("pmappclick")
+			[x].addEventListener("click", function(e) {
+			window.PMApp(e.target.getAttribute("data-acctype"));
+			window.PMSignInModal();
+		});
+	}
+</script>
+</body>
 </html>

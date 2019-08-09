@@ -8,97 +8,97 @@ import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Form = React.forwardRef((props, ref) => {
-  const [appType, setAppType] = useState("");
-  const [modal, modalState] = useState(false);
+	const [appType, setAppType] = useState("");
+	const [modal, modalState] = useState(false);
 
-  const loginRef = React.createRef();
-  const createRef = React.createRef();
+	const loginRef = React.createRef();
+	const createRef = React.createRef();
 
-  const setModalState = () => {
-    if (!modal) modalState(true);
-    else modalState(false);
-  };
+	const setModalState = () => {
+		if (!modal) modalState(true);
+		else modalState(false);
+	};
 
-  const currentModal = type => {
-    setAppType(type);
-  };
+	const currentModal = type => {
+		setAppType(type);
+	};
 
-  useEffect(() => {
-    handleResizeModal();
-  }, [appType]);
+	useEffect(() => {
+		handleResizeModal();
+	}, [appType]);
 
-  window.PMApp = setAppType;
-  window.PMSignInModal = setModalState;
+	window.PMApp = setAppType;
+	window.PMSignInModal = setModalState;
 
-  const handleResizeModal = () => {
-    setTimeout(() => {
-      document.querySelectorAll(`.${modalStyle.modalOpen}`).forEach(modal => {
-        modal.removeAttribute("style");
-        if (window.innerHeight < modal.clientHeight) {
-          modal.style.height = `${window.innerHeight - 40}px`;
-        } else if (window.innerHeight > modal.clientHeight + 40) {
-          modal.removeAttribute("style");
-        }
-      });
-    }, 20);
-  };
+	const handleResizeModal = () => {
+		setTimeout(() => {
+			document.querySelectorAll(`.${modalStyle.modalOpen}`).forEach(modal => {
+				modal.removeAttribute("style");
+				if (window.innerHeight < modal.clientHeight) {
+					modal.style.height = `${window.innerHeight - 40}px`;
+				} else if (window.innerHeight > modal.clientHeight + 40) {
+					modal.removeAttribute("style");
+				}
+			});
+		}, 20);
+	};
 
-  window.addEventListener("resize", handleResizeModal);
+	window.addEventListener("resize", handleResizeModal);
 
-  if (appType === "login") {
-    window.dispatchEvent(new Event("resize"));
-    return (
-      <Modal
-        ref={loginRef}
-        ariaHideApp={false}
-        isOpen={modal}
-        onRequestClose={setModalState}
-        shouldCloseOnOverlayClick={true}
-        shouldCloseOnEsc={true}
-        shouldFocusAfterRender={true}
-        className={{
-          base: modalStyle.modalBase,
-          afterOpen: modalStyle.modalOpen,
-          beforeClose: modalStyle.modalClose
-        }}
-        overlayClassName={modalStyle.modalOverlay}
-        closeTimeoutMS={200}
-      >
-        <Login appType={appType} modal={currentModal} />
-        <button onClick={setModalState} className={modalStyle.modalCloseIcon}>
-          <FontAwesomeIcon icon={faTimes} />
-        </button>
-      </Modal>
-    );
-  } else if (appType === "create") {
-    window.dispatchEvent(new Event("resize"));
-    return (
-      <Modal
-        ref={createRef}
-        ariaHideApp={false}
-        isOpen={modal}
-        onRequestClose={setModalState}
-        shouldCloseOnOverlayClick={true}
-        shouldCloseOnEsc={true}
-        shouldFocusAfterRender={true}
-        className={{
-          base: modalStyle.modalBase,
-          afterOpen: modalStyle.modalOpen,
-          beforeClose: modalStyle.modalClose
-        }}
-        overlayClassName={modalStyle.modalOverlay}
-        closeTimeoutMS={200}
-      >
-        <SignUp appType={appType} modal={currentModal} />
-        <button onClick={setModalState} className={modalStyle.modalCloseIcon}>
-          <FontAwesomeIcon icon={faTimes} />
-        </button>
-      </Modal>
-      //TODO Create "x" icon for close modal
-    );
-  } else {
-    return null;
-  }
+	if (appType === "login") {
+		window.dispatchEvent(new Event("resize"));
+		return (
+			<Modal
+				ref={loginRef}
+				ariaHideApp={false}
+				isOpen={modal}
+				onRequestClose={setModalState}
+				shouldCloseOnOverlayClick={true}
+				shouldCloseOnEsc={true}
+				shouldFocusAfterRender={true}
+				className={{
+					base: modalStyle.modalBase,
+					afterOpen: modalStyle.modalOpen,
+					beforeClose: modalStyle.modalClose
+				}}
+				overlayClassName={modalStyle.modalOverlay}
+				closeTimeoutMS={200}
+			>
+				<Login appType={appType} modal={currentModal} />
+				<button onClick={setModalState} className={modalStyle.modalCloseIcon}>
+					<FontAwesomeIcon icon={faTimes} />
+				</button>
+			</Modal>
+		);
+	} else if (appType === "create") {
+		window.dispatchEvent(new Event("resize"));
+		return (
+			<Modal
+				ref={createRef}
+				ariaHideApp={false}
+				isOpen={modal}
+				onRequestClose={setModalState}
+				shouldCloseOnOverlayClick={true}
+				shouldCloseOnEsc={true}
+				shouldFocusAfterRender={true}
+				className={{
+					base: modalStyle.modalBase,
+					afterOpen: modalStyle.modalOpen,
+					beforeClose: modalStyle.modalClose
+				}}
+				overlayClassName={modalStyle.modalOverlay}
+				closeTimeoutMS={200}
+			>
+				<SignUp appType={appType} modal={currentModal} />
+				<button onClick={setModalState} className={modalStyle.modalCloseIcon}>
+					<FontAwesomeIcon icon={faTimes} />
+				</button>
+			</Modal>
+			//TODO Submit to local storage to run separate app
+		);
+	} else {
+		return null;
+	}
 });
 
 export default Form;

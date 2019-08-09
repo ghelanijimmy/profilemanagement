@@ -21,7 +21,10 @@ export const SignUp = props => {
           placeholder={"Password"}
           block={true}
           fullWidth={true}
+          showPasswordId={"showCreate"}
+          showPasswordPlaceholder={"Show"}
         />
+        // TODO Create password regex pattern for input
         <Input
           type={"text"}
           id={"fName"}
