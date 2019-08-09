@@ -47,11 +47,7 @@ const Form = React.forwardRef((props, ref) => {
 
     let isLoggedIn;
 
-    if (user !== "") {
-      isLoggedIn = true;
-    } else {
-      isLoggedIn = false;
-    }
+    isLoggedIn = user !== "";
 
     document.querySelectorAll(".pmappclick").forEach(el => {
       if (el.id !== "logout") {
