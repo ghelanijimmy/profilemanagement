@@ -42,19 +42,32 @@ const Form = React.forwardRef((props, ref) => {
       setUser(localStorage.getItem("user"));
     }
 
-    console.log(user);
-
     document.querySelectorAll("span[data-username]")[0].innerText =
       user === "" ? "My Account" : user;
 
-    if (user !== "My Account") {
-      document.querySelectorAll("pmappclick").forEach(el => {
-        if (el.id !== "logout") {
-          // el.classList.add(styles.dNone);
-          console.log(el);
-        }
-      });
+    let isLoggedIn;
+
+    if (user !== "") {
+      isLoggedIn = true;
+    } else {
+      isLoggedIn = false;
     }
+
+    document.querySelectorAll(".pmappclick").forEach(el => {
+      if (el.id !== "logout") {
+        if (isLoggedIn) {
+          el.classList.add(styles.dNone);
+        } else {
+          el.classList.remove(styles.dNone);
+        }
+      } else {
+        if (isLoggedIn) {
+          el.classList.remove(styles.dNone);
+        } else {
+          el.classList.add(styles.dNone);
+        }
+      }
+    });
   }, [user]);
 
   window.PMApp = setAppType;
