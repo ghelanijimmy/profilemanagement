@@ -5,9 +5,15 @@ import styles from "../../css/_index.scss";
 import Modal from "../modal/modal";
 
 export const Login = props => {
+  const handleLogin = e => {
+    e.preventDefault();
+    props.setUser("Jimmy Ghelani");
+    // props.setAppType("");
+    props.closeModal();
+  };
   return (
     <React.Fragment>
-      <form>
+      <form onSubmit={handleLogin}>
         <p className={styles.Title}>Sign In</p>
         {/*<Oauth />*/}
         <Input
@@ -16,6 +22,7 @@ export const Login = props => {
           placeholder={"Email"}
           block={true}
           fullWidth={true}
+          required={true}
         />
         <Input
           type={"password"}
@@ -25,6 +32,7 @@ export const Login = props => {
           fullWidth={true}
           showPasswordId={"showLogin"}
           showPasswordPlaceholder={"Show"}
+          required={true}
         />
         <Input
           type={"checkbox"}
@@ -36,7 +44,7 @@ export const Login = props => {
         <a className={`${styles.flexHalf} ${styles.forgotPassword}`}>
           Forgot password?
         </a>
-        <Input type={"submit"} id={"signup"} placeholder={"Sign In"} />
+        <Input type={"submit"} id={"signin"} placeholder={"Sign In"} />
       </form>
       <Modal appType={props.appType} modal={props.modal} />
     </React.Fragment>

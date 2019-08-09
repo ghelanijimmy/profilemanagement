@@ -34,6 +34,7 @@ export const Input = props => {
             props.autocomplete !== undefined ? props.autocomplete : "off"
           }
           className={props.block ? styles.dBlock : ""}
+          required={props.required ? props.required : false}
         />
       </span>
     );
@@ -61,6 +62,7 @@ export const Input = props => {
               props.autocomplete !== undefined ? props.autocomplete : "off"
             }
             className={props.block ? styles.dBlock : ""}
+            required={props.required ? props.required : false}
           />
         </span>
         <span className={styles.flexOneFour}>
@@ -107,6 +109,7 @@ export const Input = props => {
           className={props.block ? styles.dBlock : ""}
           id={props.id}
           autoComplete={"off"}
+          required={props.required ? props.required : false}
         >
           <option value={"Toronto"} defaultChecked={true}>
             Toronto

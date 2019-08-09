@@ -4,6 +4,8 @@ import Modal from "../modal/modal";
 import styles from "../../css/_index.scss";
 
 export const SignUp = props => {
+  // TODO Create password regex pattern for input
+  // TODO Show "member" text next to sunwing logo after sign in
   return (
     <React.Fragment>
       <form>
@@ -14,6 +16,7 @@ export const SignUp = props => {
           placeholder={"Email"}
           block={true}
           fullWidth={true}
+          required={true}
         />
         <Input
           type={"password"}
@@ -24,7 +27,6 @@ export const SignUp = props => {
           showPasswordId={"showCreate"}
           showPasswordPlaceholder={"Show"}
         />
-        // TODO Create password regex pattern for input
         <Input
           type={"text"}
           id={"fName"}
@@ -45,6 +47,7 @@ export const SignUp = props => {
           block={true}
           fullWidth={true}
           placeholder={"Gateway"}
+          required={true}
         />
         <Input
           type={"tel"}

@@ -100,10 +100,19 @@ form {
     margin-bottom: .5em;
 
     &.passwordWrapper {
+      .flexThreeFour {
+        margin-right: .5em;
+        flex-shrink: 1;
+        flex-grow: 1;
+        flex-basis: auto !important;
+      }
       .flexOneFour {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        flex-shrink: 1;
+        flex-grow: 0;
+        flex-basis: auto !important;
       }
     }
 
@@ -153,6 +162,7 @@ form {
   select {
     padding: .5em;
     width: 100%;
+    border: 1px solid $borderGray;
   }
 
   input[type="checkbox"] {
