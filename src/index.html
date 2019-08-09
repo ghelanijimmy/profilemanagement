@@ -63,15 +63,18 @@
             .getElementsByClassName("pmappclick")
             [x].addEventListener("click", function(e) {
               console.log("logout");
-              window.PMSetUser("My Account");
+              document.querySelectorAll("span[data-username]")[0].innerText =
+                "My Account";
+              window.PMApp("");
+              localStorage.setItem("user", "");
+              window.PMSetUser("");
             });
         }
       }
 
       function checkUser() {
-        console.log("run");
         if (localStorage.getItem("user") === null) {
-          window.PMSetUser("My Account");
+          window.PMSetUser("");
         } else {
           window.PMSetUser(localStorage.getItem("user"));
         }

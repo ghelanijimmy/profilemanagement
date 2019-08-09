@@ -6,6 +6,8 @@ import Modal from "react-modal";
 import modalStyle from "./components/modal/_modal.scss";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Route } from "react-router-dom";
+import HomeSearch from "./components/recentsearch/homesearch";
 
 const Form = React.forwardRef((props, ref) => {
   const [appType, setAppType] = useState("");
@@ -29,13 +31,30 @@ const Form = React.forwardRef((props, ref) => {
   }, [appType]);
 
   useEffect(() => {
-    if (user === "") {
-      localStorage.setItem("user", "My Account");
+    if (
+      localStorage.getItem("user") === null ||
+      localStorage.getItem("user") === ""
+    ) {
+      if (user === "") {
+        localStorage.setItem("user", "");
+      }
+    } else {
+      setUser(localStorage.getItem("user"));
     }
-  }, [user]);
 
-  useEffect(() => {
-    document.querySelectorAll("span[data-username]")[0].innerText = user;
+    console.log(user);
+
+    document.querySelectorAll("span[data-username]")[0].innerText =
+      user === "" ? "My Account" : user;
+
+    if (user !== "My Account") {
+      document.querySelectorAll("pmappclick").forEach(el => {
+        if (el.id !== "logout") {
+          // el.classList.add(styles.dNone);
+          console.log(el);
+        }
+      });
+    }
   }, [user]);
 
   window.PMApp = setAppType;
@@ -61,66 +80,77 @@ const Form = React.forwardRef((props, ref) => {
   };
 
   window.addEventListener("resize", handleResizeModal);
-
   if (appType === "login") {
     window.dispatchEvent(new Event("resize"));
     return (
-      <Modal
-        ref={loginRef}
-        ariaHideApp={false}
-        isOpen={modal}
-        onRequestClose={setModalState}
-        shouldCloseOnOverlayClick={true}
-        shouldCloseOnEsc={true}
-        shouldFocusAfterRender={true}
-        className={{
-          base: modalStyle.modalBase,
-          afterOpen: modalStyle.modalOpen,
-          beforeClose: modalStyle.modalClose
-        }}
-        overlayClassName={modalStyle.modalOverlay}
-        closeTimeoutMS={200}
-      >
-        <Login
-          appType={appType}
-          modal={currentModal}
-          setUser={setLocalStorageUser}
-          setAppType={setAppType}
-          closeModal={setModalState}
-        />
-        <button onClick={setModalState} className={modalStyle.modalCloseIcon}>
-          <FontAwesomeIcon icon={faTimes} />
-        </button>
-      </Modal>
+      <React.Fragment>
+        <Modal
+          ref={loginRef}
+          ariaHideApp={false}
+          isOpen={modal}
+          onRequestClose={setModalState}
+          shouldCloseOnOverlayClick={true}
+          shouldCloseOnEsc={true}
+          shouldFocusAfterRender={true}
+          className={{
+            base: modalStyle.modalBase,
+            afterOpen: modalStyle.modalOpen,
+            beforeClose: modalStyle.modalClose
+          }}
+          overlayClassName={modalStyle.modalOverlay}
+          closeTimeoutMS={200}
+        >
+          <Login
+            appType={appType}
+            modal={currentModal}
+            setUser={setLocalStorageUser}
+            setAppType={setAppType}
+            closeModal={setModalState}
+          />
+          <button onClick={setModalState} className={modalStyle.modalCloseIcon}>
+            <FontAwesomeIcon icon={faTimes} />
+          </button>
+        </Modal>
+        <Route exact path={"/"} component={() => <HomeSearch user={user} />} />
+      </React.Fragment>
     );
   } else if (appType === "create") {
     window.dispatchEvent(new Event("resize"));
     return (
-      <Modal
-        ref={createRef}
-        ariaHideApp={false}
-        isOpen={modal}
-        onRequestClose={setModalState}
-        shouldCloseOnOverlayClick={true}
-        shouldCloseOnEsc={true}
-        shouldFocusAfterRender={true}
-        className={{
-          base: modalStyle.modalBase,
-          afterOpen: modalStyle.modalOpen,
-          beforeClose: modalStyle.modalClose
-        }}
-        overlayClassName={modalStyle.modalOverlay}
-        closeTimeoutMS={200}
-      >
-        <SignUp appType={appType} modal={currentModal} />
-        <button onClick={setModalState} className={modalStyle.modalCloseIcon}>
-          <FontAwesomeIcon icon={faTimes} />
-        </button>
-      </Modal>
+      <React.Fragment>
+        <Modal
+          ref={createRef}
+          ariaHideApp={false}
+          isOpen={modal}
+          onRequestClose={setModalState}
+          shouldCloseOnOverlayClick={true}
+          shouldCloseOnEsc={true}
+          shouldFocusAfterRender={true}
+          className={{
+            base: modalStyle.modalBase,
+            afterOpen: modalStyle.modalOpen,
+            beforeClose: modalStyle.modalClose
+          }}
+          overlayClassName={modalStyle.modalOverlay}
+          closeTimeoutMS={200}
+        >
+          <SignUp appType={appType} modal={currentModal} />
+          <button onClick={setModalState} className={modalStyle.modalCloseIcon}>
+            <FontAwesomeIcon icon={faTimes} />
+          </button>
+        </Modal>
+        {/*<Route exact path={"/"} component={() => <div>TEST2</div>} />*/}
+      </React.Fragment>
       //TODO Submit to local storage to run separate app
     );
   } else {
-    return null;
+    if (appType === "" && user !== "") {
+      return (
+        <Route exact path={"/"} component={() => <HomeSearch user={user} />} />
+      );
+    } else {
+      return null;
+    }
   }
 });
 

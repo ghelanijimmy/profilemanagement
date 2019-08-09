@@ -184,6 +184,9 @@ form {
 .dFlex {
   display: flex !important;
 }
+.dNone {
+  display: none;
+}
 .flexHalf {
   flex-basis: 50% !important;
 }
@@ -219,6 +222,8 @@ form {
   margin-right: 0;
   margin-left: 0;
 }
+
+/*BUTTON*/
 
 .btn {
   background-color: $blue;
