@@ -15,8 +15,8 @@ import SearchboxCard from "./searchboxCard";
 const HomeSearch = props => {
   const [searchOption, changeSearchOption] = useState("search");
 
-  const handleSearchOptionChange = () => {
-    changeSearchOption(searchOption === "search" ? "list" : "search");
+  const handleSearchOptionChange = e => {
+    changeSearchOption(e.target.dataset.searchoption);
   };
 
   let hasRecentSearches = true;
@@ -39,6 +39,7 @@ const HomeSearch = props => {
                 ? `${styles.btn} ${styles.primary}`
                 : `${styles.btn} ${styles.primaryInverse}`
             }
+            data-searchoption={"search"}
           >
             <FontAwesomeIcon icon={faSearch} />
             Recent searches
@@ -50,6 +51,7 @@ const HomeSearch = props => {
                 ? `${styles.btn} ${styles.primary}`
                 : `${styles.btn} ${styles.primaryInverse}`
             }
+            data-searchoption={"list"}
           >
             <FontAwesomeIcon icon={faHeart} />
             My favorite list
