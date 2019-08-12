@@ -1,0 +1,80 @@
+@import "../../css/variables";
+.recentSearches {
+  &Wrapper {
+    background-color: $babyBlue;
+    padding: 1em 4.1875em;
+
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .searchOptions {
+      display: flex;
+      align-items: center;
+    }
+
+    .searchContent {
+      &Wrapper {
+        display: flex;
+        flex-wrap: wrap;
+
+        .searchBox {
+          padding: .5em;
+          background-color: $white;
+          flex-basis: 49%;
+
+          &WithImage {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 0;
+            .bgImage {
+              background-size: cover;
+              background: url("http://placehold.it/300x500") no-repeat center;
+              flex-basis: 30%;
+            }
+            .content {
+              flex-basis: 70%;
+              padding: .5em;
+            }
+          }
+
+          &:nth-of-type(even){
+            margin-left: 1%;
+          }
+          &:nth-of-type(odd){
+            margin-right: 1%;
+          }
+
+          .iconHeading {
+            color: $blue;
+          }
+          .title {
+            font-size: 1em;
+            font-weight: bold;
+            margin-bottom: .25em;
+          }
+          p {
+            margin-top: 0;
+            margin-bottom: .5em;
+            font-size: .875em;
+
+            &.searchCardFooterText {
+              margin-top: 1em;
+              margin-bottom: 0;
+            }
+          }
+        }
+      }
+    }
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      p {
+        color: $blue;
+      }
+    }
+  }
+}
