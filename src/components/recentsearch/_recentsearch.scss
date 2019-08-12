@@ -87,6 +87,30 @@
             }
           }
         }
+
+        &.emptyFavouriteList {
+          div {
+            flex-basis: 49%;
+
+            &:first-of-type {
+              margin-right: 1%;
+              background-color: $white;
+              padding: 1em;
+
+              p {
+                color: $orange;
+                font-size: 1.5em;
+              }
+            }
+            &:last-of-type {
+              margin-left: 1%;
+            }
+
+            p {
+              margin: 0;
+            }
+          }
+        }
       }
     }
 
