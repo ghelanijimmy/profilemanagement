@@ -10,20 +10,22 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import SearchboxCard from "./searchboxCard";
 //TODO Star rating icons for search boxes
-//TODO recent searches my favorite list button active styling
+//TODO triangle under searchoption button
 
 const HomeSearch = props => {
   const [searchOption, changeSearchOption] = useState("search");
 
   const handleSearchOptionChange = e => {
-    changeSearchOption(e.target.dataset.searchoption);
+    if (e.target.nodeName !== "button")
+      changeSearchOption(e.target.closest("button").dataset.searchoption);
+    else changeSearchOption(e.target.dataset.searchoption);
   };
 
   let hasRecentSearches = true;
   let hasFavouriteList = true;
 
   hasRecentSearches = true;
-  hasFavouriteList = true;
+  hasFavouriteList = false;
 
   return (
     <section className={searchStyles.recentSearchesWrapper}>
@@ -36,7 +38,7 @@ const HomeSearch = props => {
             onClick={handleSearchOptionChange}
             className={
               searchOption === "search"
-                ? `${styles.btn} ${styles.primary}`
+                ? `${styles.btn} ${styles.primary} ${searchStyles.activeOption}`
                 : `${styles.btn} ${styles.primaryInverse}`
             }
             data-searchoption={"search"}
@@ -48,7 +50,7 @@ const HomeSearch = props => {
             onClick={handleSearchOptionChange}
             className={
               searchOption === "list"
-                ? `${styles.btn} ${styles.primary}`
+                ? `${styles.btn} ${styles.primary} ${searchStyles.activeOption}`
                 : `${styles.btn} ${styles.primaryInverse}`
             }
             data-searchoption={"list"}

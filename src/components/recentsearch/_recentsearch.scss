@@ -13,12 +13,30 @@
     .searchOptions {
       display: flex;
       align-items: center;
+
+      .activeOption{
+        &:after {
+          width: 0;
+          height: 0;
+          border-style: solid;
+          border-width: .625em .625em 0 .625em;
+          border-color: $blue transparent transparent transparent;
+          display: block;
+          content: " ";
+          position: absolute;
+          top: 100%;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+      }
+
     }
 
     .searchContent {
       &Wrapper {
         display: flex;
         flex-wrap: wrap;
+        margin-top: .625em;
 
         .searchBox {
           padding: .5em;
