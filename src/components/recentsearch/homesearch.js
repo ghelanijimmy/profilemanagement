@@ -5,7 +5,8 @@ import {
   faSearch,
   faHeart,
   faEnvelope,
-  faPlane
+  faPlane,
+  faStar
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import SearchboxCard from "./searchboxCard";
@@ -26,6 +27,28 @@ const HomeSearch = props => {
 
   hasRecentSearches = true;
   hasFavouriteList = false;
+
+  const searchBoxText = () => {
+    return (
+      <React.Fragment>
+        <p className={searchStyles.title}>
+          Royalton Bavaro Resort and Spa{" "}
+          <span className={searchStyles.ratingWrapper}>
+            <FontAwesomeIcon icon={faStar} />
+            <FontAwesomeIcon icon={faStar} />
+            <FontAwesomeIcon icon={faStar} />
+            <FontAwesomeIcon icon={faStar} />
+            <FontAwesomeIcon icon={faStar} />
+          </span>
+        </p>
+        <p>Punta Cana, Dominican Republic</p>
+        <p>Superior 4.2/5 (1000+ reviews)</p>
+        <p>All inclusive | 5 days | Aug 25-Aug 30</p>
+        <p>2 Adults, 2 Children</p>
+        <p className={searchStyles.searchCardFooterText}>15+ room types</p>
+      </React.Fragment>
+    );
+  };
 
   return (
     <section className={searchStyles.recentSearchesWrapper}>
@@ -75,7 +98,7 @@ const HomeSearch = props => {
                 titleText={"Montreal-Montago Bay"}
                 cardContent={`<p class=${
                   searchStyles.title
-                }>Montreal-Montago Bay</p>
+                }>Royalton Bavaro Resort and Spa</p>
                   <p>Punta Cana, Dominican Republic</p>
                   <p>Superior 4.2/5 (1000+ reviews)</p>
                   <p>All inclusive | 5 days | Aug 25-Aug 30</p>
@@ -83,6 +106,7 @@ const HomeSearch = props => {
                   <p class=${
                     searchStyles.searchCardFooterText
                   }>15+ room types</p>`}
+                test={searchBoxText}
               />
             </div>
 

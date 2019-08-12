@@ -83,6 +83,7 @@
             color: $blue;
             margin-bottom: .875em;
             margin-top: .5em;
+            font-weight: bold;
 
             svg {
               transform: rotateZ(-45deg);
@@ -98,10 +99,18 @@
             margin-top: 0;
             margin-bottom: 0em;
             font-size: .875em;
+            display: flex;
+            align-items: center;
 
             &.searchCardFooterText {
               margin-top: 1em;
               margin-bottom: 0;
+            }
+
+            .ratingWrapper {
+              font-size: .5em;
+              color: $ratingOrange;
+              margin-left: .5em;
             }
           }
         }

@@ -29,10 +29,7 @@ const SearchboxCard = props => {
           }`}
         >
           <div className={searchStyles.bgImage} />
-          <div
-            className={searchStyles.content}
-            dangerouslySetInnerHTML={{ __html: props.cardContent }}
-          />
+          <div className={searchStyles.content}>{props.test()}</div>
           <span className={searchStyles.closeWrapper}>
             <FontAwesomeIcon icon={faTimes} />
           </span>
