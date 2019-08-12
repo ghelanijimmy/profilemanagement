@@ -3,7 +3,7 @@
   &Wrapper {
     background-color: $babyBlue;
     padding: 1em 4.1875em;
-
+    position: relative;
 
     .header {
       display: flex;
@@ -24,6 +24,19 @@
           padding: .5em;
           background-color: $white;
           flex-basis: 49%;
+          position: relative;
+
+          .closeWrapper {
+            position: absolute;
+            top: .25em;
+            right: .25em;
+
+            svg {
+              path {
+                fill: $lightGray;
+              }
+            }
+          }
 
           &WithImage {
             display: flex;
@@ -49,11 +62,18 @@
 
           .iconHeading {
             color: $blue;
+            margin-bottom: .875em;
+            margin-top: .5em;
+
+            svg {
+              transform: rotateZ(-45deg);
+            }
           }
           .title {
             font-size: 1em;
             font-weight: bold;
             margin-bottom: .25em;
+            margin-top: .5em;
           }
           p {
             margin-top: 0;
@@ -75,6 +95,21 @@
       p {
         color: $blue;
       }
+      .emailSeeAll {
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: space-between;
+
+        span {
+          color: $blue;
+          margin-right: .5em;
+        }
+        a:first-of-type {
+          margin-right: .5em;
+        }
+      }
     }
+
   }
 }

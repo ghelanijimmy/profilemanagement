@@ -8,7 +8,8 @@ import {
   faPlane
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
+import SearchboxCard from "./searchboxCard";
+//TODO Star rating icons for search boxes
 const HomeSearch = props => {
   if (props.user !== "")
     return (
@@ -27,37 +28,25 @@ const HomeSearch = props => {
           </div>
         </div>
         <div className={searchStyles.searchContentWrapper}>
-          <div className={searchStyles.searchBox}>
-            <p className={searchStyles.iconHeading}>
-              <FontAwesomeIcon icon={faPlane} />
-              Flight
-            </p>
-            <p className={searchStyles.title}>Montreal-Montago Bay</p>
-            <p>One way | Aug 25 | 2 Adults, 2 Children</p>
-          </div>
-          <div
-            className={`${searchStyles.searchBox} ${
-              searchStyles.searchBoxWithImage
-            }`}
-          >
-            <div className={searchStyles.bgImage} />
-            <div className={searchStyles.content}>
-              <p className={searchStyles.title}>Montreal-Montago Bay</p>
-              <p>Punta Cana, Dominican Republic</p>
-              <p>Superior 4.2/5 (1000+ reviews)</p>
-              <p>All inclusive | 5 days | Aug 25-Aug 30</p>
-              <p>2 Adults, 2 Children</p>
-              <p className={searchStyles.searchCardFooterText}>
-                15+ room types
-              </p>
-            </div>
-          </div>
+          <SearchboxCard
+            headingIcon={faPlane}
+            headingText={"Flight"}
+            titleText={"Montreal-Montago Bay"}
+            legText={"One way | Aug 25 | 2 Adults, 2 Children"}
+          />
+          <SearchboxCard hasBgImg={true} />
         </div>
         <div className={searchStyles.footer}>
           <p>Prices vary and will be updated when you view current results.</p>
           <p>
-            <FontAwesomeIcon icon={faEnvelope} />
-            Email my searches | View all
+            <span className={searchStyles.emailSeeAll}>
+              <a>
+                <FontAwesomeIcon icon={faEnvelope} />
+                Email my searches
+              </a>
+              <span>|</span>
+              <a>View all</a>
+            </span>
           </p>
         </div>
       </section>
