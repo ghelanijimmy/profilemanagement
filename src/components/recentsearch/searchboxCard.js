@@ -29,14 +29,10 @@ const SearchboxCard = props => {
           }`}
         >
           <div className={searchStyles.bgImage} />
-          <div className={searchStyles.content}>
-            <p className={searchStyles.title}>Montreal-Montago Bay</p>
-            <p>Punta Cana, Dominican Republic</p>
-            <p>Superior 4.2/5 (1000+ reviews)</p>
-            <p>All inclusive | 5 days | Aug 25-Aug 30</p>
-            <p>2 Adults, 2 Children</p>
-            <p className={searchStyles.searchCardFooterText}>15+ room types</p>
-          </div>
+          <div
+            className={searchStyles.content}
+            dangerouslySetInnerHTML={{ __html: props.cardContent }}
+          />
           <span className={searchStyles.closeWrapper}>
             <FontAwesomeIcon icon={faTimes} />
           </span>

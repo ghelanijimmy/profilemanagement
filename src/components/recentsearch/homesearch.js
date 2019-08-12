@@ -56,7 +56,20 @@ const HomeSearch = props => {
             titleText={"Montreal-Montago Bay"}
             legText={"One way | Aug 25 | 2 Adults, 2 Children"}
           />
-          <SearchboxCard hasBgImg={true} />
+          <SearchboxCard
+            hasBgImg={true}
+            titleText={"Montreal-Montago Bay"}
+            cardContent={`<p class=${
+              searchStyles.title
+            }>Montreal-Montago Bay</p>
+                  <p>Punta Cana, Dominican Republic</p>
+                  <p>Superior 4.2/5 (1000+ reviews)</p>
+                  <p>All inclusive | 5 days | Aug 25-Aug 30</p>
+                  <p>2 Adults, 2 Children</p>
+                  <p class=${
+                    searchStyles.searchCardFooterText
+                  }>15+ room types</p>`}
+          />
         </div>
         <div className={searchStyles.footer}>
           <p>Prices vary and will be updated when you view current results.</p>
