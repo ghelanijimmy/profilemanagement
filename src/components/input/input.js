@@ -69,7 +69,7 @@ export const Input = props => {
           <button
             id={props.showPasswordId}
             onClick={showPass}
-            className={`${styles.btn} ${styles.dBlock}`}
+            className={`${styles.btn} ${styles.primary} ${styles.dBlock}`}
             type={"button"}
           >
             {props.showPasswordPlaceholder}
