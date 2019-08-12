@@ -43,7 +43,7 @@ const Form = React.forwardRef((props, ref) => {
     }
 
     document.querySelectorAll("a[data-username]")[0].innerText =
-      user === "" ? "My Account" : user;
+      user === "" ? "My Account" : `Welcome ${user}`;
 
     let isLoggedIn;
 
@@ -158,7 +158,9 @@ const Form = React.forwardRef((props, ref) => {
         <Route exact path={"/"} component={() => <HomeSearch user={user} />} />
       );
     } else {
-      return null;
+      return (
+        <Route exact path={"/"} component={() => <HomeSearch user={user} />} />
+      );
     }
   }
 });

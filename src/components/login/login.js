@@ -7,7 +7,7 @@ import Modal from "../modal/modal";
 export const Login = props => {
   const handleLogin = e => {
     e.preventDefault();
-    props.setUser("Welcome Jimmy Ghelani");
+    props.setUser("Jimmy Ghelani");
     // props.setAppType("");
     props.closeModal();
   };
