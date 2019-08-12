@@ -30,7 +30,6 @@ header {
   align-items: center;
   opacity: 1 !important;
   ul {
-    display: flex;
     margin: 0;
 
     li {
@@ -41,6 +40,7 @@ header {
       a {
         text-decoration: none;
         color: $white;
+        cursor: pointer;
       }
     }
   }

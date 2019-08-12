@@ -22,20 +22,16 @@
       />
       <ul>
         <li>
-          <span data-username="">My Account</span>
+          <a data-username="">My Account</a>
           <ul>
             <li>
-              <a class="pmappclick" href="#" data-acctype="login">Sign In</a>
+              <a class="pmappclick" data-acctype="login">Sign In</a>
             </li>
             <li>
-              <a class="pmappclick" href="#" data-acctype="create"
-                >Create Account</a
-              >
+              <a class="pmappclick" data-acctype="create">Create Account</a>
             </li>
             <li>
-              <a class="pmappclick" id="logout" href="#" data-acctype="logout"
-                >Logout</a
-              >
+              <a class="pmappclick" id="logout" data-acctype="logout">Logout</a>
             </li>
           </ul>
         </li>
@@ -63,7 +59,7 @@
             .getElementsByClassName("pmappclick")
             [x].addEventListener("click", function(e) {
               console.log("logout");
-              document.querySelectorAll("span[data-username]")[0].innerText =
+              document.querySelectorAll("a[data-username]")[0].innerText =
                 "My Account";
               window.PMApp("");
               localStorage.setItem("user", "");

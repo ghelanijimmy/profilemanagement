@@ -70,6 +70,7 @@ export const Input = props => {
             id={props.showPasswordId}
             onClick={showPass}
             className={`${styles.btn} ${styles.dBlock}`}
+            type={"button"}
           >
             {props.showPasswordPlaceholder}
           </button>

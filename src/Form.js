@@ -42,7 +42,7 @@ const Form = React.forwardRef((props, ref) => {
       setUser(localStorage.getItem("user"));
     }
 
-    document.querySelectorAll("span[data-username]")[0].innerText =
+    document.querySelectorAll("a[data-username]")[0].innerText =
       user === "" ? "My Account" : user;
 
     let isLoggedIn;
