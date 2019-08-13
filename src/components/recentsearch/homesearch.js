@@ -1,23 +1,21 @@
 import React, { useState } from "react";
-import searchStyles        from "./_recentsearch.scss";
-import styles              from "../../css/_index.scss";
+import searchStyles from "./_recentsearch.scss";
+import styles from "../../css/_index.scss";
 import {
   faSearch,
   faHeart,
   faEnvelope,
   faPlane,
   faStar
-}                          from "@fortawesome/free-solid-svg-icons";
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import SearchboxCard       from "./searchboxCard";
-import { Tabs }            from "../commonelements/elements";
-import TabHandling         from "../utility/tabs";
+import SearchboxCard from "./searchboxCard";
+import { Tabs } from "../commonelements/elements";
 
 const HomeSearch = props => {
   const [searchOption, changeSearchOption] = useState("search");
 
   const handleSearchOptionChange = e => {
-    console.log(e);
     if (e.target.nodeName !== "button")
       changeSearchOption(e.target.closest("button").dataset.searchoption);
     else changeSearchOption(e.target.dataset.searchoption);
