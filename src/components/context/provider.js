@@ -11,12 +11,11 @@ const Provider = props => {
   const [firstTime, setFirstTime] = useState(null);
 
   //SET FIRST TIME LOGIN OR CREATE TO COMPLETE PROFILE
-  localStorage.setItem("firstTime", true);
-
-  useEffect(()=>{
-    if(localStorage.getItem("firstTime"))
-      setFirstTime(true);
-  })
+  // localStorage.setItem("firstTime", true);
+  //
+  // useEffect(() => {
+  //   if (localStorage.getItem("firstTime")) setFirstTime(true);
+  // });
 
   //SET USER AND LOGGED IN STATE
   useEffect(() => {

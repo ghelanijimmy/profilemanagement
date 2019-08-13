@@ -10,6 +10,7 @@ const Login = props => {
     e.preventDefault();
     props.data.setLocalStorageUser("Jimmy Ghelani");
     props.data.setModalState();
+    props.data.setFirstTime(true);
   };
   return (
     <React.Fragment>

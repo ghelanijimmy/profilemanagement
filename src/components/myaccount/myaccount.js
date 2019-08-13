@@ -14,6 +14,8 @@ const Myaccount = props => {
   const travelPrefRef = React.createRef();
   const bookingPrefRef = React.createRef();
 
+  console.log(props);
+
   //Handle firstTime tab selection
   useEffect(() => {
     if (props.data.firstTime) {

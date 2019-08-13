@@ -14,6 +14,15 @@ const Form = React.forwardRef((props, ref) => {
   const loginRef = React.createRef();
   const createRef = React.createRef();
 
+  //MY ACCOUNT ROUTE CLICK
+  document.getElementById("account").addEventListener("click", e => {
+    e.preventDefault();
+    let data = { ...props.data };
+    props.history.push({
+      pathname: "/myaccount"
+    });
+  });
+
   if (props.data.appType === "login") {
     window.dispatchEvent(new Event("resize"));
     return (
