@@ -107,10 +107,17 @@
               margin-bottom: 0;
             }
 
-            .ratingWrapper {
-              font-size: .5em;
-              color: $ratingOrange;
-              margin-left: .5em;
+            &.titleWithRating {
+
+              .title {
+                flex: 0 1 auto;
+              }
+              .ratingWrapper {
+                flex: 1 0 auto;
+                font-size: .5em;
+                color: $ratingOrange;
+                margin-left: .875em;
+              }
             }
           }
         }

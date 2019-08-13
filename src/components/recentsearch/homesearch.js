@@ -10,8 +10,6 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import SearchboxCard from "./searchboxCard";
-//TODO Star rating icons for search boxes
-//TODO triangle under searchoption button
 
 const HomeSearch = props => {
   const [searchOption, changeSearchOption] = useState("search");
@@ -31,8 +29,10 @@ const HomeSearch = props => {
   const searchBoxText = () => {
     return (
       <React.Fragment>
-        <p className={searchStyles.title}>
-          Royalton Bavaro Resort and Spa{" "}
+        <p className={`${searchStyles.titleWithRating}`}>
+          <span className={searchStyles.title}>
+            Royalton Bavaro Resort and Spa
+          </span>
           <span className={searchStyles.ratingWrapper}>
             <FontAwesomeIcon icon={faStar} />
             <FontAwesomeIcon icon={faStar} />
