@@ -229,8 +229,15 @@ form {
 }
 
 /*BUTTON*/
-button svg, p svg, a svg, span svg {
-  margin-right: .5em;
+button, p, a, span {
+  svg {
+    &.right {
+      margin-left: .5em;
+    }
+    &.left {
+      margin-right: .5em;
+    }
+  }
 }
 button {
   &.btn {

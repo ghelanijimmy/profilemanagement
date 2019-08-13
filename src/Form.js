@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { SignUp } from "./components/signup/signup";
+import SignUp from "./components/signup/signup";
 import styles from "./css/_index.scss";
-import { Login } from "./components/login/login";
+import Login from "./components/login/login";
 import Modal from "react-modal";
 import modalStyle from "./components/modal/_modal.scss";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
@@ -34,12 +34,7 @@ const Form = React.forwardRef((props, ref) => {
           overlayClassName={`${modalStyle.modal} ${modalStyle.Overlay}`}
           closeTimeoutMS={200}
         >
-          <Login
-            appType={props.data.appType}
-            modal={props.data.currentModal}
-            setUser={props.data.setLocalStorageUser}
-            closeModal={props.data.setModalState}
-          />
+          <Login />
           <button
             onClick={props.data.setModalState}
             className={`${modalStyle.modal} ${modalStyle.CloseIcon}`}
@@ -74,10 +69,7 @@ const Form = React.forwardRef((props, ref) => {
           overlayClassName={`${modalStyle.modal} ${modalStyle.Overlay}`}
           closeTimeoutMS={200}
         >
-          <SignUp
-            appType={props.data.appType}
-            modal={props.data.currentModal}
-          />
+          <SignUp />
           <button
             onClick={props.data.setModalState}
             className={`${modalStyle.modal} ${modalStyle.CloseIcon}`}

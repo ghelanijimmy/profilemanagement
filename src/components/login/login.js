@@ -3,12 +3,13 @@ import { Input } from "../input/input";
 import { Oauth } from "../oauth/oauth";
 import styles from "../../css/_index.scss";
 import Modal from "../modal/modal";
+import Consumer from "../context/consumer";
 
-export const Login = props => {
+const Login = props => {
   const handleLogin = e => {
     e.preventDefault();
-    props.setUser("Jimmy Ghelani");
-    props.closeModal();
+    props.data.setLocalStorageUser("Jimmy Ghelani");
+    props.data.setModalState();
   };
   return (
     <React.Fragment>
@@ -45,7 +46,9 @@ export const Login = props => {
         </a>
         <Input type={"submit"} id={"signin"} placeholder={"Sign In"} />
       </form>
-      <Modal appType={props.appType} modal={props.modal} />
+      <Modal appType={props.data.appType} modal={props.data.currentModal} />
     </React.Fragment>
   );
 };
+
+export default Consumer(Login);

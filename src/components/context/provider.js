@@ -8,6 +8,15 @@ const Provider = props => {
   const [modal, modalState] = useState(false);
   const [isLoggedIn, setLoggedInState] = useState(false);
   const [user, setUser] = useState("");
+  const [firstTime, setFirstTime] = useState(null);
+
+  //SET FIRST TIME LOGIN OR CREATE TO COMPLETE PROFILE
+  localStorage.setItem("firstTime", true);
+
+  useEffect(()=>{
+    if(localStorage.getItem("firstTime"))
+      setFirstTime(true);
+  })
 
   //SET USER AND LOGGED IN STATE
   useEffect(() => {
@@ -96,12 +105,14 @@ const Provider = props => {
       value={{
         isLoggedIn,
         setLocalStorageUser,
-        user: user,
+        user,
         appType,
         setAppType,
         modal,
         setModalState,
-        currentModal
+        currentModal,
+        setFirstTime,
+        firstTime
       }}
     >
       {props.children}

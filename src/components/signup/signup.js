@@ -2,8 +2,9 @@ import React from "react";
 import { Input } from "../input/input";
 import Modal from "../modal/modal";
 import styles from "../../css/_index.scss";
+import Consumer from "../context/consumer";
 
-export const SignUp = props => {
+const SignUp = props => {
   // TODO Create password regex pattern for input
   // TODO Show "member" text next to sunwing logo after sign in
   return (
@@ -72,7 +73,9 @@ export const SignUp = props => {
           <a>Privacy Policy</a>
         </p>
       </form>
-      <Modal appType={props.appType} modal={props.modal} />
+      <Modal appType={props.data.appType} modal={props.data.currentModal} />
     </React.Fragment>
   );
 };
+
+export default Consumer(SignUp);

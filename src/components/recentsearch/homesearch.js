@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import searchStyles from "./_recentsearch.scss";
 import styles from "../../css/_index.scss";
+import elementStyles from "../commonelements/_elements.scss";
 import {
   faSearch,
   faHeart,
@@ -60,7 +61,7 @@ const HomeSearch = props => {
         <p className={styles.Title}>
           Welcome Back{props.user === "" ? "" : `, ${props.user}`}
         </p>
-        <div className={searchStyles.searchOptions}>
+        <div className={elementStyles.searchOptions}>
           <Tabs
             searchOption={"search"}
             text={"Recent searches"}
