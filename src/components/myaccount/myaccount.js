@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Consumer from "../context/consumer";
 import dashboardStyles from "./_myaccount.scss";
 import styles from "../../css/_index.scss";
@@ -14,6 +14,13 @@ const Myaccount = props => {
   const travelPrefRef = React.createRef();
   const bookingPrefRef = React.createRef();
 
+  //Handle firstTime tab selection
+  useEffect(() => {
+    if (props.data.firstTime) {
+      setTabOption("account");
+    }
+  }, [props.data.firstTime]);
+  //Handle tab change
   const handleTabOptionChange = e => {
     e.preventDefault();
 
