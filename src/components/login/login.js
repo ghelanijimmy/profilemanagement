@@ -8,7 +8,6 @@ export const Login = props => {
   const handleLogin = e => {
     e.preventDefault();
     props.setUser("Jimmy Ghelani");
-    // props.setAppType("");
     props.closeModal();
   };
   return (
