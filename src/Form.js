@@ -8,6 +8,7 @@ import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Route } from "react-router-dom";
 import HomeSearch from "./components/recentsearch/homesearch";
+import Consumer from "./components/context/consumer";
 
 const Form = React.forwardRef((props, ref) => {
   const [appType, setAppType] = useState("");
@@ -50,13 +51,13 @@ const Form = React.forwardRef((props, ref) => {
     isLoggedIn = user !== "";
 
     document.querySelectorAll(".pmappclick").forEach(el => {
-      if (el.id !== "logout") {
+      if (el.id !== "logout" && el.id !== "account") {
         if (isLoggedIn) {
           el.classList.add(styles.dNone);
         } else {
           el.classList.remove(styles.dNone);
         }
-      } else {
+      } else if (el.id === "logout" || el.id === "account") {
         if (isLoggedIn) {
           el.classList.remove(styles.dNone);
         } else {
@@ -89,6 +90,9 @@ const Form = React.forwardRef((props, ref) => {
   };
 
   window.addEventListener("resize", handleResizeModal);
+
+  console.log(props);
+
   if (appType === "login") {
     window.dispatchEvent(new Event("resize"));
     return (
@@ -165,4 +169,4 @@ const Form = React.forwardRef((props, ref) => {
   }
 });
 
-export default Form;
+export default Consumer(Form);
