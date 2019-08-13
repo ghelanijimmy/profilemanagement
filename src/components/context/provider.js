@@ -73,7 +73,7 @@ const Provider = props => {
 
   const handleResizeModal = () => {
     setTimeout(() => {
-      document.querySelectorAll(`.${modalStyle.modalOpen}`).forEach(modal => {
+      document.querySelectorAll(`.${modalStyle.Open}`).forEach(modal => {
         modal.removeAttribute("style");
         if (window.innerHeight < modal.clientHeight) {
           modal.style.height = `${window.innerHeight - 40}px`;

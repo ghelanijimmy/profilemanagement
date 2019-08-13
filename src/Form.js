@@ -27,11 +27,11 @@ const Form = React.forwardRef((props, ref) => {
           shouldCloseOnEsc={true}
           shouldFocusAfterRender={true}
           className={{
-            base: modalStyle.modalBase,
-            afterOpen: modalStyle.modalOpen,
-            beforeClose: modalStyle.modalClose
+            base: `${modalStyle.modal} ${modalStyle.Base}`,
+            afterOpen: `${modalStyle.modal} ${modalStyle.Open}`,
+            beforeClose: `${modalStyle.modal} ${modalStyle.Close}`
           }}
-          overlayClassName={modalStyle.modalOverlay}
+          overlayClassName={`${modalStyle.modal} ${modalStyle.Overlay}`}
           closeTimeoutMS={200}
         >
           <Login
@@ -42,7 +42,7 @@ const Form = React.forwardRef((props, ref) => {
           />
           <button
             onClick={props.data.setModalState}
-            className={modalStyle.modalCloseIcon}
+            className={`${modalStyle.modal} ${modalStyle.CloseIcon}`}
           >
             <FontAwesomeIcon icon={faTimes} />
           </button>
@@ -67,11 +67,11 @@ const Form = React.forwardRef((props, ref) => {
           shouldCloseOnEsc={true}
           shouldFocusAfterRender={true}
           className={{
-            base: modalStyle.modalBase,
-            afterOpen: modalStyle.modalOpen,
-            beforeClose: modalStyle.modalClose
+            base: `${modalStyle.modal} ${modalStyle.Base}`,
+            afterOpen: `${modalStyle.modal} ${modalStyle.Open}`,
+            beforeClose: `${modalStyle.modal} ${modalStyle.Close}`
           }}
-          overlayClassName={modalStyle.modalOverlay}
+          overlayClassName={`${modalStyle.modal} ${modalStyle.Overlay}`}
           closeTimeoutMS={200}
         >
           <SignUp
@@ -80,7 +80,7 @@ const Form = React.forwardRef((props, ref) => {
           />
           <button
             onClick={props.data.setModalState}
-            className={modalStyle.modalCloseIcon}
+            className={`${modalStyle.modal} ${modalStyle.CloseIcon}`}
           >
             <FontAwesomeIcon icon={faTimes} />
           </button>

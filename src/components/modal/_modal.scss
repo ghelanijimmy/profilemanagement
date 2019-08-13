@@ -2,7 +2,7 @@
 
 
 .modal {
-  &Base {
+  &.Base {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -12,7 +12,7 @@
     overflow: hidden;
     transition: all .2s linear;
   }
-  &Open {
+  &.Open {
     transform: translate(-50%, -50%) scaleY(1);
     max-width: 380px;
     width: 90%;
@@ -23,12 +23,12 @@
     overflow: auto;
   }
 
-  &Close {
+  &.Close {
     //transform: translate(-50%, -50%) scaleY(0);
     opacity: 0;
     transition: all .2s linear;
   }
-  &Overlay {
+  &.Overlay {
     background-color: rgba($black,.5);
     position: fixed;
     height: 100%;
@@ -36,7 +36,7 @@
     top: 0;
   }
 
-  &Footer {
+  &.Footer {
     padding: 1.25em 1.875em;
     background-color: $grayBlue;
     display: flex;
@@ -53,7 +53,7 @@
     }
   }
 
-  &CloseIcon {
+  &.CloseIcon {
     position: absolute;
     top: 1em;
     right: 1em;
