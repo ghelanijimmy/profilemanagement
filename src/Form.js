@@ -23,6 +23,14 @@ const Form = React.forwardRef((props, ref) => {
     });
   });
 
+  document.getElementById("logo").addEventListener("click", e => {
+    e.preventDefault();
+    let data = { ...props.data };
+    props.history.push({
+      pathname: "/"
+    });
+  });
+
   if (props.data.appType === "login") {
     window.dispatchEvent(new Event("resize"));
     return (
