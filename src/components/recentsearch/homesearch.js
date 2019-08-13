@@ -1,24 +1,30 @@
 import React, { useState } from "react";
-import searchStyles from "./_recentsearch.scss";
-import styles from "../../css/_index.scss";
+import searchStyles        from "./_recentsearch.scss";
+import styles              from "../../css/_index.scss";
 import {
   faSearch,
   faHeart,
   faEnvelope,
   faPlane,
   faStar
-} from "@fortawesome/free-solid-svg-icons";
+}                          from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import SearchboxCard from "./searchboxCard";
+import SearchboxCard       from "./searchboxCard";
+import { Tabs }            from "../commonelements/elements";
+import TabHandling         from "../utility/tabs";
 
 const HomeSearch = props => {
   const [searchOption, changeSearchOption] = useState("search");
 
   const handleSearchOptionChange = e => {
+    console.log(e);
     if (e.target.nodeName !== "button")
       changeSearchOption(e.target.closest("button").dataset.searchoption);
     else changeSearchOption(e.target.dataset.searchoption);
   };
+
+  const searchRef = React.createRef();
+  const listRef = React.createRef();
 
   let hasRecentSearches = true;
   let hasFavouriteList = true;
@@ -57,30 +63,22 @@ const HomeSearch = props => {
           Welcome Back{props.user === "" ? "" : `, ${props.user}`}
         </p>
         <div className={searchStyles.searchOptions}>
-          <button
-            onClick={handleSearchOptionChange}
-            className={
-              searchOption === "search"
-                ? `${styles.btn} ${styles.primary} ${searchStyles.activeOption}`
-                : `${styles.btn} ${styles.primaryInverse}`
-            }
-            data-searchoption={"search"}
-          >
-            <FontAwesomeIcon icon={faSearch} />
-            Recent searches
-          </button>
-          <button
-            onClick={handleSearchOptionChange}
-            className={
-              searchOption === "list"
-                ? `${styles.btn} ${styles.primary} ${searchStyles.activeOption}`
-                : `${styles.btn} ${styles.primaryInverse}`
-            }
-            data-searchoption={"list"}
-          >
-            <FontAwesomeIcon icon={faHeart} />
-            My favorite list
-          </button>
+          <Tabs
+            searchOption={"search"}
+            text={"Recent searches"}
+            icon={faSearch}
+            ref={searchRef}
+            handleTabClick={() => handleSearchOptionChange}
+            stateOption={searchOption}
+          />
+          <Tabs
+            searchOption={"list"}
+            text={"My favorite list"}
+            icon={faHeart}
+            ref={listRef}
+            handleTabClick={() => handleSearchOptionChange}
+            stateOption={searchOption}
+          />
         </div>
       </div>
       {searchOption === "search" ? (
