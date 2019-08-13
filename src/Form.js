@@ -15,21 +15,21 @@ const Form = React.forwardRef((props, ref) => {
   const createRef = React.createRef();
 
   //MY ACCOUNT ROUTE CLICK
-  document.getElementById("account").addEventListener("click", e => {
+  function pushHistory(e) {
     e.preventDefault();
-    let data = { ...props.data };
-    props.history.push({
-      pathname: "/myaccount"
-    });
-  });
 
-  document.getElementById("logo").addEventListener("click", e => {
-    e.preventDefault();
-    let data = { ...props.data };
     props.history.push({
-      pathname: "/"
+      pathname: e.target.getAttribute("href") || "/"
     });
-  });
+  }
+
+  document.getElementById("account").removeEventListener("click", pushHistory);
+
+  document.getElementById("logo").removeEventListener("click", pushHistory);
+
+  document.getElementById("account").addEventListener("click", pushHistory);
+
+  document.getElementById("logo").addEventListener("click", pushHistory);
 
   if (props.data.appType === "login") {
     window.dispatchEvent(new Event("resize"));
