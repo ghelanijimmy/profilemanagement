@@ -4,9 +4,29 @@
   &.Wrapper {
     padding: 3.375em;
 
+    .Title {
+      font-size: 1.25em;
+      @extend %boldFont;
+
+      svg {
+        margin-right: .5em;
+      }
+
+      &.blue {
+        color: $blue;
+      }
+    }
+
     .infoWrapper {
       border: 1px solid $grayBlue;
       margin-top: 1.25em;
+    }
+    .booking {
+      &.Wrapper {
+        padding: 1.25em 1.875em;
+        background-color: $babyBlue;
+        margin-top: 1.25em;
+      }
     }
   }
 }

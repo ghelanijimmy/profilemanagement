@@ -29,7 +29,6 @@ const Provider = props => {
 
   //HANDLE DASHBOARD TAB OPTIONS
   const handleTabOptionChange = e => {
-    console.log(e);
     e.preventDefault();
 
     if (e.target.nodeName !== "button")

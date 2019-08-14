@@ -13,6 +13,7 @@ import {
   faUser
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Booking from "./booking";
 
 const Myaccount = props => {
   // const [tabOption, setTabOption] = useState("");
@@ -21,11 +22,11 @@ const Myaccount = props => {
   useEffect(() => {
     switch (props.data.tabOption) {
       case "booking":
-        setDashboardRender(<p className={styles.Title}>My booking</p>);
+        setDashboardRender(null);
         break;
       case "account":
         setDashboardRender(
-          <p className={styles.Title}>
+          <p className={`${dashboardStyles.Title} ${dashboardStyles.blue}`}>
             <FontAwesomeIcon icon={faUser} />
             My account info
           </p>
@@ -34,7 +35,7 @@ const Myaccount = props => {
       case "travelpref":
         setDashboardRender(
           <React.Fragment>
-            <p className={styles.Title}>
+            <p className={`${dashboardStyles.Title} ${dashboardStyles.blue}`}>
               <FontAwesomeIcon icon={faGlobeAmericas} />
               Travel preferences
             </p>
@@ -48,7 +49,7 @@ const Myaccount = props => {
       case "bookingpref":
         setDashboardRender(
           <React.Fragment>
-            <p className={styles.Title}>
+            <p className={`${dashboardStyles.Title} ${dashboardStyles.blue}`}>
               <FontAwesomeIcon icon={faFileAlt} />
               Booking preferences
             </p>
@@ -122,9 +123,20 @@ const Myaccount = props => {
               stateOption={props.data.tabOption}
             />
           </div>
-          <div className={`${dashboardStyles.infoWrapper} ${styles.section}`}>
-            {dashboardRender}
-          </div>
+          {dashboardRender !== null ? (
+            <div className={`${dashboardStyles.infoWrapper} ${styles.section}`}>
+              {dashboardRender}
+            </div>
+          ) : null}
+          {props.data.tabOption === "booking" ? (
+            <Booking />
+          ) : props.data.tabOption === "account" ? (
+            ""
+          ) : props.data.tabOption === "travelpref" ? (
+            ""
+          ) : props.data.tabOption === "bookingpref" ? (
+            ""
+          ) : null}
         </section>
       </div>
     );
