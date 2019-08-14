@@ -90,6 +90,10 @@ a {
   @extend %boldFont;
   margin-top: .5em;
   margin-bottom: .5em;
+
+  svg {
+    margin-right: .5em;
+  }
 }
 
 //FORM STYLES
@@ -98,7 +102,6 @@ form {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  padding: 1.25em 1.875em;
 
   & > * {
     flex-basis: 100%;
@@ -226,6 +229,9 @@ form {
 .marginLeftRight0 {
   margin-right: 0;
   margin-left: 0;
+}
+.section {
+  padding: 1.25em 1.875em;
 }
 
 /*BUTTON*/

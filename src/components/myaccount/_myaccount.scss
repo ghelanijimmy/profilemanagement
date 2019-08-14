@@ -3,5 +3,10 @@
 .dashboard {
   &.Wrapper {
     padding: 3.375em;
+
+    .infoWrapper {
+      border: 1px solid $grayBlue;
+      margin-top: 1.25em;
+    }
   }
 }

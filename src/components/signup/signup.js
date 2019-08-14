@@ -9,7 +9,7 @@ const SignUp = props => {
   // TODO Show "member" text next to sunwing logo after sign in
   return (
     <React.Fragment>
-      <form>
+      <form className={styles.section}>
         <p className={styles.Title}>Create Sunwing Account</p>
         <Input
           type={"email"}
