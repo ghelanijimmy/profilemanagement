@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import searchStyles from "../recentsearch/_recentsearch.scss";
+import React from "react";
 import styles from "../../css/_index.scss";
 import elementStyles from "../commonelements/_elements.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import PropTypes from "prop-types";
 
-const Tabs = React.forwardRef((props, ref) => {
+export const Tabs = React.forwardRef((props, ref) => {
   return (
     <button
       onClick={props.handleTabClick(ref)}
@@ -27,4 +27,11 @@ const Tabs = React.forwardRef((props, ref) => {
   );
 });
 
-export { Tabs };
+Tabs.propTypes = {
+  searchOption: PropTypes.string,
+  stateOption: PropTypes.string,
+  icon: PropTypes.object,
+  text: PropTypes.string,
+  iconPosition: PropTypes.string,
+  handleTabClick: PropTypes.func
+};

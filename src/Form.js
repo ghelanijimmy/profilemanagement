@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import SignUp from "./components/signup/signup";
-import styles from "./css/_index.scss";
 import Login from "./components/login/login";
 import Modal from "react-modal";
 import modalStyle from "./components/modal/_modal.scss";
@@ -10,7 +9,7 @@ import { Route } from "react-router-dom";
 import HomeSearch from "./components/recentsearch/homesearch";
 import Consumer from "./components/context/consumer";
 
-const Form = React.forwardRef((props, ref) => {
+const Form = props => {
   const loginRef = React.createRef();
   const createRef = React.createRef();
 
@@ -117,6 +116,6 @@ const Form = React.forwardRef((props, ref) => {
       );
     }
   }
-});
+};
 
 export default Consumer(Form);

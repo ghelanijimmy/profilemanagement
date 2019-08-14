@@ -8,7 +8,10 @@ const Provider = props => {
   const [modal, modalState] = useState(false);
   const [isLoggedIn, setLoggedInState] = useState(false);
   const [user, setUser] = useState("");
+  const [searchOption, changeSearchOption] = useState("search");
   const [firstTime, setFirstTime] = useState(null);
+  const [tabOption, setTabOption] = useState("");
+  const [hasBooking, setBooking] = useState(false);
 
   //SET FIRST TIME LOGIN OR CREATE TO COMPLETE PROFILE
   // localStorage.setItem("firstTime", true);
@@ -16,6 +19,23 @@ const Provider = props => {
   // useEffect(() => {
   //   if (localStorage.getItem("firstTime")) setFirstTime(true);
   // });
+
+  //HANDLE HOME SEARCH TAB OPTIONS
+  const handleSearchOptionChange = e => {
+    if (e.target.nodeName !== "button")
+      changeSearchOption(e.target.closest("button").dataset.searchoption);
+    else changeSearchOption(e.target.dataset.searchoption);
+  };
+
+  //HANDLE DASHBOARD TAB OPTIONS
+  const handleTabOptionChange = e => {
+    console.log(e);
+    e.preventDefault();
+
+    if (e.target.nodeName !== "button")
+      setTabOption(e.target.closest("button").dataset.searchoption);
+    else setTabOption(e.target.dataset.searchoption);
+  };
 
   //SET USER AND LOGGED IN STATE
   useEffect(() => {
@@ -111,7 +131,14 @@ const Provider = props => {
         setModalState,
         currentModal,
         setFirstTime,
-        firstTime
+        searchOption,
+        changeSearchOption,
+        handleSearchOptionChange,
+        firstTime,
+        hasBooking,
+        tabOption,
+        setTabOption,
+        handleTabOptionChange
       }}
     >
       {props.children}

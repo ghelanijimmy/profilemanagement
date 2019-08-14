@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "../../css/_index.scss";
+import PropTypes from "prop-types";
 
 export const Input = props => {
   const showPass = e => {
@@ -131,4 +132,17 @@ export const Input = props => {
       </span>
     );
   }
+};
+
+Input.propTypes = {
+  id: PropTypes.string,
+  type: PropTypes.string,
+  fullWidth: PropTypes.bool,
+  block: PropTypes.bool,
+  placeholder: PropTypes.string,
+  autocomplete: PropTypes.bool,
+  required: PropTypes.bool,
+  showPasswordId: PropTypes.string,
+  showPasswordPlaceholder: PropTypes.string,
+  bg: PropTypes.bool
 };

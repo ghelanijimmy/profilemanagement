@@ -15,11 +15,11 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Myaccount = props => {
-  const [tabOption, setTabOption] = useState("");
+  // const [tabOption, setTabOption] = useState("");
   const [dashboardRender, setDashboardRender] = useState("");
 
   useEffect(() => {
-    switch (tabOption) {
+    switch (props.data.tabOption) {
       case "booking":
         setDashboardRender(<p className={styles.Title}>My booking</p>);
         break;
@@ -63,9 +63,7 @@ const Myaccount = props => {
         setDashboardRender("");
         break;
     }
-  }, [tabOption]);
-
-  const renderDashboardComponent = () => {};
+  }, [props.data.tabOption]);
 
   const bookingRef = React.createRef();
   const accountRef = React.createRef();
@@ -75,17 +73,9 @@ const Myaccount = props => {
   //Handle firstTime tab selection
   useEffect(() => {
     if (props.data.firstTime) {
-      setTabOption("account");
+      props.data.setTabOption("account");
     }
   }, [props.data.firstTime]);
-  //Handle tab change
-  const handleTabOptionChange = e => {
-    e.preventDefault();
-
-    if (e.target.nodeName !== "button")
-      setTabOption(e.target.closest("button").dataset.searchoption);
-    else setTabOption(e.target.dataset.searchoption);
-  };
 
   if (props.data.isLoggedIn)
     return (
@@ -101,8 +91,8 @@ const Myaccount = props => {
               iconPosition={"right"}
               icon={faChevronDown}
               ref={bookingRef}
-              handleTabClick={() => handleTabOptionChange}
-              stateOption={tabOption}
+              handleTabClick={() => props.data.handleTabOptionChange}
+              stateOption={props.data.tabOption}
             />
             <Tabs
               searchOption={"account"}
@@ -110,8 +100,8 @@ const Myaccount = props => {
               iconPosition={"right"}
               icon={faChevronDown}
               ref={accountRef}
-              handleTabClick={() => handleTabOptionChange}
-              stateOption={tabOption}
+              handleTabClick={() => props.data.handleTabOptionChange}
+              stateOption={props.data.tabOption}
             />
             <Tabs
               searchOption={"travelpref"}
@@ -119,8 +109,8 @@ const Myaccount = props => {
               iconPosition={"right"}
               icon={faChevronDown}
               ref={travelPrefRef}
-              handleTabClick={() => handleTabOptionChange}
-              stateOption={tabOption}
+              handleTabClick={() => props.data.handleTabOptionChange}
+              stateOption={props.data.tabOption}
             />
             <Tabs
               searchOption={"bookingpref"}
@@ -128,8 +118,8 @@ const Myaccount = props => {
               iconPosition={"right"}
               icon={faChevronDown}
               ref={bookingPrefRef}
-              handleTabClick={() => handleTabOptionChange}
-              stateOption={tabOption}
+              handleTabClick={() => props.data.handleTabOptionChange}
+              stateOption={props.data.tabOption}
             />
           </div>
           <div className={`${dashboardStyles.infoWrapper} ${styles.section}`}>

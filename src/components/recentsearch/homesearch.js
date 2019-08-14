@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import searchStyles from "./_recentsearch.scss";
 import styles from "../../css/_index.scss";
 import elementStyles from "../commonelements/_elements.scss";
@@ -12,21 +12,14 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import SearchboxCard from "./searchboxCard";
 import { Tabs } from "../commonelements/elements";
+import Consumer from "../context/consumer";
 
 const HomeSearch = props => {
-  const [searchOption, changeSearchOption] = useState("search");
-
-  const handleSearchOptionChange = e => {
-    if (e.target.nodeName !== "button")
-      changeSearchOption(e.target.closest("button").dataset.searchoption);
-    else changeSearchOption(e.target.dataset.searchoption);
-  };
-
   const searchRef = React.createRef();
   const listRef = React.createRef();
 
-  let hasRecentSearches = true;
-  let hasFavouriteList = true;
+  let hasRecentSearches;
+  let hasFavouriteList;
 
   hasRecentSearches = true;
   hasFavouriteList = false;
@@ -56,7 +49,9 @@ const HomeSearch = props => {
   };
 
   return (
-    <section className={searchStyles.recentSearchesWrapper}>
+    <section
+      className={`${searchStyles.recentSearches} ${searchStyles.Wrapper}`}
+    >
       <div className={searchStyles.header}>
         <p className={styles.Title}>
           Welcome Back{props.user === "" ? "" : `, ${props.user}`}
@@ -67,23 +62,27 @@ const HomeSearch = props => {
             text={"Recent searches"}
             icon={faSearch}
             ref={searchRef}
-            handleTabClick={() => handleSearchOptionChange}
-            stateOption={searchOption}
+            handleTabClick={() => props.data.handleSearchOptionChange}
+            stateOption={props.data.searchOption}
           />
           <Tabs
             searchOption={"list"}
             text={"My favorite list"}
             icon={faHeart}
             ref={listRef}
-            handleTabClick={() => handleSearchOptionChange}
-            stateOption={searchOption}
+            handleTabClick={() => props.data.handleSearchOptionChange}
+            stateOption={props.data.searchOption}
           />
         </div>
       </div>
-      {searchOption === "search" ? (
+      {props.data.searchOption === "search" ? (
         hasRecentSearches === true ? (
           <React.Fragment>
-            <div className={searchStyles.searchContentWrapper}>
+            <div
+              className={`${searchStyles.searchContent} ${
+                searchStyles.Wrapper
+              }`}
+            >
               <SearchboxCard
                 headingIcon={faPlane}
                 headingText={"Flight"}
@@ -126,7 +125,7 @@ const HomeSearch = props => {
         ) : null
       ) : hasFavouriteList === true ? null : (
         <div
-          className={`${searchStyles.searchContentWrapper} ${
+          className={`${searchStyles.searchContent} ${searchStyles.Wrapper} ${
             searchStyles.emptyFavouriteList
           }`}
         >
@@ -161,4 +160,4 @@ const HomeSearch = props => {
   );
 };
 
-export default HomeSearch;
+export default Consumer(HomeSearch);
