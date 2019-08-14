@@ -12,6 +12,7 @@ const Provider = props => {
   const [firstTime, setFirstTime] = useState(null);
   const [tabOption, setTabOption] = useState("");
   const [hasBooking, setBooking] = useState(false);
+  const [profileComplete, setProfileComplete] = useState(25);
 
   //SET FIRST TIME LOGIN OR CREATE TO COMPLETE PROFILE
   // localStorage.setItem("firstTime", true);
@@ -137,7 +138,9 @@ const Provider = props => {
         hasBooking,
         tabOption,
         setTabOption,
-        handleTabOptionChange
+        handleTabOptionChange,
+        profileComplete,
+        setProfileComplete
       }}
     >
       {props.children}

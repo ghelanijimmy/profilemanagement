@@ -61,7 +61,7 @@ const Form = props => {
         <Route
           exact
           path={"/"}
-          component={() => <HomeSearch user={props.data.user} />}
+          component={() => <HomeSearch user={props.data.user} {...props} />}
         />
       </React.Fragment>
     );
@@ -103,7 +103,7 @@ const Form = props => {
         <Route
           exact
           path={"/"}
-          component={() => <HomeSearch user={props.data.user} />}
+          component={() => <HomeSearch user={props.data.user} {...props} />}
         />
       );
     } else {
@@ -111,7 +111,7 @@ const Form = props => {
         <Route
           exact
           path={"/"}
-          component={() => <HomeSearch user={props.data.user} />}
+          component={() => <HomeSearch user={props.data.user} {...props} />}
         />
       );
     }

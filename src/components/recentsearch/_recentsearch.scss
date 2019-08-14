@@ -8,6 +8,44 @@
     .header {
       display: flex;
       justify-content: space-between;
+
+      .Title {
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+      }
+
+      .progressCircle {
+        &.Wrapper {
+          display: flex;
+          flex-wrap: nowrap;
+          align-items: center;
+
+          svg {
+            width: $progressWidth;
+            margin: 0 .5em;
+          }
+
+          p {
+            $profileCompletionFontSize: .875em;
+            font-size: $profileCompletionFontSize;
+            span {
+              color: $orange;
+              font-weight: bold;
+              font-size: $profileCompletionFontSize;
+            }
+            a {
+              display: block;
+              font-size: $profileCompletionFontSize;
+
+              svg {
+                margin: 0;
+                width: auto;
+              }
+            }
+          }
+        }
+      }
     }
 
     .searchContent {
@@ -25,7 +63,7 @@
           .closeWrapper {
             position: absolute;
             top: .25em;
-            right: .25em;
+            right: .5em;
             cursor: pointer;
 
             svg {

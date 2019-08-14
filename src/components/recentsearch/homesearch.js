@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import searchStyles from "./_recentsearch.scss";
 import styles from "../../css/_index.scss";
 import elementStyles from "../commonelements/_elements.scss";
@@ -7,13 +7,17 @@ import {
   faHeart,
   faEnvelope,
   faPlane,
-  faStar
+  faStar,
+  faChevronRight
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import SearchboxCard from "./searchboxCard";
 import { Tabs } from "../commonelements/elements";
 import Consumer from "../context/consumer";
-
+import { CircularProgressbar } from "react-circular-progressbar";
+import "react-circular-progressbar/dist/styles.css";
+//TODO Set tabOption to "account" when "Edit profile > " is clicked and
+// change it to regular "a" tag instead of Link
 const HomeSearch = props => {
   const searchRef = React.createRef();
   const listRef = React.createRef();
@@ -23,6 +27,16 @@ const HomeSearch = props => {
 
   hasRecentSearches = true;
   hasFavouriteList = false;
+
+  const handleEditProfileClick = e => {
+    console.log(e);
+    e.preventDefault();
+    props.data.setTabOption("account");
+
+    props.history.push({
+      pathname: "/myaccount"
+    });
+  };
 
   const searchBoxText = () => {
     return (
@@ -53,9 +67,43 @@ const HomeSearch = props => {
       className={`${searchStyles.recentSearches} ${searchStyles.Wrapper}`}
     >
       <div className={searchStyles.header}>
-        <p className={styles.Title}>
-          Welcome Back{props.user === "" ? "" : `, ${props.user}`}
-        </p>
+        <div className={`${searchStyles.Title}`}>
+          <p className={`${styles.Title}`}>
+            Welcome Back{props.user === "" ? "" : `, ${props.user}`}
+          </p>
+          {props.data.isLoggedIn ? (
+            <div
+              className={`${searchStyles.progressCircle} ${
+                searchStyles.Wrapper
+              }`}
+            >
+              <CircularProgressbar
+                className={searchStyles.test}
+                value={props.data.profileComplete}
+                styles={{
+                  root: {
+                    overflow: "visible"
+                  },
+                  path: {
+                    stroke: "#F36F21",
+                    strokeWidth: "15px"
+                  },
+                  trail: {
+                    stroke: "#ffffff",
+                    strokeWidth: "15px"
+                  }
+                }}
+              />
+              <p>
+                Your profile is <span>{props.data.profileComplete}%</span>{" "}
+                complete
+                <a onClick={e => handleEditProfileClick(e)}>
+                  Edit profile <FontAwesomeIcon icon={faChevronRight} />
+                </a>
+              </p>
+            </div>
+          ) : null}
+        </div>
         <div className={elementStyles.searchOptions}>
           <Tabs
             searchOption={"search"}
