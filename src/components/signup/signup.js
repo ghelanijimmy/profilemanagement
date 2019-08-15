@@ -7,6 +7,7 @@ import Consumer from "../context/consumer";
 const SignUp = props => {
   // TODO Create password regex pattern for input
   // TODO Show "member" text next to sunwing logo after sign in
+
   return (
     <React.Fragment>
       <form className={styles.section}>

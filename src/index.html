@@ -17,8 +17,8 @@
   </style>
   <body onload="checkUser()">
     <header class="hideOnLoad">
-      <a href="/"
-        ><img id="logo"
+      <a id="logo" href="/"
+        ><img
           src="https://www.sunwing.ca/Content/images/global/header/sunwing-experience-the-difference-white-logo.png"
       /></a>
       <ul>
@@ -26,11 +26,21 @@
           <a data-username="">My Account</a>
           <ul>
             <li>
-              <a class="pmappclick" data-acctype="login">Sign In</a>
+              <a
+                href="/recentlist"
+                class="pmappclick"
+                id="recentlist"
+                data-acctype="recentlist"
+                >My Favorite List</a
+              >
             </li>
             <li>
               <a class="pmappclick" data-acctype="create">Create Account</a>
             </li>
+            <li>
+              <a class="pmappclick" data-acctype="login">Sign In</a>
+            </li>
+
             <li>
               <a class="pmappclick" id="logout" data-acctype="logout" href="/"
                 >Logout</a

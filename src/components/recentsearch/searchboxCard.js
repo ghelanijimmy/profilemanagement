@@ -13,7 +13,7 @@ const SearchboxCard = props => {
             {props.headingText}
           </p>
           <p className={searchStyles.title}>{props.titleText}</p>
-          <p>{props.legText}</p>
+          <p className={searchStyles.legText}>{props.legText}</p>
           <span className={searchStyles.closeWrapper}>
             <FontAwesomeIcon icon={faTimes} />
           </span>

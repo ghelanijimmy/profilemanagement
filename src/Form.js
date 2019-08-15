@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import SignUp from "./components/signup/signup";
 import Login from "./components/login/login";
 import Modal from "react-modal";
@@ -15,6 +15,7 @@ const Form = props => {
 
   //MY ACCOUNT ROUTE CLICK
   function pushHistory(e) {
+    console.log("run");
     e.preventDefault();
 
     props.history.push({
@@ -22,13 +23,29 @@ const Form = props => {
     });
   }
 
-  document.getElementById("account").removeEventListener("click", pushHistory);
+  const [appLoaded, setAppLoadState] = useState(false);
 
-  document.getElementById("logo").removeEventListener("click", pushHistory);
+  useEffect(() => {
+    if (appLoaded !== true) {
+      document.getElementById("logo").removeEventListener("click", pushHistory);
 
-  document.getElementById("account").addEventListener("click", pushHistory);
+      document
+        .getElementById("logout")
+        .removeEventListener("click", pushHistory);
 
-  document.getElementById("logo").addEventListener("click", pushHistory);
+      document
+        .getElementById("account")
+        .removeEventListener("click", pushHistory);
+
+      document.getElementById("logo").addEventListener("click", pushHistory);
+
+      document.getElementById("logout").addEventListener("click", pushHistory);
+
+      document.getElementById("account").addEventListener("click", pushHistory);
+
+      setAppLoadState(true);
+    }
+  }, [appLoaded]);
 
   if (props.data.appType === "login") {
     window.dispatchEvent(new Event("resize"));
@@ -93,6 +110,11 @@ const Form = props => {
             <FontAwesomeIcon icon={faTimes} />
           </button>
         </Modal>
+        <Route
+          exact
+          path={"/"}
+          component={() => <HomeSearch user={props.data.user} {...props} />}
+        />
         {/*<Route exact path={"/"} component={() => <div>TEST2</div>} />*/}
       </React.Fragment>
       //TODO Submit to local storage to run separate app
