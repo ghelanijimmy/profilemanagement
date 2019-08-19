@@ -18,42 +18,5 @@
   <body>
     <header class="hideOnLoad" id="header"></header>
     <div id="PMApp"></div>
-
-    <script>
-      let numOfClicks = document.getElementsByClassName("pmappclick").length;
-
-      // for (let x = 0; x < numOfClicks; x++) {
-      //   if (
-      //     document
-      //       .getElementsByClassName("pmappclick")
-      //       [x].getAttribute("data-acctype") !== "logout"
-      //   ) {
-      //     document
-      //       .getElementsByClassName("pmappclick")
-      //       [x].addEventListener("click", function(e) {
-      //         window.PMApp(e.target.getAttribute("data-acctype"));
-      //         window.PMSignInModal();
-      //       });
-      //   } else {
-      //     document
-      //       .getElementsByClassName("pmappclick")
-      //       [x].addEventListener("click", function(e) {
-      //         document.querySelectorAll("a[data-username]")[0].innerText =
-      //           "My Account";
-      //         window.PMApp("");
-      //         localStorage.setItem("user", "");
-      //         window.PMSetUser("");
-      //       });
-      //   }
-      // }
-
-      // function checkUser() {
-      //   if (localStorage.getItem("user") === null) {
-      //     window.PMSetUser("");
-      //   } else {
-      //     window.PMSetUser(localStorage.getItem("user"));
-      //   }
-      // }
-    </script>
   </body>
 </html>

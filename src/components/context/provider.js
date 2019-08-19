@@ -48,8 +48,6 @@ const Provider = props => {
   };
 
   // SET USER AND LOGGED IN STATE
-  //TODO Pass "MY ACCONT" or "WELCOME {NAME}" as state to header file
-  //TODO REDO HANDLING FOR SIGNING IN AND LOGGING OUT TO HANDLE CHANGE OF TEXT
   useEffect(() => {
     if (
       localStorage.getItem("user") === null ||
@@ -62,10 +60,6 @@ const Provider = props => {
       setUser(localStorage.getItem("user"));
     }
 
-    // if (document.querySelectorAll("a[data-username]")[0])
-    //   document.querySelectorAll("a[data-username]")[0].innerText =
-    //     user === "" ? "My Account" : `Welcome ${user}`;
-
     let isLoggedIn;
 
     isLoggedIn = user !== "";
@@ -75,6 +69,7 @@ const Provider = props => {
     setWelcomeMessage(user || "My Account");
   }, [user]);
 
+  //SET LOCAL STORAGE FOR USER
   const setLocalStorageUser = data => {
     localStorage.setItem("user", data);
     setUser(data);
