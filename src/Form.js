@@ -15,7 +15,6 @@ const Form = props => {
 
   //MY ACCOUNT ROUTE CLICK
   function pushHistory(e) {
-    console.log("run");
     e.preventDefault();
 
     props.history.push({
@@ -25,27 +24,27 @@ const Form = props => {
 
   const [appLoaded, setAppLoadState] = useState(false);
 
-  useEffect(() => {
-    if (appLoaded !== true) {
-      document.getElementById("logo").removeEventListener("click", pushHistory);
-
-      document
-        .getElementById("logout")
-        .removeEventListener("click", pushHistory);
-
-      document
-        .getElementById("account")
-        .removeEventListener("click", pushHistory);
-
-      document.getElementById("logo").addEventListener("click", pushHistory);
-
-      document.getElementById("logout").addEventListener("click", pushHistory);
-
-      document.getElementById("account").addEventListener("click", pushHistory);
-
-      setAppLoadState(true);
-    }
-  }, [appLoaded]);
+  // useEffect(() => {
+  //   if (appLoaded !== true) {
+  //     document.getElementById("logo").removeEventListener("click", pushHistory);
+  //
+  //     document
+  //       .getElementById("logout")
+  //       .removeEventListener("click", pushHistory);
+  //
+  //     document
+  //       .getElementById("account")
+  //       .removeEventListener("click", pushHistory);
+  //
+  //     document.getElementById("logo").addEventListener("click", pushHistory);
+  //
+  //     document.getElementById("logout").addEventListener("click", pushHistory);
+  //
+  //     document.getElementById("account").addEventListener("click", pushHistory);
+  //
+  //     setAppLoadState(true);
+  //   }
+  // }, [appLoaded]);
 
   if (props.data.appType === "login") {
     window.dispatchEvent(new Event("resize"));

@@ -15,88 +15,45 @@
       opacity: 0;
     }
   </style>
-  <body onload="checkUser()">
-    <header class="hideOnLoad">
-      <a id="logo" href="/"
-        ><img
-          src="https://www.sunwing.ca/Content/images/global/header/sunwing-experience-the-difference-white-logo.png"
-      /></a>
-      <ul>
-        <li>
-          <a data-username="">My Account</a>
-          <ul>
-            <li>
-              <a
-                href="/recentlist"
-                class="pmappclick"
-                id="recentlist"
-                data-acctype="recentlist"
-                >My Favorite List</a
-              >
-            </li>
-            <li>
-              <a class="pmappclick" data-acctype="create">Create Account</a>
-            </li>
-            <li>
-              <a class="pmappclick" data-acctype="login">Sign In</a>
-            </li>
-
-            <li>
-              <a class="pmappclick" id="logout" data-acctype="logout" href="/"
-                >Logout</a
-              >
-            </li>
-            <li>
-              <a
-                class="pmappclick"
-                id="account"
-                data-acctype="account"
-                href="/myaccount"
-                >My Account</a
-              >
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </header>
+  <body>
+    <header class="hideOnLoad" id="header"></header>
     <div id="PMApp"></div>
 
     <script>
       let numOfClicks = document.getElementsByClassName("pmappclick").length;
 
-      for (let x = 0; x < numOfClicks; x++) {
-        if (
-          document
-            .getElementsByClassName("pmappclick")
-            [x].getAttribute("data-acctype") !== "logout"
-        ) {
-          document
-            .getElementsByClassName("pmappclick")
-            [x].addEventListener("click", function(e) {
-              window.PMApp(e.target.getAttribute("data-acctype"));
-              window.PMSignInModal();
-            });
-        } else {
-          document
-            .getElementsByClassName("pmappclick")
-            [x].addEventListener("click", function(e) {
-              console.log("logout");
-              document.querySelectorAll("a[data-username]")[0].innerText =
-                "My Account";
-              window.PMApp("");
-              localStorage.setItem("user", "");
-              window.PMSetUser("");
-            });
-        }
-      }
+      // for (let x = 0; x < numOfClicks; x++) {
+      //   if (
+      //     document
+      //       .getElementsByClassName("pmappclick")
+      //       [x].getAttribute("data-acctype") !== "logout"
+      //   ) {
+      //     document
+      //       .getElementsByClassName("pmappclick")
+      //       [x].addEventListener("click", function(e) {
+      //         window.PMApp(e.target.getAttribute("data-acctype"));
+      //         window.PMSignInModal();
+      //       });
+      //   } else {
+      //     document
+      //       .getElementsByClassName("pmappclick")
+      //       [x].addEventListener("click", function(e) {
+      //         document.querySelectorAll("a[data-username]")[0].innerText =
+      //           "My Account";
+      //         window.PMApp("");
+      //         localStorage.setItem("user", "");
+      //         window.PMSetUser("");
+      //       });
+      //   }
+      // }
 
-      function checkUser() {
-        if (localStorage.getItem("user") === null) {
-          window.PMSetUser("");
-        } else {
-          window.PMSetUser(localStorage.getItem("user"));
-        }
-      }
+      // function checkUser() {
+      //   if (localStorage.getItem("user") === null) {
+      //     window.PMSetUser("");
+      //   } else {
+      //     window.PMSetUser(localStorage.getItem("user"));
+      //   }
+      // }
     </script>
   </body>
 </html>

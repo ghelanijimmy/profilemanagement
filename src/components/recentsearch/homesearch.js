@@ -29,7 +29,6 @@ const HomeSearch = props => {
   hasFavouriteList = false;
 
   const handleEditProfileClick = e => {
-    console.log(e);
     e.preventDefault();
     props.data.setTabOption("account");
 

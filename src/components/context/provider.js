@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Context from "./context";
 import styles from "../../css/_index.scss";
 import modalStyle from "../modal/_modal.scss";
+import Header from "../header/header";
 
 const Provider = props => {
   const [appType, setAppType] = useState("");
@@ -13,6 +14,7 @@ const Provider = props => {
   const [tabOption, setTabOption] = useState("");
   const [hasBooking, setBooking] = useState(false);
   const [profileComplete, setProfileComplete] = useState(25);
+  const [welcomeMessage, setWelcomeMessage] = useState("My Account");
 
   //SET FIRST TIME LOGIN OR CREATE TO COMPLETE PROFILE
   // localStorage.setItem("firstTime", true);
@@ -20,6 +22,14 @@ const Provider = props => {
   // useEffect(() => {
   //   if (localStorage.getItem("firstTime")) setFirstTime(true);
   // });
+
+  //LOGOUT HANDLER
+  const handleLogout = e => {
+    setAppType("");
+    localStorage.setItem("user", "");
+    setUser("");
+    setWelcomeMessage("My Account");
+  };
 
   //HANDLE HOME SEARCH TAB OPTIONS
   const handleSearchOptionChange = e => {
@@ -37,7 +47,9 @@ const Provider = props => {
     else setTabOption(e.target.dataset.searchoption);
   };
 
-  //SET USER AND LOGGED IN STATE
+  // SET USER AND LOGGED IN STATE
+  //TODO Pass "MY ACCONT" or "WELCOME {NAME}" as state to header file
+  //TODO REDO HANDLING FOR SIGNING IN AND LOGGING OUT TO HANDLE CHANGE OF TEXT
   useEffect(() => {
     if (
       localStorage.getItem("user") === null ||
@@ -50,8 +62,9 @@ const Provider = props => {
       setUser(localStorage.getItem("user"));
     }
 
-    document.querySelectorAll("a[data-username]")[0].innerText =
-      user === "" ? "My Account" : `Welcome ${user}`;
+    // if (document.querySelectorAll("a[data-username]")[0])
+    //   document.querySelectorAll("a[data-username]")[0].innerText =
+    //     user === "" ? "My Account" : `Welcome ${user}`;
 
     let isLoggedIn;
 
@@ -59,28 +72,8 @@ const Provider = props => {
 
     setLoggedInState(isLoggedIn);
 
-    document.querySelectorAll(".pmappclick").forEach(el => {
-      if (el.id !== "logout" && el.id !== "account") {
-        if (isLoggedIn) {
-          el.classList.add(styles.dNone);
-        } else {
-          el.classList.remove(styles.dNone);
-        }
-      } else if (el.id === "logout" || el.id === "account") {
-        if (isLoggedIn) {
-          el.classList.remove(styles.dNone);
-        } else {
-          el.classList.add(styles.dNone);
-        }
-      }
-    });
+    setWelcomeMessage(user || "My Account");
   }, [user]);
-
-  window.PMSetUser = setUser;
-
-  //SET APP TYPE
-
-  window.PMApp = setAppType;
 
   const setLocalStorageUser = data => {
     localStorage.setItem("user", data);
@@ -89,10 +82,10 @@ const Provider = props => {
 
   //SET MODAL STATE
   const setModalState = () => {
-    if (!modal) modalState(true);
-    else modalState(false);
+    if (!modal) {
+      modalState(true);
+    } else modalState(false);
   };
-  window.PMSignInModal = setModalState;
 
   //HANDLE RESIZE MODAL
   useEffect(() => {
@@ -140,7 +133,9 @@ const Provider = props => {
         setTabOption,
         handleTabOptionChange,
         profileComplete,
-        setProfileComplete
+        setProfileComplete,
+        handleLogout,
+        welcomeMessage
       }}
     >
       {props.children}
