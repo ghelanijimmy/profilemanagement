@@ -15,6 +15,9 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Booking from "./booking";
 import searchStyles from "../recentsearch/_recentsearch.scss";
+import Account from "./account";
+import Travelpref from "./travelpref";
+import Bookingpref from "./bookingpref";
 
 const Myaccount = props => {
   // const [tabOption, setTabOption] = useState("");
@@ -23,7 +26,11 @@ const Myaccount = props => {
   useEffect(() => {
     switch (props.data.tabOption) {
       case "booking":
-        setDashboardRender(null);
+        setDashboardRender(
+          <p className={`${dashboardStyles.Title} ${dashboardStyles.blue}`}>
+            My booking
+          </p>
+        );
         break;
       case "account":
         setDashboardRender(
@@ -97,7 +104,11 @@ const Myaccount = props => {
           />
           <section>
             {/*<p className={styles.Title}>Welcome, {props.data.user}</p>*/}
-            <div className={elementStyles.searchOptions}>
+            <div
+              className={`${elementStyles.background} ${
+                elementStyles.searchOptions
+              }`}
+            >
               <Tabs
                 searchOption={"booking"}
                 text={"My booking"}
@@ -137,19 +148,24 @@ const Myaccount = props => {
             </div>
             {dashboardRender !== null ? (
               <div
-                className={`${dashboardStyles.infoWrapper} ${styles.section}`}
+                className={
+                  props.data.tabOption === "booking"
+                    ? `${dashboardStyles.infoWrapper} ${styles.section} ${
+                        dashboardStyles.infoWrapperBG
+                      }`
+                    : `${dashboardStyles.infoWrapper} ${styles.section}`
+                }
               >
-                {dashboardRender}
+                {props.data.tabOption === "booking" ? (
+                  <Booking header={dashboardRender} />
+                ) : props.data.tabOption === "account" ? (
+                  <Account header={dashboardRender} />
+                ) : props.data.tabOption === "travelpref" ? (
+                  <Travelpref header={dashboardRender} />
+                ) : props.data.tabOption === "bookingpref" ? (
+                  <Bookingpref header={dashboardRender} />
+                ) : null}
               </div>
-            ) : null}
-            {props.data.tabOption === "booking" ? (
-              <Booking />
-            ) : props.data.tabOption === "account" ? (
-              ""
-            ) : props.data.tabOption === "travelpref" ? (
-              ""
-            ) : props.data.tabOption === "bookingpref" ? (
-              ""
             ) : null}
           </section>
         </div>

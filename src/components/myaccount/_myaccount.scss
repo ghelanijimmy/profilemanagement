@@ -21,7 +21,17 @@
     .infoWrapper {
       border: 1px solid $grayBlue;
       margin-top: 1.25em;
+
+      &.infoWrapperBG {
+        background-color: $babyBlue;
+        border: none;
+
+        .Title {
+          color: $grayBlack;
+        }
+      }
     }
+
     .booking {
       &.Wrapper {
         padding: 1.25em 1.875em;

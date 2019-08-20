@@ -4,6 +4,20 @@
 .searchOptions {
   display: flex;
   align-items: center;
+  margin-top: 2em;
+
+  &.background {
+    background-color: $whiteGray;
+
+    button {
+      border: none;
+      border-right: 2px solid white;
+
+      &.activeOption {
+        border: none;
+      }
+    }
+  }
 
   .activeOption{
     &:after {

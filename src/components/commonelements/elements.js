@@ -81,7 +81,7 @@ export const HeaderBar = Consumer(props => {
   const searchRef = React.createRef();
   const listRef = React.createRef();
   return (
-    <div className={`${elementStyles.headerBar} ${elementStyles.header}`}>
+    <section className={`${elementStyles.headerBar} ${elementStyles.header}`}>
       <div className={`${elementStyles.headerBar} ${elementStyles.Title}`}>
         <p className={`${styles.Title}`}>
           Welcome Back{props.data.user === "" ? "" : `, ${props.data.user}`}
@@ -141,6 +141,6 @@ export const HeaderBar = Consumer(props => {
           link={props.list}
         />
       </div>
-    </div>
+    </section>
   );
 });

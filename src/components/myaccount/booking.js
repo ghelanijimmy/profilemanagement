@@ -2,17 +2,12 @@ import React from "react";
 import PropTypes from "prop-types";
 import styles from "../../css/_index.scss";
 import bookingStyles from "./_myaccount.scss";
+import Consumer from "../context/consumer";
 
 const Booking = props => {
-  return (
-    <div className={`${bookingStyles.booking} ${bookingStyles.Wrapper}`}>
-      <div className={styles.flexHalf}>
-        <p className={bookingStyles.Title}>My booking</p>
-      </div>
-    </div>
-  );
+  return <React.Fragment>{props.header}</React.Fragment>;
 };
 
 Booking.propTypes = {};
 
-export default Booking;
+export default Consumer(Booking);
