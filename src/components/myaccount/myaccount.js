@@ -3,7 +3,7 @@ import Consumer from "../context/consumer";
 import dashboardStyles from "./_myaccount.scss";
 import styles from "../../css/_index.scss";
 import elementStyles from "../commonelements/_elements.scss";
-import { Tabs } from "../commonelements/elements";
+import { HeaderBar, Tabs } from "../commonelements/elements";
 import {
   faChevronDown,
   faFileAlt,
@@ -14,6 +14,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Booking from "./booking";
+import searchStyles from "../recentsearch/_recentsearch.scss";
 
 const Myaccount = props => {
   // const [tabOption, setTabOption] = useState("");
@@ -80,65 +81,70 @@ const Myaccount = props => {
 
   if (props.data.isLoggedIn)
     return (
-      <div
-        className={`${dashboardStyles.dashboard} ${dashboardStyles.Wrapper}`}
-      >
-        <section>
-          <p className={styles.Title}>Welcome, {props.data.user}</p>
-          <div className={elementStyles.searchOptions}>
-            <Tabs
-              searchOption={"booking"}
-              text={"My booking"}
-              iconPosition={"right"}
-              icon={faChevronDown}
-              ref={bookingRef}
-              handleTabClick={() => props.data.handleTabOptionChange}
-              stateOption={props.data.tabOption}
-            />
-            <Tabs
-              searchOption={"account"}
-              text={"My account info"}
-              iconPosition={"right"}
-              icon={faChevronDown}
-              ref={accountRef}
-              handleTabClick={() => props.data.handleTabOptionChange}
-              stateOption={props.data.tabOption}
-            />
-            <Tabs
-              searchOption={"travelpref"}
-              text={"Travel preferences"}
-              iconPosition={"right"}
-              icon={faChevronDown}
-              ref={travelPrefRef}
-              handleTabClick={() => props.data.handleTabOptionChange}
-              stateOption={props.data.tabOption}
-            />
-            <Tabs
-              searchOption={"bookingpref"}
-              text={"Booking preferences"}
-              iconPosition={"right"}
-              icon={faChevronDown}
-              ref={bookingPrefRef}
-              handleTabClick={() => props.data.handleTabOptionChange}
-              stateOption={props.data.tabOption}
-            />
-          </div>
-          {dashboardRender !== null ? (
-            <div className={`${dashboardStyles.infoWrapper} ${styles.section}`}>
-              {dashboardRender}
+      <React.Fragment>
+        <div
+          className={`${dashboardStyles.dashboard} ${dashboardStyles.Wrapper}`}
+        >
+          <HeaderBar />
+          <section>
+            {/*<p className={styles.Title}>Welcome, {props.data.user}</p>*/}
+            <div className={elementStyles.searchOptions}>
+              <Tabs
+                searchOption={"booking"}
+                text={"My booking"}
+                iconPosition={"right"}
+                icon={faChevronDown}
+                ref={bookingRef}
+                handleTabClick={() => props.data.handleTabOptionChange}
+                stateOption={props.data.tabOption}
+              />
+              <Tabs
+                searchOption={"account"}
+                text={"My account info"}
+                iconPosition={"right"}
+                icon={faChevronDown}
+                ref={accountRef}
+                handleTabClick={() => props.data.handleTabOptionChange}
+                stateOption={props.data.tabOption}
+              />
+              <Tabs
+                searchOption={"travelpref"}
+                text={"Travel preferences"}
+                iconPosition={"right"}
+                icon={faChevronDown}
+                ref={travelPrefRef}
+                handleTabClick={() => props.data.handleTabOptionChange}
+                stateOption={props.data.tabOption}
+              />
+              <Tabs
+                searchOption={"bookingpref"}
+                text={"Booking preferences"}
+                iconPosition={"right"}
+                icon={faChevronDown}
+                ref={bookingPrefRef}
+                handleTabClick={() => props.data.handleTabOptionChange}
+                stateOption={props.data.tabOption}
+              />
             </div>
-          ) : null}
-          {props.data.tabOption === "booking" ? (
-            <Booking />
-          ) : props.data.tabOption === "account" ? (
-            ""
-          ) : props.data.tabOption === "travelpref" ? (
-            ""
-          ) : props.data.tabOption === "bookingpref" ? (
-            ""
-          ) : null}
-        </section>
-      </div>
+            {dashboardRender !== null ? (
+              <div
+                className={`${dashboardStyles.infoWrapper} ${styles.section}`}
+              >
+                {dashboardRender}
+              </div>
+            ) : null}
+            {props.data.tabOption === "booking" ? (
+              <Booking />
+            ) : props.data.tabOption === "account" ? (
+              ""
+            ) : props.data.tabOption === "travelpref" ? (
+              ""
+            ) : props.data.tabOption === "bookingpref" ? (
+              ""
+            ) : null}
+          </section>
+        </div>
+      </React.Fragment>
     );
   else return null;
 };

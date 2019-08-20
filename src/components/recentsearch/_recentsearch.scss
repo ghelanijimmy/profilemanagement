@@ -5,50 +5,18 @@
     padding: 1em 4.1875em;
     position: relative;
 
-    .header {
-      display: flex;
-      justify-content: space-between;
-
-      .Title {
-        display: flex;
-        flex-wrap: nowrap;
-        align-items: center;
-      }
-
-      .progressCircle {
-        &.Wrapper {
-          display: flex;
-          flex-wrap: nowrap;
-          align-items: center;
-
-          svg {
-            width: $progressWidth;
-            margin: 0 .5em;
-          }
-
-          p {
-            $profileCompletionFontSize: .875em;
-            font-size: $profileCompletionFontSize;
-            span {
-              color: $orange;
-              font-weight: bold;
-              font-size: $profileCompletionFontSize;
-            }
-            a {
-              display: block;
-              font-size: $profileCompletionFontSize;
-
-              svg {
-                margin: 0;
-                width: auto;
-              }
-            }
-          }
-        }
-      }
-    }
-
     .searchContent {
+      transition: .3s all linear;
+      transform-origin: top;
+      &.hidden {
+        max-height: 0;
+        opacity: 0;
+      }
+      &.shown {
+        max-height: 500px;
+        opacity: 1;
+      }
+
       &.Wrapper {
         display: flex;
         flex-wrap: wrap;
