@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styles from "../../css/_index.scss";
 import elementStyles from "../commonelements/_elements.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -8,26 +9,50 @@ import { faHeart, faSearch } from "@fortawesome/free-solid-svg-icons";
 import Consumer from "../context/consumer";
 
 export const Tabs = React.forwardRef((props, ref) => {
-  return (
-    <button
-      onClick={props.handleTabClick(ref)}
-      className={
-        props.stateOption === props.searchOption
-          ? `${styles.btn} ${styles.primary} ${elementStyles.activeOption}`
-          : `${styles.btn} ${styles.primaryInverse}`
-      }
-      data-searchoption={props.searchOption}
-      ref={ref}
-    >
-      {props.iconPosition !== "right" ? (
-        <FontAwesomeIcon className={styles.left} icon={props.icon} />
-      ) : null}
-      {props.text}
-      {props.iconPosition === "right" ? (
-        <FontAwesomeIcon className={styles.right} icon={props.icon} />
-      ) : null}
-    </button>
-  );
+  if (props.expand || props.expand === undefined)
+    return (
+      <button
+        onClick={props.handleTabClick(ref)}
+        className={
+          props.stateOption === props.searchOption
+            ? `${styles.btn} ${styles.primary} ${elementStyles.activeOption}`
+            : `${styles.btn} ${styles.primaryInverse}`
+        }
+        data-searchoption={props.searchOption}
+        ref={ref}
+      >
+        {props.iconPosition !== "right" ? (
+          <FontAwesomeIcon className={styles.left} icon={props.icon} />
+        ) : null}
+        {props.text}
+        {props.iconPosition === "right" ? (
+          <FontAwesomeIcon className={styles.right} icon={props.icon} />
+        ) : null}
+      </button>
+    );
+  else if (props.expand === false)
+    return (
+      <Link to={props.link}>
+        <button
+          onClick={props.handleTabClick(ref)}
+          className={
+            props.stateOption === props.searchOption
+              ? `${styles.btn} ${styles.primary} ${elementStyles.activeOption}`
+              : `${styles.btn} ${styles.primaryInverse}`
+          }
+          data-searchoption={props.searchOption}
+          ref={ref}
+        >
+          {props.iconPosition !== "right" ? (
+            <FontAwesomeIcon className={styles.left} icon={props.icon} />
+          ) : null}
+          {props.text}
+          {props.iconPosition === "right" ? (
+            <FontAwesomeIcon className={styles.right} icon={props.icon} />
+          ) : null}
+        </button>
+      </Link>
+    );
 });
 
 Tabs.propTypes = {
@@ -89,6 +114,8 @@ export const HeaderBar = Consumer(props => {
           ref={searchRef}
           handleTabClick={() => props.data.handleSearchOptionChange}
           stateOption={props.data.searchOption}
+          expand={props.expand}
+          link={props.search}
         />
         <Tabs
           searchOption={"list"}
@@ -97,6 +124,8 @@ export const HeaderBar = Consumer(props => {
           ref={listRef}
           handleTabClick={() => props.data.handleSearchOptionChange}
           stateOption={props.data.searchOption}
+          expand={props.expand}
+          link={props.list}
         />
       </div>
     </div>

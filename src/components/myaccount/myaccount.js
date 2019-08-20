@@ -79,13 +79,22 @@ const Myaccount = props => {
     }
   }, [props.data.firstTime]);
 
+  //REMOVE SEARCH/LIST TAB ACTIVE
+  useEffect(() => {
+    props.data.changeSearchOption("");
+  }, []);
+
   if (props.data.isLoggedIn)
     return (
       <React.Fragment>
         <div
           className={`${dashboardStyles.dashboard} ${dashboardStyles.Wrapper}`}
         >
-          <HeaderBar />
+          <HeaderBar
+            expand={false}
+            search={"/recentsearches"}
+            list={"/favlist"}
+          />
           <section>
             {/*<p className={styles.Title}>Welcome, {props.data.user}</p>*/}
             <div className={elementStyles.searchOptions}>

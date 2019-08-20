@@ -11,7 +11,7 @@ const Provider = props => {
   const [user, setUser] = useState("");
   const [searchOption, changeSearchOption] = useState("search");
   const [firstTime, setFirstTime] = useState(null);
-  const [tabOption, setTabOption] = useState("");
+  const [tabOption, setTabOption] = useState("account");
   const [hasBooking, setBooking] = useState(false);
   const [profileComplete, setProfileComplete] = useState(25);
   const [welcomeMessage, setWelcomeMessage] = useState("My Account");

@@ -34,6 +34,10 @@ const HomeSearch = props => {
     });
   };
 
+  useEffect(() => {
+    if (props.data.searchOption === "") props.data.changeSearchOption("search");
+  }, []);
+
   const searchBoxText = () => {
     return (
       <React.Fragment>
@@ -62,7 +66,7 @@ const HomeSearch = props => {
     <section
       className={`${searchStyles.recentSearches} ${searchStyles.Wrapper}`}
     >
-      <HeaderBar />
+      <HeaderBar expand={true} />
       {props.data.searchOption === "search" ? (
         hasRecentSearches === true ? (
           <React.Fragment>
