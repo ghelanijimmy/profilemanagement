@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from "react";
 import { createPortal } from "react-dom";
 import Consumer from "../context/consumer";
@@ -8,7 +9,10 @@ const Header = props => {
   return (
     <React.Fragment>
       <Link id="logo" to="/">
-        <img src="https://www.sunwing.ca/Content/images/global/header/sunwing-experience-the-difference-white-logo.png" />
+        <img
+          src="https://www.sunwing.ca/Content/images/global/header/sunwing-experience-the-difference-white-logo.png"
+          alt={""}
+        />
       </Link>
       <ul>
         <li>
@@ -78,3 +82,7 @@ const RenderHeader = props => {
 };
 
 export default Consumer(RenderHeader);
+
+Header.propTypes = {
+  data: PropTypes.object
+};

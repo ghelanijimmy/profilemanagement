@@ -1,6 +1,7 @@
+import PropTypes from 'prop-types'
 import React from "react";
 import { Input } from "../input/input";
-import { Oauth } from "../oauth/oauth";
+// import { Oauth } from "../oauth/oauth";
 import styles from "../../css/_index.scss";
 import Modal from "../modal/modal";
 import Consumer from "../context/consumer";
@@ -53,3 +54,7 @@ const Login = props => {
 };
 
 export default Consumer(Login);
+
+Login.propTypes = {
+  data: PropTypes.object
+}

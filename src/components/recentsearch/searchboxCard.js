@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from "react";
 import searchStyles from "./_recentsearch.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -23,11 +24,7 @@ const SearchboxCard = props => {
   else
     return (
       <React.Fragment>
-        <div
-          className={`${searchStyles.searchBox} ${
-            searchStyles.searchBoxWithImage
-          }`}
-        >
+        <div className={`${searchStyles.searchBox} ${searchStyles.WithImage}`}>
           <div className={searchStyles.bgImage} />
           <div className={searchStyles.content}>{props.test()}</div>
           <span className={searchStyles.closeWrapper}>
@@ -39,3 +36,12 @@ const SearchboxCard = props => {
 };
 
 export default SearchboxCard;
+
+SearchboxCard.propTypes = {
+  hasBgImg: PropTypes.bool,
+  headingIcon: PropTypes.object,
+  headingText: PropTypes.string,
+  legText: PropTypes.string,
+  test: PropTypes.func,
+  titleText: PropTypes.string
+};

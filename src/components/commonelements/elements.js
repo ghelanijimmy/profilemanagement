@@ -4,7 +4,6 @@ import styles from "../../css/_index.scss";
 import elementStyles from "../commonelements/_elements.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import PropTypes from "prop-types";
-import searchStyles from "../recentsearch/_recentsearch.scss";
 import { faHeart, faSearch } from "@fortawesome/free-solid-svg-icons";
 import Consumer from "../context/consumer";
 

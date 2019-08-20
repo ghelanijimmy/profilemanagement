@@ -7,21 +7,18 @@ import { HeaderBar, Tabs } from "../commonelements/elements";
 import {
   faChevronDown,
   faFileAlt,
-  faGlobe,
   faGlobeAmericas,
-  faPrint,
   faUser
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Booking from "./booking";
-import searchStyles from "../recentsearch/_recentsearch.scss";
 import Account from "./account";
 import Travelpref from "./travelpref";
 import Bookingpref from "./bookingpref";
 
 const Myaccount = props => {
   // const [tabOption, setTabOption] = useState("");
-  const [dashboardRender, setDashboardRender] = useState("");
+  const [dashboardRender, setDashboardRender] = useState(null);
 
   useEffect(() => {
     switch (props.data.tabOption) {
@@ -69,7 +66,7 @@ const Myaccount = props => {
         );
         break;
       default:
-        setDashboardRender("");
+        setDashboardRender(null);
         break;
     }
   }, [props.data.tabOption]);

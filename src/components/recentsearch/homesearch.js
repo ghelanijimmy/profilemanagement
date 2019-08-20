@@ -1,23 +1,19 @@
+import PropTypes from "prop-types";
 import React, { useEffect } from "react";
 import searchStyles from "./_recentsearch.scss";
-import styles from "../../css/_index.scss";
-import elementStyles from "../commonelements/_elements.scss";
 import {
-  faSearch,
   faHeart,
   faEnvelope,
   faPlane,
-  faStar,
-  faChevronRight
+  faStar
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import SearchboxCard from "./searchboxCard";
-import { HeaderBar, Tabs } from "../commonelements/elements";
+import { HeaderBar } from "../commonelements/elements";
 import Consumer from "../context/consumer";
-import { CircularProgressbar } from "react-circular-progressbar";
+// import { CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
-//TODO Set tabOption to "account" when "Edit profile > " is clicked and
-// change it to regular "a" tag instead of Link
+
 const HomeSearch = props => {
   let hasRecentSearches;
   let hasFavouriteList;
@@ -25,14 +21,14 @@ const HomeSearch = props => {
   hasRecentSearches = true;
   hasFavouriteList = false;
 
-  const handleEditProfileClick = e => {
-    e.preventDefault();
-    props.data.setTabOption("account");
-
-    props.history.push({
-      pathname: "/myaccount"
-    });
-  };
+  // const handleEditProfileClick = e => {
+  //   e.preventDefault();
+  //   props.data.setTabOption("account");
+  //
+  //   props.history.push({
+  //     pathname: "/myaccount"
+  //   });
+  // };
 
   useEffect(() => {
     if (props.data.searchOption === "") props.data.changeSearchOption("search");
@@ -153,3 +149,8 @@ const HomeSearch = props => {
 };
 
 export default Consumer(HomeSearch);
+
+HomeSearch.propTypes = {
+  data: PropTypes.object,
+  history: PropTypes.object
+};

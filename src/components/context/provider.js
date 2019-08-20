@@ -1,8 +1,7 @@
+import PropTypes from 'prop-types'
 import React, { useState, useEffect } from "react";
 import Context from "./context";
-import styles from "../../css/_index.scss";
 import modalStyle from "../modal/_modal.scss";
-import Header from "../header/header";
 
 const Provider = props => {
   const [appType, setAppType] = useState("");
@@ -139,3 +138,7 @@ const Provider = props => {
 };
 
 export default Provider;
+
+Provider.propTypes = {
+  children: PropTypes.any
+}
