@@ -11,51 +11,64 @@ import Consumer from "../context/consumer";
 export const Tabs = React.forwardRef((props, ref) => {
   if (props.expand || props.expand === undefined)
     return (
-      <button
-        onClick={props.handleTabClick(ref)}
-        className={
-          props.stateOption === props.searchOption
-            ? `${styles.btn} ${styles.primary} ${elementStyles.activeOption}`
-            : `${styles.btn} ${styles.primaryInverse}`
-        }
-        data-searchoption={props.searchOption}
-        ref={ref}
-      >
-        {props.iconPosition !== "right" ? (
-          <FontAwesomeIcon className={styles.left} icon={props.icon} />
-        ) : null}
-        {props.text}
-        {props.iconPosition === "right" ? (
-          <FontAwesomeIcon className={styles.right} icon={props.icon} />
-        ) : null}
-      </button>
+      <TabButtons
+        handleTabClick={props.handleTabClick}
+        stateOption={props.stateOption}
+        searchOption={props.searchOption}
+        iconPosition={props.iconPosition}
+        icon={props.icon}
+        text={props.text}
+      />
     );
   else if (props.expand === false)
     return (
       <Link to={props.link}>
-        <button
-          onClick={props.handleTabClick(ref)}
-          className={
-            props.stateOption === props.searchOption
-              ? `${styles.btn} ${styles.primary} ${elementStyles.activeOption}`
-              : `${styles.btn} ${styles.primaryInverse}`
-          }
-          data-searchoption={props.searchOption}
-          ref={ref}
-        >
-          {props.iconPosition !== "right" ? (
-            <FontAwesomeIcon className={styles.left} icon={props.icon} />
-          ) : null}
-          {props.text}
-          {props.iconPosition === "right" ? (
-            <FontAwesomeIcon className={styles.right} icon={props.icon} />
-          ) : null}
-        </button>
+        <TabButtons
+          handleTabClick={props.handleTabClick}
+          stateOption={props.stateOption}
+          searchOption={props.searchOption}
+          iconPosition={props.iconPosition}
+          icon={props.icon}
+          text={props.text}
+        />
       </Link>
     );
 });
 
+export const TabButtons = React.forwardRef((props, ref) => {
+  return (
+    <button
+      onClick={props.handleTabClick(ref)}
+      className={
+        props.stateOption === props.searchOption
+          ? `${styles.btn} ${styles.primary} ${elementStyles.activeOption}`
+          : `${styles.btn} ${styles.primaryInverse}`
+      }
+      data-searchoption={props.searchOption}
+      ref={ref}
+    >
+      {props.iconPosition !== "right" ? (
+        <FontAwesomeIcon className={styles.left} icon={props.icon} />
+      ) : null}
+      {props.text}
+      {props.iconPosition === "right" ? (
+        <FontAwesomeIcon className={styles.right} icon={props.icon} />
+      ) : null}
+    </button>
+  );
+});
+
 Tabs.propTypes = {
+  expand: PropTypes.bool,
+  searchOption: PropTypes.string,
+  stateOption: PropTypes.string,
+  icon: PropTypes.object,
+  text: PropTypes.string,
+  iconPosition: PropTypes.string,
+  handleTabClick: PropTypes.func
+};
+
+TabButtons.propTypes = {
   searchOption: PropTypes.string,
   stateOption: PropTypes.string,
   icon: PropTypes.object,
