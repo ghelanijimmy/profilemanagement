@@ -17,6 +17,7 @@ export const Tabs = React.forwardRef((props, ref) => {
         iconPosition={props.iconPosition}
         icon={props.icon}
         text={props.text}
+        ref={ref}
       />
     );
   else if (props.expand === false)
@@ -29,6 +30,7 @@ export const Tabs = React.forwardRef((props, ref) => {
           iconPosition={props.iconPosition}
           icon={props.icon}
           text={props.text}
+          ref={ref}
         />
       </Link>
     );

@@ -92,6 +92,13 @@ a {
   margin-top: .5em;
   margin-bottom: .5em;
 
+  &.SmallBlue {
+    font-size: 1em;
+    margin: 0 0 1em;
+    display: block;
+    flex-basis: 100%;
+  }
+
   svg {
     margin-right: .5em;
   }
@@ -103,6 +110,14 @@ form {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
+
+  .hidden {
+    visibility: hidden;
+
+    input, select {
+      pointer-events: none;
+    }
+  }
 
   & > * {
     flex-basis: 100%;
@@ -153,6 +168,7 @@ form {
 
   label {
     font-size: .875em;
+    display: block;
   }
 
   input {
@@ -176,6 +192,10 @@ form {
 
   input[type="checkbox"] {
     margin-right: .5em;
+  }
+
+  .radioWrapper {
+    flex: 0 1 25% !important;
   }
 
   .forgotPassword {
@@ -207,6 +227,15 @@ form {
 }
 .flexOneFour {
   flex-basis: 20% !important;
+}
+.flexWrap {
+  flex-wrap: wrap;
+}
+.flexNoWrap {
+  flex-wrap: nowrap;
+}
+.justifyFlexStart {
+  justify-content: flex-start;
 }
 .marginTop0 {
   margin-top: 0;

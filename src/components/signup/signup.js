@@ -28,6 +28,7 @@ const SignUp = props => {
           fullWidth={true}
           showPasswordId={"showCreate"}
           showPasswordPlaceholder={"Show"}
+          showPasswordButton={true}
         />
         <Input
           type={"text"}

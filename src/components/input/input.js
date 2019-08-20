@@ -66,16 +66,18 @@ export const Input = props => {
             required={props.required ? props.required : false}
           />
         </span>
-        <span className={styles.flexOneFour}>
-          <button
-            id={props.showPasswordId}
-            onClick={showPass}
-            className={`${styles.btn} ${styles.primary} ${styles.dBlock}`}
-            type={"button"}
-          >
-            {props.showPasswordPlaceholder}
-          </button>
-        </span>
+        {props.showPasswordButton ? (
+          <span className={styles.flexOneFour}>
+            <button
+              id={props.showPasswordId}
+              onClick={showPass}
+              className={`${styles.btn} ${styles.primary} ${styles.dBlock}`}
+              type={"button"}
+            >
+              {props.showPasswordPlaceholder}
+            </button>
+          </span>
+        ) : null}
       </div>
     );
   } else if (props.type === "checkbox") {
@@ -131,6 +133,60 @@ export const Input = props => {
         />
       </span>
     );
+  } else if (props.type === "hidden") {
+    return (
+      <span
+        className={
+          props.fullWidth
+            ? `${styles.flexFull} ${styles.inputFlex}`
+            : `${styles.flexHalf} ${styles.inputFlex}`
+        }
+      >
+        <label className={props.block ? styles.dBlock : ""} htmlFor={props.id}>
+          {props.placeholder}
+        </label>
+        <input
+          type={props.type}
+          disabled={"disabled"}
+          placeholder={props.placeholder}
+          autoComplete={"off"}
+          className={props.block ? styles.dBlock : ""}
+          required={false}
+        />
+      </span>
+    );
+  } else if (props.type === "radio") {
+    return (
+      <React.Fragment>
+        {props.options.map((option, i) => {
+          return (
+            <span
+              key={i}
+              className={
+                props.fullWidth
+                  ? `${styles.flexFull} ${styles.inputFlex} ${
+                      styles.radioWrapper
+                    }`
+                  : `${styles.flexHalf} ${styles.inputFlex} ${
+                      styles.radioWrapper
+                    }`
+              }
+            >
+              <input
+                type={props.type}
+                placeholder={props.placeholder}
+                id={`${props.id}-${option}`}
+                name={props.id}
+                className={props.block ? styles.dBlock : ""}
+                required={props.required ? props.required : false}
+                value={option}
+              />
+              {option}
+            </span>
+          );
+        })}
+      </React.Fragment>
+    );
   }
 };
 
@@ -144,5 +200,8 @@ Input.propTypes = {
   required: PropTypes.bool,
   showPasswordId: PropTypes.string,
   showPasswordPlaceholder: PropTypes.string,
-  type: PropTypes.string
+  type: PropTypes.string,
+  showPasswordButton: PropTypes.bool,
+  numOptions: PropTypes.number,
+  options: PropTypes.array
 };

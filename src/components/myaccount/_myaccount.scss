@@ -18,6 +18,32 @@
       }
     }
 
+    form {
+      align-items: flex-start;
+      justify-content: space-between;
+      .formSplitHalf {
+        flex-basis: 50%;
+
+        .flexWrapper {
+          display: flex;
+          flex-wrap: wrap;
+          margin-right: 3em;
+
+          span, & > div {
+            margin-bottom: 1em;
+
+            input {
+              width: 95%;
+
+              &[type="radio"] {
+                width: auto;
+              }
+            }
+          }
+        }
+      }
+    }
+
     .infoWrapper {
       border: 1px solid $grayBlue;
       margin-top: 1.25em;

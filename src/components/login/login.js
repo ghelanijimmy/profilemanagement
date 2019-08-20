@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types'
+import PropTypes from "prop-types";
 import React from "react";
 import { Input } from "../input/input";
 // import { Oauth } from "../oauth/oauth";
@@ -35,6 +35,7 @@ const Login = props => {
           showPasswordId={"showLogin"}
           showPasswordPlaceholder={"Show"}
           required={true}
+          showPasswordButton={true}
         />
         <Input
           type={"checkbox"}
@@ -57,4 +58,4 @@ export default Consumer(Login);
 
 Login.propTypes = {
   data: PropTypes.object
-}
+};

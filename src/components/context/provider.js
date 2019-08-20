@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types'
+import PropTypes from "prop-types";
 import React, { useState, useEffect } from "react";
 import Context from "./context";
 import modalStyle from "../modal/_modal.scss";
@@ -38,6 +38,7 @@ const Provider = props => {
   };
 
   //HANDLE DASHBOARD TAB OPTIONS
+  //TODO Revisit button selection handling
   const handleTabOptionChange = e => {
     e.preventDefault();
 
@@ -141,4 +142,4 @@ export default Provider;
 
 Provider.propTypes = {
   children: PropTypes.any
-}
+};
