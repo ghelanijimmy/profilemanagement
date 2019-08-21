@@ -8,6 +8,11 @@ import Provider from "./components/context/provider";
 import Favlist from "./components/recentsearch/favlist";
 import RenderHeader from "./components/header/header";
 import Recentsearch from "./components/recentsearch/recentsearch";
+import "./css/_variables.scss";
+import "./css/_index.scss";
+
+//TODO JCF React Equivalent For Styled Form Elements
+//TODO Recent Searches / List make expandable on non dashboard pages
 
 const App = () => {
   return (

@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import React, { useEffect } from "react";
 import searchStyles from "./_recentsearch.scss";
+import searchCardStyles from "../commonelements/_elements.scss";
 import {
   faHeart,
   faEnvelope,
@@ -8,7 +9,7 @@ import {
   faStar
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import SearchboxCard from "./searchboxCard";
+import SearchboxCard from "../commonelements/searchboxCard";
 import { HeaderBar } from "../commonelements/elements";
 import Consumer from "../context/consumer";
 // import { CircularProgressbar } from "react-circular-progressbar";
@@ -37,11 +38,11 @@ const HomeSearch = props => {
   const searchBoxText = () => {
     return (
       <React.Fragment>
-        <p className={`${searchStyles.titleWithRating}`}>
-          <span className={searchStyles.title}>
+        <p className={`${searchCardStyles.titleWithRating}`}>
+          <span className={searchCardStyles.title}>
             Royalton Bavaro Resort and Spa
           </span>
-          <span className={searchStyles.ratingWrapper}>
+          <span className={searchCardStyles.ratingWrapper}>
             <FontAwesomeIcon icon={faStar} />
             <FontAwesomeIcon icon={faStar} />
             <FontAwesomeIcon icon={faStar} />
@@ -53,7 +54,7 @@ const HomeSearch = props => {
         <p>Superior 4.2/5 (1000+ reviews)</p>
         <p>All inclusive | 5 days | Aug 25-Aug 30</p>
         <p>2 Adults, 2 Children</p>
-        <p className={searchStyles.searchCardFooterText}>15+ room types</p>
+        <p className={searchCardStyles.searchCardFooterText}>15+ room types</p>
       </React.Fragment>
     );
   };
@@ -81,14 +82,14 @@ const HomeSearch = props => {
                 hasBgImg={true}
                 titleText={"Montreal-Montago Bay"}
                 cardContent={`<p class=${
-                  searchStyles.title
+                  searchCardStyles.title
                 }>Royalton Bavaro Resort and Spa</p>
                   <p>Punta Cana, Dominican Republic</p>
                   <p>Superior 4.2/5 (1000+ reviews)</p>
                   <p>All inclusive | 5 days | Aug 25-Aug 30</p>
                   <p>2 Adults, 2 Children</p>
                   <p class=${
-                    searchStyles.searchCardFooterText
+                    searchCardStyles.searchCardFooterText
                   }>15+ room types</p>`}
                 test={searchBoxText}
               />

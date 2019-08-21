@@ -98,7 +98,10 @@ export const Input = props => {
           id={props.id}
           autoComplete={"off"}
         />
-        <label className={props.block ? styles.dBlock : ""} htmlFor={props.id}>
+        <label
+          className={props.block ? styles.dBlock : styles.dInline}
+          htmlFor={props.id}
+        >
           {props.placeholder}
         </label>
       </span>
@@ -203,5 +206,6 @@ Input.propTypes = {
   type: PropTypes.string,
   showPasswordButton: PropTypes.bool,
   numOptions: PropTypes.number,
-  options: PropTypes.array
+  options: PropTypes.array,
+  inline: PropTypes.bool
 };

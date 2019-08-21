@@ -43,6 +43,7 @@ const Login = props => {
           placeholder={"Remember Me"}
           block={false}
           fullWidth={false}
+          inline={true}
         />
         <a className={`${styles.flexHalf} ${styles.forgotPassword}`}>
           Forgot password?

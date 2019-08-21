@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from "react";
 import Consumer from "../context/consumer";
 import { Input } from "../input/input";
@@ -72,13 +73,13 @@ const Account = props => {
             <p className={`${styles.Title} ${styles.SmallBlue}`}>
               Language preference
             </p>
-	          <Input
-	            required={true}
-	            type={"radio"}
-	            id={"language"}
-	            numOptions={2}
-	            options={["English", "French"]}
-	          />
+            <Input
+              required={true}
+              type={"radio"}
+              id={"language"}
+              numOptions={2}
+              options={["English", "French"]}
+            />
           </div>
         </div>
       </form>
@@ -87,3 +88,7 @@ const Account = props => {
 };
 
 export default Consumer(Account);
+
+Account.propTypes = {
+  header: PropTypes.object
+};

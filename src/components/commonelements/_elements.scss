@@ -36,7 +36,7 @@
   }
 
 }
-
+//HEADER BAR
 .headerBar {
   &.header {
     display: flex;
@@ -77,6 +77,123 @@
             }
           }
         }
+      }
+    }
+  }
+}
+
+//SEARCH CARDS
+.searchBox {
+  padding: .5em;
+  background-color: $white;
+  flex-basis: 49%;
+  position: relative;
+
+  .closeWrapper {
+    position: absolute;
+    top: .25em;
+    right: .5em;
+    cursor: pointer;
+
+    svg {
+      path {
+        fill: $lightGray;
+      }
+    }
+  }
+
+  &.WithImage {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    .bgImage {
+      background-size: cover;
+      background: url("http://placehold.it/300x500") no-repeat center;
+      flex-basis: 30%;
+    }
+    .content {
+      flex-basis: 70%;
+      padding: .5em;
+    }
+  }
+
+  &:nth-of-type(even){
+    margin-left: 1%;
+  }
+  &:nth-of-type(odd){
+    margin-right: 1%;
+  }
+
+  .iconHeading {
+    color: $blue;
+    margin-bottom: .875em;
+    margin-top: .5em;
+    font-weight: bold;
+
+    svg {
+      transform: rotateZ(-45deg);
+    }
+  }
+  .title {
+    font-size: 1em;
+    font-weight: bold;
+    margin-bottom: .25em;
+    margin-top: .5em;
+
+    &.Blue {
+      color: $blue;
+    }
+  }
+  .legText {
+    color: $midGray;
+    font-size: .875em;
+  }
+  &.bookingCard {
+    margin: 0 0 .75em;
+
+    .textWrapper {
+      display: flex;
+      flex-wrap: nowrap;
+      .textBlock {
+        flex: 1 1 auto;
+        flex-wrap: wrap;
+        display: flex;
+
+        &:first-of-type {
+          flex: 0 1 50%;
+        }
+
+        & > * {
+          flex-basis: 100%;
+        }
+        &.buttonBlock {
+          flex: 1 0 auto;
+        }
+      }
+    }
+  }
+  p {
+    margin-top: 0;
+    margin-bottom: 0em;
+    font-size: .875em;
+    display: flex;
+    align-items: center;
+
+    &.searchCardFooterText {
+      margin-top: 1em;
+      margin-bottom: 0;
+    }
+
+    &.titleWithRating {
+
+      .title {
+        flex: 0 1 auto;
+      }
+      .ratingWrapper {
+        flex: 1 0 auto;
+        font-size: .5em;
+        color: $ratingOrange;
+        margin-left: .875em;
       }
     }
   }
