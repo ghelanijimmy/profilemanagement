@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import React from "react";
 import searchStyles from "../commonelements/_elements.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlane, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import styles from "../../css/_index.scss";
 
 const SearchboxCard = props => {

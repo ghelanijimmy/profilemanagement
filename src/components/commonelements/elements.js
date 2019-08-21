@@ -18,6 +18,7 @@ export const Tabs = React.forwardRef((props, ref) => {
         icon={props.icon}
         text={props.text}
         ref={ref}
+        notSetBox={props.notSetBox}
       />
     );
   else if (props.expand === false)
@@ -55,6 +56,11 @@ export const TabButtons = React.forwardRef((props, ref) => {
       {props.iconPosition === "right" ? (
         <FontAwesomeIcon className={styles.right} icon={props.icon} />
       ) : null}
+      {props.notSetBox ? (
+        <span className={`${elementStyles.notSet} ${elementStyles.Wrapper}`}>
+          Not Set
+        </span>
+      ) : null}
     </button>
   );
 });
@@ -66,7 +72,8 @@ Tabs.propTypes = {
   icon: PropTypes.object,
   text: PropTypes.string,
   iconPosition: PropTypes.string,
-  handleTabClick: PropTypes.func
+  handleTabClick: PropTypes.func,
+  notSetBox: PropTypes.bool
 };
 
 TabButtons.propTypes = {
@@ -75,7 +82,8 @@ TabButtons.propTypes = {
   icon: PropTypes.object,
   text: PropTypes.string,
   iconPosition: PropTypes.string,
-  handleTabClick: PropTypes.func
+  handleTabClick: PropTypes.func,
+  notSetBox: PropTypes.bool
 };
 
 export const HeaderBar = Consumer(props => {

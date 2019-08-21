@@ -132,6 +132,7 @@ const Myaccount = props => {
                 ref={travelPrefRef}
                 handleTabClick={() => props.data.handleTabOptionChange}
                 stateOption={props.data.tabOption}
+                notSetBox={props.data.travelPref}
               />
               <Tabs
                 searchOption={"bookingpref"}
@@ -141,6 +142,7 @@ const Myaccount = props => {
                 ref={bookingPrefRef}
                 handleTabClick={() => props.data.handleTabOptionChange}
                 stateOption={props.data.tabOption}
+                notSetBox={props.data.bookingPref}
               />
             </div>
             {dashboardRender !== null ? (

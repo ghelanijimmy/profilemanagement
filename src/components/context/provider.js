@@ -14,6 +14,8 @@ const Provider = props => {
   const [hasBooking, setBooking] = useState(false);
   const [profileComplete, setProfileComplete] = useState(25);
   const [welcomeMessage, setWelcomeMessage] = useState("My Account");
+  const [travelPref, setTravelPref] = useState(true);
+  const [bookingPref, setBookingPref] = useState(true);
 
   //SET FIRST TIME LOGIN OR CREATE TO COMPLETE PROFILE
   // localStorage.setItem("firstTime", true);
@@ -130,7 +132,9 @@ const Provider = props => {
         profileComplete,
         setProfileComplete,
         handleLogout,
-        welcomeMessage
+        welcomeMessage,
+        travelPref,
+        bookingPref
       }}
     >
       {props.children}

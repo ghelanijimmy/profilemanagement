@@ -35,6 +35,20 @@
     }
   }
 
+  .notSet {
+    &.Wrapper {
+      position: absolute;
+      top: -.75em;
+      left: .5em;
+      background-color: $orange;
+      color: $white;
+      font-weight: bold;
+      font-size: .5em;
+      padding: .25em .5em;
+      border-radius: .5em;
+    }
+  }
+
 }
 //HEADER BAR
 .headerBar {

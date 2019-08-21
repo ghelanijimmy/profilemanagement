@@ -13,6 +13,8 @@ import "./css/_index.scss";
 
 //TODO JCF React Equivalent For Styled Form Elements
 //TODO Recent Searches / List make expandable on non dashboard pages
+//TODO Set my account info to populate in my account tab in dashboard
+//TODO add 'Not Set' box on top of travel pref and booking pref on dashboard
 
 const App = () => {
   return (
