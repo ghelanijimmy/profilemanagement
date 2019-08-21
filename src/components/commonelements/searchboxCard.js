@@ -31,7 +31,12 @@ const SearchboxCard = props => {
             className={`${searchStyles.searchBox} ${searchStyles.bookingCard}`}
           >
             <p className={searchStyles.iconHeading}>
-              <FontAwesomeIcon icon={props.headingIcon} />
+              <FontAwesomeIcon
+                className={
+                  props.headingText === "Flight" ? searchStyles.iconRotate : ""
+                }
+                icon={props.headingIcon}
+              />
               {props.headingText}
             </p>
             <div className={searchStyles.textWrapper}>

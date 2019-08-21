@@ -3,9 +3,8 @@ import React from "react";
 import Consumer from "../context/consumer";
 import SearchboxCard from "../commonelements/searchboxCard";
 import {
-  faCircle,
   faHotel,
-  faPlaneDeparture,
+  faPlane,
   faUmbrellaBeach
 } from "@fortawesome/free-solid-svg-icons";
 //TODO REFACTR STYLES TO BE HANDLED BY SEARCHBOX CARD COMP
@@ -21,7 +20,7 @@ const Booking = props => {
     {
       destination: "Las Vegas",
       type: "Flight",
-      icon: faPlaneDeparture,
+      icon: faPlane,
       date: "04 Dec, 2019",
       bookingNumber: 10938324
     },
