@@ -16,6 +16,13 @@ const Provider = props => {
   const [welcomeMessage, setWelcomeMessage] = useState("My Account");
   const [travelPref, setTravelPref] = useState(true);
   const [bookingPref, setBookingPref] = useState(true);
+  const [travelPrefAirports, setTravelPrefAirports] = useState(false);
+  const [travelPrefPackages, setTravelPrefPackages] = useState(false);
+  const [travelPrefFavourites, setTravelPrefFavourites] = useState(false);
+  const [travelPrefHotels, setTravelPrefHotels] = useState(false);
+  const [travelPrefRooms, setTravelPrefRooms] = useState(false);
+  const [travelPrefFacilities, setTravelPrefFacilities] = useState(false);
+  const [travelPrefExpanded, setTravelPrefExpanded] = useState(false);
 
   //SET FIRST TIME LOGIN OR CREATE TO COMPLETE PROFILE
   // localStorage.setItem("firstTime", true);
@@ -23,6 +30,63 @@ const Provider = props => {
   // useEffect(() => {
   //   if (localStorage.getItem("firstTime")) setFirstTime(true);
   // });
+
+  //HANDLE TRAVEL PREF COLLAPSED SECTIONS
+  const handleTravelCollapse = section => {
+    switch (section) {
+      case "airports":
+        setTravelPrefExpanded(false);
+        setTravelPrefAirports(!travelPrefAirports);
+        break;
+      case "packages":
+        setTravelPrefExpanded(false);
+        setTravelPrefPackages(!travelPrefPackages);
+        break;
+      case "favourites":
+        setTravelPrefExpanded(false);
+        setTravelPrefFavourites(!travelPrefFavourites);
+        break;
+      case "hotels":
+        setTravelPrefExpanded(false);
+        setTravelPrefHotels(!travelPrefHotels);
+        break;
+      case "rooms":
+        setTravelPrefExpanded(false);
+        setTravelPrefRooms(!travelPrefRooms);
+        break;
+      case "facilities":
+        setTravelPrefExpanded(false);
+        setTravelPrefFacilities(!travelPrefFacilities);
+        break;
+      case "all":
+        if (travelPrefExpanded) {
+          setTravelPrefExpanded(false);
+          setTravelPrefAirports(false);
+          setTravelPrefPackages(false);
+          setTravelPrefFavourites(false);
+          setTravelPrefHotels(false);
+          setTravelPrefRooms(false);
+          setTravelPrefFacilities(false);
+        } else {
+          setTravelPrefExpanded(true);
+          setTravelPrefAirports(true);
+          setTravelPrefPackages(true);
+          setTravelPrefFavourites(true);
+          setTravelPrefHotels(true);
+          setTravelPrefRooms(true);
+          setTravelPrefFacilities(true);
+        }
+        break;
+      default:
+        setTravelPrefAirports(false);
+        setTravelPrefPackages(false);
+        setTravelPrefFavourites(false);
+        setTravelPrefHotels(false);
+        setTravelPrefRooms(false);
+        setTravelPrefFacilities(false);
+        break;
+    }
+  };
 
   //LOGOUT HANDLER
   const handleLogout = e => {
@@ -134,7 +198,15 @@ const Provider = props => {
         handleLogout,
         welcomeMessage,
         travelPref,
-        bookingPref
+        bookingPref,
+        handleTravelCollapse,
+        travelPrefAirports,
+        travelPrefPackages,
+        travelPrefFavourites,
+        travelPrefHotels,
+        travelPrefRooms,
+        travelPrefFacilities,
+        travelPrefExpanded
       }}
     >
       {props.children}

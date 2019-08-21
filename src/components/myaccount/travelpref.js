@@ -11,7 +11,12 @@ const Travelpref = props => {
       {props.header}
       <div className={travelStyles.travelPref}>
         <div className={travelStyles.bottomBorder}>
-          <p className={travelStyles.blue}>Expand all</p>
+          <p
+            className={travelStyles.blue}
+            onClick={() => props.data.handleTravelCollapse('all')}
+          >
+            Expand all
+          </p>
         </div>
         <Travelprefsections section={"airports"} />
         <Travelprefsections section={"packages"} />
