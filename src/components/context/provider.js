@@ -66,7 +66,7 @@ const Provider = props => {
 
     setLoggedInState(isLoggedIn);
 
-    setWelcomeMessage(user || "My Account");
+    setWelcomeMessage(`Welcome ${user}` || "My Account");
   }, [user]);
 
   //SET LOCAL STORAGE FOR USER
