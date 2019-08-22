@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import travelStyles from "./_myaccount.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import { faChevronDown, faTimes } from "@fortawesome/free-solid-svg-icons";
 import Consumer from "../context/consumer";
 
 const TravelPrefBox = Consumer(props => {
@@ -35,6 +35,12 @@ const TravelPrefBox = Consumer(props => {
 });
 
 const Travelprefsections = props => {
+  const optionRef = React.createRef();
+
+  useEffect(() => {
+    if (optionRef.current !== null) optionRef.current.selected = true;
+  }, [props.data.airports]);
+
   return (
     <React.Fragment>
       {props.section === "airports" ? (
@@ -43,10 +49,18 @@ const Travelprefsections = props => {
           active={props.data.travelPrefAirports}
           title={"My airports"}
         >
-          <div>
-            <span>Toronto</span>
-            <select>
-              <option value="Select">Select</option>
+          <div className={`${travelStyles.airports} ${travelStyles.Wrapper}`}>
+            {props.data.airports}
+            <select
+              defaultValue={"Select"}
+              onChange={e => props.data.addAirport(e)}
+            >
+              <option ref={optionRef} value="Select" disabled={"disabled"}>
+                Select
+              </option>
+              <option value="Select2">Select2</option>
+              <option value="Select3">Select3</option>
+              <option value="Select4">Select4</option>
             </select>
           </div>
         </TravelPrefBox>

@@ -96,6 +96,33 @@
         border-bottom: 1px solid $grayBlue;
         padding-bottom: 0.5em;
       }
+
+      .airports {
+        &.Wrapper {
+          display: flex;
+          margin: 1em 0;
+          & > * {
+            margin-right: .5em;
+            flex-basis: 20%;
+          }
+
+          p {
+            margin: 0;
+          }
+
+          .airport {
+            background: $babyBlue;
+            display: flex;
+            justify-content: space-between;
+            padding: .5em;
+            margin-right: .5em;
+
+            svg {
+              color: $lightGray;
+            }
+          }
+        }
+      }
     }
 
     .booking {
