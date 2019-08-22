@@ -10,7 +10,7 @@
       @extend %boldFont;
 
       svg {
-        margin-right: .5em;
+        margin-right: 0.5em;
       }
 
       &.blue {
@@ -29,7 +29,8 @@
           flex-wrap: wrap;
           margin-right: 3em;
 
-          span, & > div {
+          span,
+          & > div {
             margin-bottom: 1em;
 
             input {
@@ -61,12 +62,13 @@
     .travelPref {
       .bottomBorder {
         border-bottom: 1px solid $mediumGray;
-        padding: .75em 0;
+        padding: 0.75em 0;
 
         .blue {
           color: $blue;
           text-align: right;
           margin-bottom: 0;
+          cursor: pointer;
         }
 
         .title {
@@ -74,6 +76,7 @@
           flex-wrap: nowrap;
           justify-content: space-between;
           margin: 0;
+          cursor: pointer;
           * {
             color: $blue;
             font-weight: bold;
@@ -85,14 +88,13 @@
           margin: 0;
 
           &.shown {
-            transform: scaleY(1)
+            transform: scaleY(1);
           }
         }
       }
       .bottomBlueBorder {
         border-bottom: 1px solid $grayBlue;
-        padding-bottom: .5em;
-
+        padding-bottom: 0.5em;
       }
     }
 

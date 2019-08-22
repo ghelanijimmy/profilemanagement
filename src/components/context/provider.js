@@ -32,60 +32,64 @@ const Provider = props => {
   // });
 
   //HANDLE TRAVEL PREF COLLAPSED SECTIONS
-  const handleTravelCollapse = section => {
-    switch (section) {
-      case "airports":
-        setTravelPrefExpanded(false);
-        setTravelPrefAirports(!travelPrefAirports);
-        break;
-      case "packages":
-        setTravelPrefExpanded(false);
-        setTravelPrefPackages(!travelPrefPackages);
-        break;
-      case "favourites":
-        setTravelPrefExpanded(false);
-        setTravelPrefFavourites(!travelPrefFavourites);
-        break;
-      case "hotels":
-        setTravelPrefExpanded(false);
-        setTravelPrefHotels(!travelPrefHotels);
-        break;
-      case "rooms":
-        setTravelPrefExpanded(false);
-        setTravelPrefRooms(!travelPrefRooms);
-        break;
-      case "facilities":
-        setTravelPrefExpanded(false);
-        setTravelPrefFacilities(!travelPrefFacilities);
-        break;
-      case "all":
-        if (travelPrefExpanded) {
+  const handleTravelCollapse = (e, section, parentClass) => {
+    if (
+      e.target.classList.contains(parentClass) ||
+      e.target.parentElement.classList.contains(parentClass)
+    )
+      switch (section) {
+        case "airports":
           setTravelPrefExpanded(false);
+          setTravelPrefAirports(!travelPrefAirports);
+          break;
+        case "packages":
+          setTravelPrefExpanded(false);
+          setTravelPrefPackages(!travelPrefPackages);
+          break;
+        case "favourites":
+          setTravelPrefExpanded(false);
+          setTravelPrefFavourites(!travelPrefFavourites);
+          break;
+        case "hotels":
+          setTravelPrefExpanded(false);
+          setTravelPrefHotels(!travelPrefHotels);
+          break;
+        case "rooms":
+          setTravelPrefExpanded(false);
+          setTravelPrefRooms(!travelPrefRooms);
+          break;
+        case "facilities":
+          setTravelPrefExpanded(false);
+          setTravelPrefFacilities(!travelPrefFacilities);
+          break;
+        case "all":
+          if (travelPrefExpanded) {
+            setTravelPrefExpanded(false);
+            setTravelPrefAirports(false);
+            setTravelPrefPackages(false);
+            setTravelPrefFavourites(false);
+            setTravelPrefHotels(false);
+            setTravelPrefRooms(false);
+            setTravelPrefFacilities(false);
+          } else {
+            setTravelPrefExpanded(true);
+            setTravelPrefAirports(true);
+            setTravelPrefPackages(true);
+            setTravelPrefFavourites(true);
+            setTravelPrefHotels(true);
+            setTravelPrefRooms(true);
+            setTravelPrefFacilities(true);
+          }
+          break;
+        default:
           setTravelPrefAirports(false);
           setTravelPrefPackages(false);
           setTravelPrefFavourites(false);
           setTravelPrefHotels(false);
           setTravelPrefRooms(false);
           setTravelPrefFacilities(false);
-        } else {
-          setTravelPrefExpanded(true);
-          setTravelPrefAirports(true);
-          setTravelPrefPackages(true);
-          setTravelPrefFavourites(true);
-          setTravelPrefHotels(true);
-          setTravelPrefRooms(true);
-          setTravelPrefFacilities(true);
-        }
-        break;
-      default:
-        setTravelPrefAirports(false);
-        setTravelPrefPackages(false);
-        setTravelPrefFavourites(false);
-        setTravelPrefHotels(false);
-        setTravelPrefRooms(false);
-        setTravelPrefFacilities(false);
-        break;
-    }
+          break;
+      }
   };
 
   //LOGOUT HANDLER

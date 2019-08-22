@@ -13,7 +13,9 @@ const Travelpref = props => {
         <div className={travelStyles.bottomBorder}>
           <p
             className={travelStyles.blue}
-            onClick={() => props.data.handleTravelCollapse('all')}
+            onClick={e =>
+              props.data.handleTravelCollapse(e, "all", travelStyles.blue)
+            }
           >
             Expand all
           </p>
