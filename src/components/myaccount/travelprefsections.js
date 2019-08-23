@@ -4,6 +4,7 @@ import travelStyles from "./_myaccount.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown, faTimes } from "@fortawesome/free-solid-svg-icons";
 import Consumer from "../context/consumer";
+import { AirportOptions } from "./addAirport";
 
 const TravelPrefBox = Consumer(props => {
   return (
@@ -54,13 +55,22 @@ const Travelprefsections = props => {
             <select
               defaultValue={"Select"}
               onChange={e => props.data.addAirport(e)}
+              className={travelStyles.items}
             >
               <option ref={optionRef} value="Select" disabled={"disabled"}>
                 Select
               </option>
-              <option value="Select2">Select2</option>
-              <option value="Select3">Select3</option>
-              <option value="Select4">Select4</option>
+              {props.data.initAirports.map((airport, i) => {
+                return (
+                  <AirportOptions
+                    optionValue={airport}
+                    key={i}
+                    enabled={props.data.enabledAirports}
+                  >
+                    {airport}
+                  </AirportOptions>
+                );
+              })}
             </select>
           </div>
         </TravelPrefBox>

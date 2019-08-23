@@ -10,7 +10,9 @@ const Travelpref = props => {
     <React.Fragment>
       {props.header}
       <div className={travelStyles.travelPref}>
-        <div className={travelStyles.bottomBorder}>
+        <div
+          className={`${travelStyles.bottomBorder} ${travelStyles.expandAll}`}
+        >
           <p
             className={travelStyles.blue}
             onClick={e =>

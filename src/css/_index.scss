@@ -77,6 +77,10 @@ label {
 input, select, option {
   color: $lightGray;
 }
+option:disabled{
+  //background: $mediumGray;
+  color: $mediumGray;
+}
 a {
   color: $blue;
 }

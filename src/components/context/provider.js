@@ -2,9 +2,7 @@ import PropTypes from "prop-types";
 import React, { useState, useEffect } from "react";
 import Context from "./context";
 import modalStyle from "../modal/_modal.scss";
-import travelStyles from "../myaccount/_myaccount.scss";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import AddAirport from "../myaccount/addAirport";
 
 const Provider = props => {
   const [appType, setAppType] = useState("");
@@ -26,36 +24,64 @@ const Provider = props => {
   const [travelPrefRooms, setTravelPrefRooms] = useState(false);
   const [travelPrefFacilities, setTravelPrefFacilities] = useState(false);
   const [travelPrefExpanded, setTravelPrefExpanded] = useState(false);
-  const [airports, addAirports] = useState([
-    <p className={travelStyles.airport} key={0}>
-      Toronto{" "}
-      <span>
-        <FontAwesomeIcon icon={faTimes} />
-      </span>
-    </p>
-  ]);
+  const [airports, addAirports] = useState([]);
+  const [enabledAirports, setEnabledAirports] = useState({});
+  const [selectedAirport, setSelectedAirport] = useState("");
+
+  //SET INITIAL AIRPORTS
+  const initAirports = ["Toronto", "Chicage", "Detroit", "Vancouver", "Quebec"];
+  let initAirportsObj = {};
+
+  initAirports.forEach(airport => {
+    initAirportsObj[airport] = false;
+  });
 
   //ADD TO AIRPORTS ARRAY
   const addAirport = select => {
-    console.log(select.target);
-    addAirports([
-      ...airports,
-      <p className={travelStyles.airport} key={select.target.value}>
-        {select.target.value}
-        <span>
-          <FontAwesomeIcon icon={faTimes} />
-        </span>
-      </p>
+    select.persist();
+
+    addAirports(oldArray => [
+      ...oldArray,
+      <AddAirport
+        targetValue={select.target.value}
+        key={select.target.value}
+        select={select}
+      />
     ]);
-    disableOptions(select.target);
+
+    //SET SELECTED AIRPORT STATE
+    setSelectedAirport(select.target.value);
   };
 
-  const disableOptions = select => {
-    for (let x = 0; x < select.options.length; x++) {
-      if (select.options[x].value === select.value) {
-        select.options[x].remove();
-      }
+  //SET SELECTED AIRPORT TO DISABLED FROM BEING SELECTED AGAIN
+  useEffect(() => {
+    if (selectedAirport !== "") {
+      let selected = { [selectedAirport]: true };
+      selected = Object.assign({}, initAirportsObj, enabledAirports, selected);
+      setEnabledAirports(selected);
     }
+  }, [selectedAirport]);
+
+  //HANDLRES REMOVING OF AIRPORTS
+  const handleRemoveAirport = (e, ref, select) => {
+    const newAirportArr = airports.filter(
+      airport => airport.key !== ref.current.textContent
+    );
+    addAirports(newAirportArr);
+    enableOptions(select.target, ref.current.textContent);
+  };
+
+  //ENABLES AIRPORT FROM BEING SELECTED FROM DROP DOWN IF REMOVED FROM LIST
+  const enableOptions = (select, option) => {
+    const enabledKeys = Object.keys(enabledAirports);
+
+    enabledKeys.map(item => {
+      if (item === option) {
+        setEnabledAirports(oldOptions =>
+          Object.assign(oldOptions, { [item]: false })
+        );
+      }
+    });
   };
 
   //SET FIRST TIME LOGIN OR CREATE TO COMPLETE PROFILE
@@ -246,7 +272,11 @@ const Provider = props => {
         travelPrefFacilities,
         travelPrefExpanded,
         airports,
-        addAirport
+        addAirport,
+        handleRemoveAirport,
+        enabledAirports,
+        setEnabledAirports,
+        initAirports
       }}
     >
       {props.children}
