@@ -8,17 +8,50 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Route } from "react-router-dom";
 import HomeSearch from "./components/recentsearch/homesearch";
 import Consumer from "./components/context/consumer";
-
+//TODO WINDOW MODAL RESIZE FIX
 const Form = props => {
   const loginRef = React.createRef();
   const createRef = React.createRef();
 
+  window.addEventListener("resize", () => {
+    props.data.setWindowHeight(window.innerHeight);
+  });
+
+  useEffect(() => {
+    let appType;
+
+    switch (props.data.appType) {
+      case "login":
+        appType = loginRef;
+        break;
+      case "create":
+        appType = createRef;
+        break;
+    }
+
+    const handleResize = appType => {
+      if (window.innerHeight < appType.current.parentElement.clientHeight) {
+        appType.current.parentElement.style.height = `${window.innerHeight -
+          40}px`;
+      } else if (
+        window.innerHeight >
+        appType.current.parentElement.clientHeight + 40
+      ) {
+        appType.current.parentElement.removeAttribute("style");
+      }
+    };
+
+    if (props.data.modal && appType !== undefined) {
+      if (appType.current !== null) {
+        handleResize(appType);
+      }
+    }
+  }, [props.data.windowHeight, props.data.modal, props.data.appType]);
+
   if (props.data.appType === "login") {
-    window.dispatchEvent(new Event("resize"));
     return (
       <React.Fragment>
         <Modal
-          ref={loginRef}
           ariaHideApp={false}
           isOpen={props.data.modal}
           onRequestClose={props.data.setModalState}
@@ -33,7 +66,7 @@ const Form = props => {
           overlayClassName={`${modalStyle.modal} ${modalStyle.Overlay}`}
           closeTimeoutMS={200}
         >
-          <Login />
+          <Login passedref={loginRef} />
           <button
             onClick={props.data.setModalState}
             className={`${modalStyle.modal} ${modalStyle.CloseIcon}`}
@@ -49,11 +82,9 @@ const Form = props => {
       </React.Fragment>
     );
   } else if (props.data.appType === "create") {
-    window.dispatchEvent(new Event("resize"));
     return (
       <React.Fragment>
         <Modal
-          ref={createRef}
           ariaHideApp={false}
           isOpen={props.data.modal}
           onRequestClose={props.data.setModalState}
@@ -68,7 +99,7 @@ const Form = props => {
           overlayClassName={`${modalStyle.modal} ${modalStyle.Overlay}`}
           closeTimeoutMS={200}
         >
-          <SignUp />
+          <SignUp passedref={createRef} />
           <button
             onClick={props.data.setModalState}
             className={`${modalStyle.modal} ${modalStyle.CloseIcon}`}

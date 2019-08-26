@@ -11,15 +11,17 @@ const SearchboxCard = props => {
       return (
         <React.Fragment>
           <div key={props.indexKey} className={searchStyles.searchBox}>
-            <p className={searchStyles.iconHeading}>
-              <FontAwesomeIcon icon={props.headingIcon} />
-              {props.headingText}
-            </p>
-            <p className={searchStyles.title}>{props.titleText}</p>
-            <p className={searchStyles.legText}>{props.legText}</p>
-            <span className={searchStyles.closeWrapper}>
-              <FontAwesomeIcon icon={faTimes} />
-            </span>
+            <div className={searchStyles.content}>
+              <p className={searchStyles.iconHeading}>
+                <FontAwesomeIcon icon={props.headingIcon} />
+                {props.headingText}
+              </p>
+              <p className={searchStyles.title}>{props.titleText}</p>
+              <p className={searchStyles.legText}>{props.legText}</p>
+              <span className={searchStyles.closeWrapper}>
+                <FontAwesomeIcon icon={faTimes} />
+              </span>
+            </div>
           </div>
         </React.Fragment>
       );

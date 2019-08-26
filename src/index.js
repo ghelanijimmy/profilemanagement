@@ -16,6 +16,9 @@ import "./css/_index.scss";
 //TODO Set my account info to populate in my account tab in dashboard
 //TODO add 'Not Set' box on top of travel pref and booking pref on dashboard
 //TODO Fix add/remove airport options
+//TODO handle initial size for login/create form on small window
+//TODO fix ie styles
+//TODO ie fix my favorite list click on home search
 
 const App = () => {
   return (

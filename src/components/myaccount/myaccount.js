@@ -112,7 +112,9 @@ const Myaccount = props => {
                 iconPosition={"right"}
                 icon={faChevronDown}
                 ref={bookingRef}
-                handleTabClick={() => props.data.handleTabOptionChange}
+                handleTabClick={e =>
+                  props.data.handleTabOptionChange(e, bookingRef)
+                }
                 stateOption={props.data.tabOption}
               />
               <Tabs
@@ -121,7 +123,9 @@ const Myaccount = props => {
                 iconPosition={"right"}
                 icon={faChevronDown}
                 ref={accountRef}
-                handleTabClick={() => props.data.handleTabOptionChange}
+                handleTabClick={e =>
+                  props.data.handleTabOptionChange(e, accountRef)
+                }
                 stateOption={props.data.tabOption}
               />
               <Tabs
@@ -130,7 +134,9 @@ const Myaccount = props => {
                 iconPosition={"right"}
                 icon={faChevronDown}
                 ref={travelPrefRef}
-                handleTabClick={() => props.data.handleTabOptionChange}
+                handleTabClick={e =>
+                  props.data.handleTabOptionChange(e, travelPrefRef)
+                }
                 stateOption={props.data.tabOption}
                 notSetBox={props.data.travelPref}
               />
@@ -140,7 +146,9 @@ const Myaccount = props => {
                 iconPosition={"right"}
                 icon={faChevronDown}
                 ref={bookingPrefRef}
-                handleTabClick={() => props.data.handleTabOptionChange}
+                handleTabClick={e =>
+                  props.data.handleTabOptionChange(e, bookingPrefRef)
+                }
                 stateOption={props.data.tabOption}
                 notSetBox={props.data.bookingPref}
               />

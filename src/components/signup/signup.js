@@ -10,7 +10,7 @@ const SignUp = props => {
 
   return (
     <React.Fragment>
-      <form className={styles.section}>
+      <form ref={props.passedref} className={styles.section}>
         <p className={styles.Title}>Create Sunwing Account</p>
         <Input
           type={"email"}

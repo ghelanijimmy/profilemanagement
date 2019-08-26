@@ -40,7 +40,7 @@ export const Tabs = React.forwardRef((props, ref) => {
 export const TabButtons = React.forwardRef((props, ref) => {
   return (
     <button
-      onClick={props.handleTabClick(ref)}
+      onClick={props.handleTabClick}
       className={
         props.stateOption === props.searchOption
           ? `${styles.btn} ${styles.primary} ${elementStyles.activeOption}`
@@ -134,7 +134,9 @@ export const HeaderBar = Consumer(props => {
           text={"Recent searches"}
           icon={faSearch}
           ref={searchRef}
-          handleTabClick={() => props.data.handleSearchOptionChange}
+          handleTabClick={e =>
+            props.data.handleSearchOptionChange(e, searchRef)
+          }
           stateOption={props.data.searchOption}
           expand={props.expand}
           link={props.search}
@@ -144,7 +146,8 @@ export const HeaderBar = Consumer(props => {
           text={"My favorite list"}
           icon={faHeart}
           ref={listRef}
-          handleTabClick={() => props.data.handleSearchOptionChange}
+          handleTabClick={e =>
+              props.data.handleSearchOptionChange(e, listRef)}
           stateOption={props.data.searchOption}
           expand={props.expand}
           link={props.list}

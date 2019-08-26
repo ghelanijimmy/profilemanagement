@@ -27,6 +27,7 @@ const Provider = props => {
   const [airports, addAirports] = useState([]);
   const [enabledAirports, setEnabledAirports] = useState({});
   const [selectedAirport, setSelectedAirport] = useState("");
+  const [windowHeight, setWindowHeight] = useState(window.innerHeight);
 
   //SET INITIAL AIRPORTS
   const initAirports = ["Toronto", "Chicage", "Detroit", "Vancouver", "Quebec"];
@@ -161,20 +162,14 @@ const Provider = props => {
   };
 
   //HANDLE HOME SEARCH TAB OPTIONS
-  const handleSearchOptionChange = e => {
-    if (e.target.nodeName !== "button")
-      changeSearchOption(e.target.closest("button").dataset.searchoption);
-    else changeSearchOption(e.target.dataset.searchoption);
+  const handleSearchOptionChange = (e, ref) => {
+    changeSearchOption(ref.current.dataset.searchoption);
   };
 
   //HANDLE DASHBOARD TAB OPTIONS
   //TODO Revisit button selection handling
-  const handleTabOptionChange = e => {
-    e.preventDefault();
-
-    if (e.target.nodeName !== "button")
-      setTabOption(e.target.closest("button").dataset.searchoption);
-    else setTabOption(e.target.dataset.searchoption);
+  const handleTabOptionChange = (e, ref) => {
+    setTabOption(ref.current.dataset.searchoption);
   };
 
   // SET USER AND LOGGED IN STATE
@@ -211,26 +206,6 @@ const Provider = props => {
       modalState(true);
     } else modalState(false);
   };
-
-  //HANDLE RESIZE MODAL
-  useEffect(() => {
-    handleResizeModal();
-  }, [appType]);
-
-  const handleResizeModal = () => {
-    setTimeout(() => {
-      document.querySelectorAll(`.${modalStyle.Open}`).forEach(modal => {
-        modal.removeAttribute("style");
-        if (window.innerHeight < modal.clientHeight) {
-          modal.style.height = `${window.innerHeight - 40}px`;
-        } else if (window.innerHeight > modal.clientHeight + 40) {
-          modal.removeAttribute("style");
-        }
-      });
-    }, 20);
-  };
-
-  window.addEventListener("resize", handleResizeModal);
 
   //SET CURRENT MODAL
   const currentModal = type => {
@@ -276,7 +251,9 @@ const Provider = props => {
         handleRemoveAirport,
         enabledAirports,
         setEnabledAirports,
-        initAirports
+        initAirports,
+        windowHeight,
+        setWindowHeight
       }}
     >
       {props.children}

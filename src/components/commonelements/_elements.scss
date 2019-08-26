@@ -98,10 +98,13 @@
 
 //SEARCH CARDS
 .searchBox {
-  padding: .5em;
   background-color: $white;
   flex-basis: 49%;
   position: relative;
+
+  .content {
+    padding: .5em;
+  }
 
   .closeWrapper {
     position: absolute;
@@ -129,13 +132,6 @@
       flex-basis: 70%;
       padding: .5em;
     }
-  }
-
-  &:nth-of-type(even){
-    margin-left: 1%;
-  }
-  &:nth-of-type(odd){
-    margin-right: 1%;
   }
 
   .iconHeading {
