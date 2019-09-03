@@ -3,6 +3,8 @@ import React, { useState, useEffect } from "react";
 import Context from "./context";
 import modalStyle from "../modal/_modal.scss";
 import AddAirport from "../myaccount/addAirport";
+import destinations from "../../model/destinations";
+import travelStyles from "../myaccount/_myaccount.scss";
 
 const Provider = props => {
   const [appType, setAppType] = useState("");
@@ -31,10 +33,59 @@ const Provider = props => {
   const [selectedTravelPrefPackages, setSelectedTravelPrefPackages] = useState(
     []
   );
+  const [travelPrefDestinations, setTravelPrefDestinations] = useState([]);
+  const [
+    selectedTravelPrefDestinations,
+    setSelectedTravelPrefDestinations
+  ] = useState([]);
+
+  //SET SELECTED TRAVEL PREF DESTINATIONS
+  const handleTravePrefCheckbox = e => {
+    e.persist();
+    if (e.target.checked) {
+      if (selectedTravelPrefPackages.indexOf(e.target.placeholder) < 0) {
+        setSelectedTravelPrefPackages(old => [...old, e.target.placeholder]);
+      }
+    } else {
+      setSelectedTravelPrefPackages(old =>
+        old.filter(a => a !== e.target.placeholder)
+      );
+    }
+  };
+
+  //SET TRAVEL PRE DESTINATIONS
+  useEffect(() => {
+    let destinationsArr = destinations.map((destination, i) => {
+      if (!destination.hasCities)
+        return (
+          <p key={i} className={travelStyles.item}>
+            <b>{destination.destination}</b>
+          </p>
+        );
+      else
+        return (
+          <div
+            key={i}
+            className={`${travelStyles.item} ${travelStyles.Wrapper}`}
+          >
+            <p className={travelStyles.item}>
+              <b>{destination.destination}</b>
+            </p>
+            {destination.cities.map((city, i) => (
+              <p className={travelStyles.item} key={i}>
+                {city}
+              </p>
+            ))}
+          </div>
+        );
+    });
+
+    setTravelPrefDestinations(destinationsArr);
+  }, []);
 
   //CHECK TRAVEL PREF PACKAGES ARRAY
   useEffect(() => {
-    console.log(selectedTravelPrefPackages);
+    // console.log(selectedTravelPrefPackages);
   }, [selectedTravelPrefPackages]);
 
   //SET INITIAL AIRPORTS
@@ -263,8 +314,10 @@ const Provider = props => {
         initAirports,
         windowHeight,
         setWindowHeight,
+        handleTravePrefCheckbox,
         setSelectedTravelPrefPackages,
-        selectedTravelPrefPackages
+        selectedTravelPrefPackages,
+        travelPrefDestinations
       }}
     >
       {props.children}

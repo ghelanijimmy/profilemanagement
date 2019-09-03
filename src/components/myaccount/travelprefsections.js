@@ -6,6 +6,7 @@ import { faChevronDown, faTimes } from "@fortawesome/free-solid-svg-icons";
 import Consumer from "../context/consumer";
 import { AirportOptions } from "./addAirport";
 import { Input } from "../input/input";
+import destinations from "../../model/destinations";
 
 const TravelPrefBox = Consumer(props => {
   return (
@@ -42,24 +43,6 @@ const Travelprefsections = props => {
   useEffect(() => {
     if (optionRef.current !== null) optionRef.current.selected = true;
   }, [props.data.airports]);
-
-  const addTravelPrefPackages = e => {
-    e.persist();
-    if (e.target.checked) {
-      if (
-        props.data.selectedTravelPrefPackages.indexOf(e.target.placeholder) < 0
-      ) {
-        props.data.setSelectedTravelPrefPackages(old => [
-          ...old,
-          e.target.placeholder
-        ]);
-      }
-    } else {
-      props.data.setSelectedTravelPrefPackages(old =>
-        old.filter(a => a !== e.target.placeholder)
-      );
-    }
-  };
 
   return (
     <React.Fragment>
@@ -104,31 +87,31 @@ const Travelprefsections = props => {
               type={"checkbox"}
               id={"familyPackages"}
               placeholder={"Family"}
-              handleInput={addTravelPrefPackages}
+              handleInput={props.data.handleTravePrefCheckbox}
             />
             <Input
               type={"checkbox"}
               id={"familySingles"}
               placeholder={"Singles"}
-              handleInput={addTravelPrefPackages}
+              handleInput={props.data.handleTravePrefCheckbox}
             />
             <Input
               type={"checkbox"}
               id={"familyLuxury"}
               placeholder={"Luxury"}
-              handleInput={addTravelPrefPackages}
+              handleInput={props.data.handleTravePrefCheckbox}
             />
             <Input
               type={"checkbox"}
               id={"familyAdult"}
               placeholder={"Adult"}
-              handleInput={addTravelPrefPackages}
+              handleInput={props.data.handleTravePrefCheckbox}
             />
             <Input
               type={"checkbox"}
               id={"familyStudents"}
               placeholder={"Students"}
-              handleInput={addTravelPrefPackages}
+              handleInput={props.data.handleTravePrefCheckbox}
             />
           </div>
         </TravelPrefBox>
@@ -138,7 +121,9 @@ const Travelprefsections = props => {
           active={props.data.travelPrefFavourites}
           title={"Favourite destinations"}
         >
-          SHOWN
+          <div className={travelStyles.favDestinations}>
+            {props.data.travelPrefDestinations}
+          </div>
         </TravelPrefBox>
       ) : props.section === "hotels" ? (
         <TravelPrefBox

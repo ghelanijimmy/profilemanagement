@@ -1,0 +1,49 @@
+[
+  {
+    "destination": "All countries",
+    "hasCities": false
+  },
+  {
+    "destination": "All south",
+    "hasCities": false
+  },
+  {
+    "destination": "Antigua",
+    "hasCities": false
+  },
+  {
+    "destination": "Aruba",
+    "hasCities": false
+  },
+  {
+    "destination": "Bahamas",
+    "hasCities": true,
+    "cities": ["Freeport", "Nassau"],
+    "return": true
+  },
+  {
+    "destination": "Bonaire",
+    "hasCities": false
+  },
+  {
+    "destination": "Costa Rica",
+    "hasCities": false
+  },
+  {
+    "destination": "Cuba",
+    "hasCities": true,
+    "cities": [
+      "Cayo Coco",
+      "Cayo Largo",
+      "Cayo Santa Maria",
+      "Cienfuegos",
+      "Havana",
+      "Havana",
+      "Holguin",
+      "Manzanillo de Cuba",
+      "Santa Lucia (Camaguey)",
+      "Santiago de Cuba",
+      "Varadero"
+    ]
+  }
+]
