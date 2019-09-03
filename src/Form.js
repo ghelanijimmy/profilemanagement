@@ -42,9 +42,19 @@ const Form = props => {
     };
 
     if (props.data.modal && appType !== undefined) {
-      if (appType.current !== null) {
-        handleResize(appType);
-      }
+      const appExists = async appType => {
+        new Promise(resolve => {
+          const isAppType = () => {
+            if (appType.current !== null) {
+              resolve(appType);
+            } else {
+              window.requestAnimationFrame(isAppType);
+            }
+          };
+          isAppType();
+        });
+      };
+      appExists(appType).then(() => handleResize(appType));
     }
   }, [props.data.windowHeight, props.data.modal, props.data.appType]);
 
