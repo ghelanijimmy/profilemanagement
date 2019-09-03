@@ -28,6 +28,14 @@ const Provider = props => {
   const [enabledAirports, setEnabledAirports] = useState({});
   const [selectedAirport, setSelectedAirport] = useState("");
   const [windowHeight, setWindowHeight] = useState(window.innerHeight);
+  const [selectedTravelPrefPackages, setSelectedTravelPrefPackages] = useState(
+    []
+  );
+
+  //CHECK TRAVEL PREF PACKAGES ARRAY
+  useEffect(() => {
+    console.log(selectedTravelPrefPackages);
+  }, [selectedTravelPrefPackages]);
 
   //SET INITIAL AIRPORTS
   const initAirports = ["Toronto", "Chicage", "Detroit", "Vancouver", "Quebec"];
@@ -94,6 +102,7 @@ const Provider = props => {
 
   //HANDLE TRAVEL PREF COLLAPSED SECTIONS
   const handleTravelCollapse = (e, section, parentClass) => {
+    e.persist();
     if (
       e.target.classList.contains(parentClass) ||
       e.target.parentElement.classList.contains(parentClass)
@@ -253,7 +262,9 @@ const Provider = props => {
         setEnabledAirports,
         initAirports,
         windowHeight,
-        setWindowHeight
+        setWindowHeight,
+        setSelectedTravelPrefPackages,
+        selectedTravelPrefPackages
       }}
     >
       {props.children}

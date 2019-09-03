@@ -97,6 +97,7 @@ export const Input = props => {
           placeholder={props.placeholder}
           id={props.id}
           autoComplete={"off"}
+          onChange={props.handleInput ? e => props.handleInput(e) : null}
         />
         <label
           className={props.block ? styles.dBlock : styles.dInline}
@@ -207,5 +208,6 @@ Input.propTypes = {
   showPasswordButton: PropTypes.bool,
   numOptions: PropTypes.number,
   options: PropTypes.array,
-  inline: PropTypes.bool
+  inline: PropTypes.bool,
+  handleInput: PropTypes.func
 };
