@@ -5,6 +5,7 @@ import modalStyle from "../modal/_modal.scss";
 import AddAirport from "../myaccount/addAirport";
 import destinations from "../../model/destinations";
 import travelStyles from "../myaccount/_myaccount.scss";
+import { Input } from "../input/input";
 
 const Provider = props => {
   const [appType, setAppType] = useState("");
@@ -40,16 +41,14 @@ const Provider = props => {
   ] = useState([]);
 
   //SET SELECTED TRAVEL PREF DESTINATIONS
-  const handleTravePrefCheckbox = e => {
+  const handleTravePrefCheckbox = (e, update, state) => {
     e.persist();
     if (e.target.checked) {
-      if (selectedTravelPrefPackages.indexOf(e.target.placeholder) < 0) {
-        setSelectedTravelPrefPackages(old => [...old, e.target.placeholder]);
+      if (state.indexOf(e.target.placeholder) < 0) {
+        update(old => [...old, e.target.placeholder]);
       }
     } else {
-      setSelectedTravelPrefPackages(old =>
-        old.filter(a => a !== e.target.placeholder)
-      );
+      update(old => old.filter(a => a !== e.target.placeholder));
     }
   };
 
@@ -59,7 +58,21 @@ const Provider = props => {
       if (!destination.hasCities)
         return (
           <p key={i} className={travelStyles.item}>
-            <b>{destination.destination}</b>
+            {/*<b>{destination.destination}</b>*/}
+            <b>
+              <Input
+                type={"checkbox"}
+                id={`destination${destination.destination}`}
+                placeholder={destination.destination}
+                handleInput={e =>
+                  handleTravePrefCheckbox(
+                    e,
+                    setSelectedTravelPrefDestinations,
+                    selectedTravelPrefDestinations
+                  )
+                }
+              />
+            </b>
           </p>
         );
       else
@@ -85,8 +98,8 @@ const Provider = props => {
 
   //CHECK TRAVEL PREF PACKAGES ARRAY
   useEffect(() => {
-    // console.log(selectedTravelPrefPackages);
-  }, [selectedTravelPrefPackages]);
+    console.log(selectedTravelPrefPackages, selectedTravelPrefDestinations);
+  }, [selectedTravelPrefPackages, selectedTravelPrefDestinations]);
 
   //SET INITIAL AIRPORTS
   const initAirports = ["Toronto", "Chicage", "Detroit", "Vancouver", "Quebec"];

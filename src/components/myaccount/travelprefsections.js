@@ -87,31 +87,61 @@ const Travelprefsections = props => {
               type={"checkbox"}
               id={"familyPackages"}
               placeholder={"Family"}
-              handleInput={props.data.handleTravePrefCheckbox}
+              handleInput={e =>
+                props.data.handleTravePrefCheckbox(
+                  e,
+                  props.data.setSelectedTravelPrefPackages,
+                  props.data.selectedTravelPrefPackages
+                )
+              }
             />
             <Input
               type={"checkbox"}
               id={"familySingles"}
               placeholder={"Singles"}
-              handleInput={props.data.handleTravePrefCheckbox}
+              handleInput={e =>
+                props.data.handleTravePrefCheckbox(
+                  e,
+                  props.data.setSelectedTravelPrefPackages,
+                  props.data.selectedTravelPrefPackages
+                )
+              }
             />
             <Input
               type={"checkbox"}
               id={"familyLuxury"}
               placeholder={"Luxury"}
-              handleInput={props.data.handleTravePrefCheckbox}
+              handleInput={e =>
+                props.data.handleTravePrefCheckbox(
+                  e,
+                  props.data.setSelectedTravelPrefPackages,
+                  props.data.selectedTravelPrefPackages
+                )
+              }
             />
             <Input
               type={"checkbox"}
               id={"familyAdult"}
               placeholder={"Adult"}
-              handleInput={props.data.handleTravePrefCheckbox}
+              handleInput={e =>
+                props.data.handleTravePrefCheckbox(
+                  e,
+                  props.data.setSelectedTravelPrefPackages,
+                  props.data.selectedTravelPrefPackages
+                )
+              }
             />
             <Input
               type={"checkbox"}
               id={"familyStudents"}
               placeholder={"Students"}
-              handleInput={props.data.handleTravePrefCheckbox}
+              handleInput={e =>
+                props.data.handleTravePrefCheckbox(
+                  e,
+                  props.data.setSelectedTravelPrefPackages,
+                  props.data.selectedTravelPrefPackages
+                )
+              }
             />
           </div>
         </TravelPrefBox>
