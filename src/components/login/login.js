@@ -15,7 +15,11 @@ const Login = props => {
   };
   return (
     <React.Fragment>
-      <form ref={props.passedref} onSubmit={handleLogin} className={styles.section}>
+      <form
+        ref={props.passedref}
+        onSubmit={handleLogin}
+        className={styles.section}
+      >
         <p className={styles.Title}>Sign In</p>
         {/*<Oauth />*/}
         <Input
