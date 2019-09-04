@@ -98,6 +98,7 @@ export const Input = props => {
           id={props.id}
           autoComplete={"off"}
           onChange={props.handleInput ? e => props.handleInput(e) : null}
+          checked={props.options.indexOf(props.placeholder) >= 0}
         />
         <label
           className={props.block ? styles.dBlock : styles.dInline}

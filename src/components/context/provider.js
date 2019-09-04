@@ -53,48 +53,75 @@ const Provider = props => {
   };
 
   //SET TRAVEL PRE DESTINATIONS
-  useEffect(() => {
-    let destinationsArr = destinations.map((destination, i) => {
-      if (!destination.hasCities)
-        return (
-          <p key={i} className={travelStyles.item}>
-            {/*<b>{destination.destination}</b>*/}
-            <b>
-              <Input
-                type={"checkbox"}
-                id={`destination${destination.destination}`}
-                placeholder={destination.destination}
-                handleInput={e =>
-                  handleTravePrefCheckbox(
-                    e,
-                    setSelectedTravelPrefDestinations,
-                    selectedTravelPrefDestinations
-                  )
-                }
-              />
-            </b>
-          </p>
-        );
-      else
-        return (
-          <div
-            key={i}
-            className={`${travelStyles.item} ${travelStyles.Wrapper}`}
-          >
-            <p className={travelStyles.item}>
-              <b>{destination.destination}</b>
-            </p>
-            {destination.cities.map((city, i) => (
-              <p className={travelStyles.item} key={i}>
-                {city}
-              </p>
-            ))}
-          </div>
-        );
-    });
-
-    setTravelPrefDestinations(destinationsArr);
-  }, []);
+  // useEffect(() => {
+  //   let destinationsArr = destinations.map((destination, i) => {
+  //     if (!destination.hasCities)
+  //       return (
+  //         <p key={i} className={travelStyles.item}>
+  //           {/*<b>{destination.destination}</b>*/}
+  //           <b>
+  //             <Input
+  //               type={"checkbox"}
+  //               id={`destination${destination.destination}`}
+  //               placeholder={destination.destination}
+  //               handleInput={e =>
+  //                 handleTravePrefCheckbox(
+  //                   e,
+  //                   setSelectedTravelPrefDestinations,
+  //                   selectedTravelPrefDestinations
+  //                 )
+  //               }
+  //               options={selectedTravelPrefDestinations}
+  //             />
+  //           </b>
+  //         </p>
+  //       );
+  //     else
+  //       return (
+  //         <div
+  //           key={i}
+  //           className={`${travelStyles.item} ${travelStyles.Wrapper}`}
+  //         >
+  //           <p className={travelStyles.item}>
+  //             <b>
+  //               <Input
+  //                 type={"checkbox"}
+  //                 id={`destination${destination.destination}`}
+  //                 placeholder={destination.destination}
+  //                 handleInput={e =>
+  //                   handleTravePrefCheckbox(
+  //                     e,
+  //                     setSelectedTravelPrefDestinations,
+  //                     selectedTravelPrefDestinations
+  //                   )
+  //                 }
+  //                 options={selectedTravelPrefDestinations}
+  //               />
+  //             </b>
+  //           </p>
+  //           {destination.cities.map((city, i) => (
+  //             <p className={travelStyles.item} key={i}>
+  //               <Input
+  //                 type={"checkbox"}
+  //                 id={`destination${city}`}
+  //                 placeholder={city}
+  //                 handleInput={e =>
+  //                   handleTravePrefCheckbox(
+  //                     e,
+  //                     setSelectedTravelPrefDestinations,
+  //                     selectedTravelPrefDestinations
+  //                   )
+  //                 }
+  //                 options={selectedTravelPrefDestinations}
+  //               />
+  //             </p>
+  //           ))}
+  //         </div>
+  //       );
+  //   });
+  //
+  //   setTravelPrefDestinations(destinationsArr);
+  // }, []);
 
   //CHECK TRAVEL PREF PACKAGES ARRAY
   useEffect(() => {
@@ -330,7 +357,8 @@ const Provider = props => {
         handleTravePrefCheckbox,
         setSelectedTravelPrefPackages,
         selectedTravelPrefPackages,
-        travelPrefDestinations
+        selectedTravelPrefDestinations,
+        setSelectedTravelPrefDestinations
       }}
     >
       {props.children}

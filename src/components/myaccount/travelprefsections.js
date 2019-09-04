@@ -8,6 +8,9 @@ import { AirportOptions } from "./addAirport";
 import { Input } from "../input/input";
 import destinations from "../../model/destinations";
 
+//TODO handle state persistance for checked boxes by looping through state and see if array contains placeholder
+// input text
+
 const TravelPrefBox = Consumer(props => {
   return (
     <div
@@ -94,6 +97,7 @@ const Travelprefsections = props => {
                   props.data.selectedTravelPrefPackages
                 )
               }
+              options={props.data.selectedTravelPrefPackages}
             />
             <Input
               type={"checkbox"}
@@ -106,6 +110,7 @@ const Travelprefsections = props => {
                   props.data.selectedTravelPrefPackages
                 )
               }
+              options={props.data.selectedTravelPrefPackages}
             />
             <Input
               type={"checkbox"}
@@ -118,6 +123,7 @@ const Travelprefsections = props => {
                   props.data.selectedTravelPrefPackages
                 )
               }
+              options={props.data.selectedTravelPrefPackages}
             />
             <Input
               type={"checkbox"}
@@ -130,6 +136,7 @@ const Travelprefsections = props => {
                   props.data.selectedTravelPrefPackages
                 )
               }
+              options={props.data.selectedTravelPrefPackages}
             />
             <Input
               type={"checkbox"}
@@ -142,6 +149,7 @@ const Travelprefsections = props => {
                   props.data.selectedTravelPrefPackages
                 )
               }
+              options={props.data.selectedTravelPrefPackages}
             />
           </div>
         </TravelPrefBox>
@@ -152,7 +160,72 @@ const Travelprefsections = props => {
           title={"Favourite destinations"}
         >
           <div className={travelStyles.favDestinations}>
-            {props.data.travelPrefDestinations}
+            {/*{props.data.travelPrefDestinations}*/}
+            {destinations.map((destination, i) => {
+              if (!destination.hasCities)
+                return (
+                  <p key={i} className={travelStyles.item}>
+                    {/*<b>{destination.destination}</b>*/}
+                    <b>
+                      <Input
+                        type={"checkbox"}
+                        id={`destination${destination.destination}`}
+                        placeholder={destination.destination}
+                        handleInput={e =>
+                          props.data.handleTravePrefCheckbox(
+                            e,
+                            props.data.setSelectedTravelPrefDestinations,
+                            props.data.selectedTravelPrefDestinations
+                          )
+                        }
+                        options={props.data.selectedTravelPrefDestinations}
+                      />
+                    </b>
+                  </p>
+                );
+              else
+                return (
+                  <div
+                    key={i}
+                    className={`${travelStyles.item} ${travelStyles.Wrapper}`}
+                  >
+                    <p className={travelStyles.item}>
+                      <b>
+                        <Input
+                          type={"checkbox"}
+                          id={`destination${destination.destination}`}
+                          placeholder={destination.destination}
+                          handleInput={e =>
+                            props.data.handleTravePrefCheckbox(
+                              e,
+                              props.data.setSelectedTravelPrefDestinations,
+                              props.data.selectedTravelPrefDestinations
+                            )
+                          }
+                          options={props.data.selectedTravelPrefDestinations}
+                        />
+                      </b>
+                    </p>
+                    {destination.cities.map((city, i) => (
+                      <p className={travelStyles.item} key={i}>
+                        <Input
+                          type={"checkbox"}
+                          id={`destination${city}`}
+                          placeholder={city}
+                          handleInput={e =>
+                            props.data.handleTravePrefCheckbox(
+                              e,
+                              props.data.setSelectedTravelPrefDestinations,
+                              props.data.selectedTravelPrefDestinations
+                            )
+                          }
+                          options={props.data.selectedTravelPrefDestinations}
+                        />
+                      </p>
+                    ))}
+                  </div>
+                );
+            })}
           </div>
         </TravelPrefBox>
       ) : props.section === "hotels" ? (
