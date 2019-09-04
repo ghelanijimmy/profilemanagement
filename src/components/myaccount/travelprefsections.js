@@ -8,6 +8,9 @@ import { AirportOptions } from "./addAirport";
 import { Input } from "../input/input";
 import destinations from "../../model/destinations";
 import hotels from "../../model/hotels";
+import rooms from "../../model/rooms";
+import facilities from "../../model/facilities";
+import others from "../../model/other";
 
 //TODO handle state persistance for checked boxes by looping through state and see if array contains placeholder
 // input text
@@ -261,7 +264,27 @@ const Travelprefsections = props => {
           active={props.data.travelPrefRooms}
           title={"Room type & services"}
         >
-          SHOWN
+          <div className={travelStyles.options}>
+            {rooms.map((room, i) => {
+              return (
+                <p className={travelStyles.item} key={i}>
+                  <Input
+                    type={"checkbox"}
+                    id={`destination${room}`}
+                    placeholder={room}
+                    handleInput={e =>
+                      props.data.handleTravePrefCheckbox(
+                        e,
+                        props.data.setSelectedTravelPrefRooms,
+                        props.data.selectedTravelPrefRooms
+                      )
+                    }
+                    options={props.data.selectedTravelPrefRooms}
+                  />
+                </p>
+              );
+            })}
+          </div>
         </TravelPrefBox>
       ) : props.section === "facilities" ? (
         <TravelPrefBox
@@ -269,7 +292,55 @@ const Travelprefsections = props => {
           active={props.data.travelPrefFacilities}
           title={"Facilities and services"}
         >
-          SHOWN
+          <div className={travelStyles.options}>
+            {facilities.map((facility, i) => {
+              return (
+                <p className={travelStyles.item} key={i}>
+                  <Input
+                    type={"checkbox"}
+                    id={`destination${facility}`}
+                    placeholder={facility}
+                    handleInput={e =>
+                      props.data.handleTravePrefCheckbox(
+                        e,
+                        props.data.setSelectedTravelPrefFacilities,
+                        props.data.selectedTravelPrefFacilities
+                      )
+                    }
+                    options={props.data.selectedTravelPrefFacilities}
+                  />
+                </p>
+              );
+            })}
+          </div>
+        </TravelPrefBox>
+      ) : props.section === "other" ? (
+        <TravelPrefBox
+          section={props.section}
+          active={props.data.travelPrefOther}
+          title={"Other"}
+        >
+          <div className={travelStyles.options}>
+            {others.map((other, i) => {
+              return (
+                <p className={travelStyles.item} key={i}>
+                  <Input
+                    type={"checkbox"}
+                    id={`destination${other}`}
+                    placeholder={other}
+                    handleInput={e =>
+                      props.data.handleTravePrefCheckbox(
+                        e,
+                        props.data.setSelectedTravelPrefOthers,
+                        props.data.selectedTravelPrefOthers
+                      )
+                    }
+                    options={props.data.selectedTravelPrefOthers}
+                  />
+                </p>
+              );
+            })}
+          </div>
         </TravelPrefBox>
       ) : null}
     </React.Fragment>

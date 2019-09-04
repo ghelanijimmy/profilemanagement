@@ -26,6 +26,7 @@ const Provider = props => {
   const [travelPrefHotels, setTravelPrefHotels] = useState(false);
   const [travelPrefRooms, setTravelPrefRooms] = useState(false);
   const [travelPrefFacilities, setTravelPrefFacilities] = useState(false);
+  const [travelPrefOther, setTravelPrefOther] = useState(false);
   const [travelPrefExpanded, setTravelPrefExpanded] = useState(false);
   const [airports, addAirports] = useState([]);
   const [enabledAirports, setEnabledAirports] = useState({});
@@ -39,6 +40,12 @@ const Provider = props => {
     setSelectedTravelPrefDestinations
   ] = useState([]);
   const [selectedTravelPrefHotels, setSelectedTravelPrefHotels] = useState([]);
+  const [selectedTravelPrefRooms, setSelectedTravelPrefRooms] = useState([]);
+  const [
+    selectedTravelPrefFacilities,
+    setSelectedTravelPrefFacilities
+  ] = useState([]);
+  const [selectedTravelPrefOthers, setSelectedTravelPrefOthers] = useState([]);
 
   //SET SELECTED TRAVEL PREF DESTINATIONS
   const handleTravePrefCheckbox = (e, update, state) => {
@@ -147,6 +154,10 @@ const Provider = props => {
           setTravelPrefExpanded(false);
           setTravelPrefFacilities(!travelPrefFacilities);
           break;
+        case "other":
+          setTravelPrefExpanded(false);
+          setTravelPrefOther(!travelPrefOther);
+          break;
         case "all":
           if (travelPrefExpanded) {
             setTravelPrefExpanded(false);
@@ -156,6 +167,7 @@ const Provider = props => {
             setTravelPrefHotels(false);
             setTravelPrefRooms(false);
             setTravelPrefFacilities(false);
+            setTravelPrefOther(false);
           } else {
             setTravelPrefExpanded(true);
             setTravelPrefAirports(true);
@@ -164,6 +176,7 @@ const Provider = props => {
             setTravelPrefHotels(true);
             setTravelPrefRooms(true);
             setTravelPrefFacilities(true);
+            setTravelPrefOther(true);
           }
           break;
         default:
@@ -173,6 +186,7 @@ const Provider = props => {
           setTravelPrefHotels(false);
           setTravelPrefRooms(false);
           setTravelPrefFacilities(false);
+          setTravelPrefOther(false);
           break;
       }
   };
@@ -269,6 +283,7 @@ const Provider = props => {
         travelPrefHotels,
         travelPrefRooms,
         travelPrefFacilities,
+        travelPrefOther,
         travelPrefExpanded,
         airports,
         addAirport,
@@ -284,7 +299,13 @@ const Provider = props => {
         selectedTravelPrefDestinations,
         setSelectedTravelPrefDestinations,
         selectedTravelPrefHotels,
-        setSelectedTravelPrefHotels
+        setSelectedTravelPrefHotels,
+        selectedTravelPrefRooms,
+        setSelectedTravelPrefRooms,
+        selectedTravelPrefFacilities,
+        setSelectedTravelPrefFacilities,
+        selectedTravelPrefOthers,
+        setSelectedTravelPrefOthers
       }}
     >
       {props.children}

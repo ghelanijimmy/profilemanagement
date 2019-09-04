@@ -28,6 +28,7 @@ const Travelpref = props => {
         <Travelprefsections section={"hotels"} />
         <Travelprefsections section={"rooms"} />
         <Travelprefsections section={"facilities"} />
+        <Travelprefsections section={"other"} />
       </div>
     </React.Fragment>
   );
