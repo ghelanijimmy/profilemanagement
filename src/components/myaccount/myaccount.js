@@ -154,25 +154,43 @@ const Myaccount = props => {
               />
             </div>
             {dashboardRender !== null ? (
-              <div
-                className={
-                  props.data.tabOption === "booking"
-                    ? `${dashboardStyles.infoWrapper} ${styles.section} ${
-                        dashboardStyles.infoWrapperBG
-                      }`
-                    : `${dashboardStyles.infoWrapper} ${styles.section}`
-                }
-              >
-                {props.data.tabOption === "booking" ? (
-                  <Booking header={dashboardRender} />
-                ) : props.data.tabOption === "account" ? (
-                  <Account header={dashboardRender} />
-                ) : props.data.tabOption === "travelpref" ? (
-                  <Travelpref header={dashboardRender} />
-                ) : props.data.tabOption === "bookingpref" ? (
-                  <Bookingpref header={dashboardRender} />
+              <React.Fragment>
+                <div
+                  className={
+                    props.data.tabOption === "booking"
+                      ? `${dashboardStyles.infoWrapper} ${styles.section} ${
+                          dashboardStyles.infoWrapperBG
+                        }`
+                      : `${dashboardStyles.infoWrapper} ${styles.section}`
+                  }
+                >
+                  {props.data.tabOption === "booking" ? (
+                    <Booking header={dashboardRender} />
+                  ) : props.data.tabOption === "account" ? (
+                    <Account header={dashboardRender} />
+                  ) : props.data.tabOption === "travelpref" ? (
+                    <Travelpref header={dashboardRender} />
+                  ) : props.data.tabOption === "bookingpref" ? (
+                    <Bookingpref header={dashboardRender} />
+                  ) : null}
+                </div>
+                {props.data.tabOption !== "booking" ? (
+                  <div className={dashboardStyles.footer}>
+                    <button
+                      className={`${styles.btn} ${styles.primary}`}
+                      value={"Save"}
+                    >
+                      Save
+                    </button>
+                    <button
+                      className={`${styles.btn} ${styles.secondary}`}
+                      value={"Cancel"}
+                    >
+                      Cancel
+                    </button>
+                  </div>
                 ) : null}
-              </div>
+              </React.Fragment>
             ) : null}
           </section>
         </div>

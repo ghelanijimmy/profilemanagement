@@ -4,6 +4,7 @@ import travelStyles from "./_myaccount.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import Travelprefsections from "./travelprefsections";
+import styles from "../../css/_index.scss";
 
 const Travelpref = props => {
   return (

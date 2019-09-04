@@ -301,5 +301,10 @@ button {
       border: 1px solid $blue;
       color: $blue;
     }
+    &.secondary {
+      background: $white;
+      border: 1px solid $blue;
+      color: $blue;
+    }
   }
 }
