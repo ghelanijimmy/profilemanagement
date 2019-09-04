@@ -38,6 +38,7 @@ const Provider = props => {
     selectedTravelPrefDestinations,
     setSelectedTravelPrefDestinations
   ] = useState([]);
+  const [selectedTravelPrefHotels, setSelectedTravelPrefHotels] = useState([]);
 
   //SET SELECTED TRAVEL PREF DESTINATIONS
   const handleTravePrefCheckbox = (e, update, state) => {
@@ -50,11 +51,6 @@ const Provider = props => {
       update(old => old.filter(a => a !== e.target.placeholder));
     }
   };
-
-  //CHECK TRAVEL PREF PACKAGES ARRAY
-  useEffect(() => {
-    console.log(selectedTravelPrefPackages, selectedTravelPrefDestinations);
-  }, [selectedTravelPrefPackages, selectedTravelPrefDestinations]);
 
   //SET INITIAL AIRPORTS
   const initAirports = ["Toronto", "Chicage", "Detroit", "Vancouver", "Quebec"];
@@ -286,7 +282,9 @@ const Provider = props => {
         setSelectedTravelPrefPackages,
         selectedTravelPrefPackages,
         selectedTravelPrefDestinations,
-        setSelectedTravelPrefDestinations
+        setSelectedTravelPrefDestinations,
+        selectedTravelPrefHotels,
+        setSelectedTravelPrefHotels
       }}
     >
       {props.children}

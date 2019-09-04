@@ -7,6 +7,7 @@ import Consumer from "../context/consumer";
 import { AirportOptions } from "./addAirport";
 import { Input } from "../input/input";
 import destinations from "../../model/destinations";
+import hotels from "../../model/hotels";
 
 //TODO handle state persistance for checked boxes by looping through state and see if array contains placeholder
 // input text
@@ -159,7 +160,7 @@ const Travelprefsections = props => {
           active={props.data.travelPrefFavourites}
           title={"Favourite destinations"}
         >
-          <div className={travelStyles.favDestinations}>
+          <div className={travelStyles.options}>
             {destinations.map((destination, i) => {
               if (!destination.hasCities)
                 return (
@@ -232,7 +233,27 @@ const Travelprefsections = props => {
           active={props.data.travelPrefHotels}
           title={"Top rated hotels for"}
         >
-          SHOWN
+          <div className={travelStyles.options}>
+            {hotels.map((hotel, i) => {
+              return (
+                <p className={travelStyles.item} key={i}>
+                  <Input
+                    type={"checkbox"}
+                    id={`destination${hotel}`}
+                    placeholder={hotel}
+                    handleInput={e =>
+                      props.data.handleTravePrefCheckbox(
+                        e,
+                        props.data.setSelectedTravelPrefHotels,
+                        props.data.selectedTravelPrefHotels
+                      )
+                    }
+                    options={props.data.selectedTravelPrefHotels}
+                  />
+                </p>
+              );
+            })}
+          </div>
         </TravelPrefBox>
       ) : props.section === "rooms" ? (
         <TravelPrefBox
