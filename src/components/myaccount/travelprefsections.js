@@ -160,12 +160,10 @@ const Travelprefsections = props => {
           title={"Favourite destinations"}
         >
           <div className={travelStyles.favDestinations}>
-            {/*{props.data.travelPrefDestinations}*/}
             {destinations.map((destination, i) => {
               if (!destination.hasCities)
                 return (
                   <p key={i} className={travelStyles.item}>
-                    {/*<b>{destination.destination}</b>*/}
                     <b>
                       <Input
                         type={"checkbox"}
