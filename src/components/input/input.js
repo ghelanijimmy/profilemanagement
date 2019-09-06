@@ -104,7 +104,7 @@ export const Input = props => {
             ? styles.flexFull
             : props.bg && props.fullWidth
             ? `${styles.flexFull} ${styles.inputBG}`
-            : styles.flexHalf
+            : `${styles.flexHalf} ${styles.inputCheckboxWrapper}`
         }
       >
         <input

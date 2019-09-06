@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 import React, { useState, useEffect } from "react";
 import Context from "./context";
 import AddAirport from "../myaccount/addAirport";
+import airportsList from "../../model/airports";
 
 const Provider = props => {
   const [appType, setAppType] = useState("");
@@ -59,7 +60,7 @@ const Provider = props => {
   // }, [selectedTravelPrefDestinations]);
 
   //SET INITIAL AIRPORTS
-  const initAirports = ["Toronto", "Chicage", "Detroit", "Vancouver", "Quebec"];
+  const initAirports = airportsList;
   let initAirportsObj = {};
 
   initAirports.forEach(airport => {

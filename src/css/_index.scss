@@ -209,6 +209,11 @@ form {
   }
 }
 
+.inputCheckboxWrapper {
+  display: flex;
+  align-items: center;
+}
+
 input[type="checkbox"] {
   display: none;
   & ~ .checkbox {
