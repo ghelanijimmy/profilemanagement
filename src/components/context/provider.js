@@ -1,11 +1,7 @@
 import PropTypes from "prop-types";
 import React, { useState, useEffect } from "react";
 import Context from "./context";
-import modalStyle from "../modal/_modal.scss";
 import AddAirport from "../myaccount/addAirport";
-import destinations from "../../model/destinations";
-import travelStyles from "../myaccount/_myaccount.scss";
-import { Input } from "../input/input";
 
 const Provider = props => {
   const [appType, setAppType] = useState("");
@@ -49,15 +45,18 @@ const Provider = props => {
 
   //SET SELECTED TRAVEL PREF DESTINATIONS
   const handleTravePrefCheckbox = (e, update, state) => {
-    e.persist();
-    if (e.target.checked) {
-      if (state.indexOf(e.target.placeholder) < 0) {
-        update(old => [...old, e.target.placeholder]);
+    if (e.checked) {
+      if (state.indexOf(e.placeholder) < 0) {
+        update(old => [...old, e.placeholder]);
       }
     } else {
-      update(old => old.filter(a => a !== e.target.placeholder));
+      update(old => old.filter(a => a !== e.placeholder));
     }
   };
+
+  // useEffect(() => {
+  //   console.log(selectedTravelPrefDestinations);
+  // }, [selectedTravelPrefDestinations]);
 
   //SET INITIAL AIRPORTS
   const initAirports = ["Toronto", "Chicage", "Detroit", "Vancouver", "Quebec"];
@@ -192,7 +191,7 @@ const Provider = props => {
   };
 
   //LOGOUT HANDLER
-  const handleLogout = e => {
+  const handleLogout = () => {
     setAppType("");
     localStorage.setItem("user", "");
     setUser("");

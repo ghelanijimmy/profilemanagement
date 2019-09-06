@@ -102,9 +102,7 @@ const Myaccount = props => {
           <section>
             {/*<p className={styles.Title}>Welcome, {props.data.user}</p>*/}
             <div
-              className={`${elementStyles.background} ${
-                elementStyles.searchOptions
-              }`}
+              className={`${elementStyles.background} ${elementStyles.searchOptions}`}
             >
               <Tabs
                 searchOption={"booking"}
@@ -158,9 +156,7 @@ const Myaccount = props => {
                 <div
                   className={
                     props.data.tabOption === "booking"
-                      ? `${dashboardStyles.infoWrapper} ${styles.section} ${
-                          dashboardStyles.infoWrapperBG
-                        }`
+                      ? `${dashboardStyles.infoWrapper} ${styles.section} ${dashboardStyles.infoWrapperBG}`
                       : `${dashboardStyles.infoWrapper} ${styles.section}`
                   }
                 >

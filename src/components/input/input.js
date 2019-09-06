@@ -1,8 +1,24 @@
 import PropTypes from "prop-types";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styles from "../../css/_index.scss";
 
 export const Input = props => {
+  const [checked, setChecked] = useState(
+    props.options !== undefined && props.options.indexOf(props.placeholder) >= 0
+  );
+
+  const inputRef = React.createRef();
+
+  const handleInputCheck = () => {
+    setChecked(!checked);
+  };
+
+  useEffect(() => {
+    if (inputRef.current !== null) inputRef.current.checked = checked;
+
+    if (props.handleInput) props.handleInput(inputRef.current);
+  }, [checked]);
+
   const showPass = e => {
     e.preventDefault();
     const element = document.getElementById(props.id);
@@ -97,15 +113,22 @@ export const Input = props => {
           placeholder={props.placeholder}
           id={props.id}
           autoComplete={"off"}
-          onChange={props.handleInput ? e => props.handleInput(e) : null}
-          defaultChecked={
-            props.options !== undefined &&
-            props.options.indexOf(props.placeholder) >= 0
+          onChange={
+            props.handleInput ? () => props.handleInput(inputRef) : null
           }
+          defaultChecked={checked}
+          ref={inputRef}
+          //checked={checked}
         />
+        <span className={styles.checkbox} onClick={handleInputCheck}>
+          <span className={styles.activeCheckWrapper}>
+            <span className={checked ? styles.activeCheck : ""} />
+          </span>
+        </span>
         <label
           className={props.block ? styles.dBlock : styles.dInline}
           htmlFor={props.id}
+          onClick={handleInputCheck}
         >
           {props.placeholder}
         </label>
@@ -172,12 +195,8 @@ export const Input = props => {
               key={i}
               className={
                 props.fullWidth
-                  ? `${styles.flexFull} ${styles.inputFlex} ${
-                      styles.radioWrapper
-                    }`
-                  : `${styles.flexHalf} ${styles.inputFlex} ${
-                      styles.radioWrapper
-                    }`
+                  ? `${styles.flexFull} ${styles.inputFlex} ${styles.radioWrapper}`
+                  : `${styles.flexHalf} ${styles.inputFlex} ${styles.radioWrapper}`
               }
             >
               <input

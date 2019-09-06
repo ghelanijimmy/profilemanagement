@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import PropTypes from "prop-types";
-import styles from "../../css/_index.scss";
 import travelStyles from "./_myaccount.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown, faTimes } from "@fortawesome/free-solid-svg-icons";
@@ -13,8 +12,7 @@ import rooms from "../../model/rooms";
 import facilities from "../../model/facilities";
 import others from "../../model/other";
 
-//TODO handle state persistance for checked boxes by looping through state and see if array contains placeholder
-// input text
+//TODO handle state persistance with local storage
 
 const TravelPrefBox = Consumer(props => {
   return (
