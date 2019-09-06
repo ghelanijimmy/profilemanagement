@@ -7,11 +7,40 @@ export const Input = props => {
     props.options !== undefined && props.options.indexOf(props.placeholder) >= 0
   );
 
+  const [radioCheck, setRadioCheck] = useState(
+    props.options !== undefined ? props.options.map((option, i) => false) : []
+  );
+
   const inputRef = React.createRef();
+  const radioRef = [];
 
   const handleInputCheck = () => {
     setChecked(!checked);
   };
+
+  const handleRadioCheck = (ref, i) => {
+    let oldArr = [...radioCheck];
+    const newArr = oldArr.map((radio, index) => {
+      if (i === index) {
+        oldArr[index] = !oldArr[index];
+        return oldArr[i];
+      } else {
+        oldArr[index] = false;
+        return oldArr[index];
+      }
+    });
+    // console.log(newArr);
+    setRadioCheck(newArr);
+    // if (ref.current !== null) ref.current.checked = !ref.current.checked;
+  };
+
+  useEffect(() => {
+    radioCheck.map((key, i) => {
+      if (radioRef !== undefined && radioRef[i] !== undefined) {
+        radioRef[i].current.checked = radioCheck[i];
+      }
+    });
+  }, [radioCheck]);
 
   useEffect(() => {
     if (inputRef.current !== null) inputRef.current.checked = checked;
@@ -118,7 +147,6 @@ export const Input = props => {
           }
           defaultChecked={checked}
           ref={inputRef}
-          //checked={checked}
         />
         <span className={styles.checkbox} onClick={handleInputCheck}>
           <span className={styles.activeCheckWrapper}>
@@ -190,6 +218,7 @@ export const Input = props => {
     return (
       <React.Fragment>
         {props.options.map((option, i) => {
+          radioRef[i] = React.createRef();
           return (
             <span
               key={i}
@@ -207,8 +236,20 @@ export const Input = props => {
                 className={props.block ? styles.dBlock : ""}
                 required={props.required ? props.required : false}
                 value={option}
+                ref={radioRef[i]}
+                defaultChecked={radioCheck[i]}
               />
-              {option}
+              <span
+                className={styles.radio}
+                onClick={() => handleRadioCheck(option, i)}
+              >
+                <span className={styles.activeRadioWrapper}>
+                  <span className={radioCheck[i] ? styles.activeRadio : ""} />
+                </span>
+              </span>
+              <label className={styles.dInline} htmlFor={props.id}>
+                {option}
+              </label>
             </span>
           );
         })}
