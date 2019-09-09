@@ -1,0 +1,100 @@
+[
+  {
+    "destination": "All countries",
+    "hasCities": false
+  },
+  {
+    "destination": "All south",
+    "hasCities": false
+  },
+  {
+    "destination": "Antigua",
+    "hasCities": false
+  },
+  {
+    "destination": "Aruba",
+    "hasCities": false
+  },
+  {
+    "destination": "Bahamas",
+    "hasCities": true,
+    "cities": ["Freeport", "Nassau"],
+    "return": true
+  },
+  {
+    "destination": "Bonaire",
+    "hasCities": false
+  },
+  {
+    "destination": "Costa Rica",
+    "hasCities": false
+  },
+  {
+    "destination": "Cuba",
+    "hasCities": true,
+    "cities": [
+      "Cayo Coco",
+      "Cayo Largo",
+      "Cayo Santa Maria",
+      "Cienfuegos",
+      "Havana",
+      "Holguin",
+      "Manzanillo de Cuba",
+      "Santa Lucia (Camaguey)",
+      "Santiago de Cuba",
+      "Varadero"
+    ]
+  },
+  {
+    "destination": "Dominican Republic",
+    "hasCities": true,
+    "cities": ["La Romana", "Puerto Plate area", "Punta Cana", "Santo Domingo"]
+  },
+  {
+    "destination": "Honduras",
+    "hasCities": true,
+    "cities": ["Roatan"]
+  },
+  {
+    "destination": "Jamaica",
+    "hasCities": true,
+    "cities": ["Montego Bay", "Negril", "Ocho Rios", "Runaway Bay"]
+  },
+  {
+    "destination": "Mexico",
+    "hasCities": true,
+    "cities": [
+      "Acapulco",
+      "Cancun",
+      "Hunatulco",
+      "Isla Holbox",
+      "Ixtapa",
+      "Los Cabos",
+      "Mazatian",
+      "Playa Mujeres",
+      "Puerto Escondido",
+      "Puerto Vallarta",
+      "Riviera Diamante",
+      "Riviera Maya",
+      "Riviera Nayarit"
+    ]
+  },
+  {
+    "destination": "Panama",
+    "hasCities": true,
+    "cities": ["Panama City", "Playa Blanca"]
+  },
+  {
+    "destination": "St Lucia",
+    "hasCities": false
+  },
+  {
+    "destination": "St Maarten",
+    "hasCities": false
+  },
+  {
+    "destination": "Trinidad and Tobago",
+    "hasCities": true,
+    "cities": ["Tobago"]
+  }
+]

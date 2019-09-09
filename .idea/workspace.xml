@@ -9,7 +9,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/profilemanagement" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="JsFlowSettings">
     <service-enabled>true</service-enabled>
@@ -28,7 +28,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../gift-certificate" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="C:\Users\jghelani\AppData\Roaming\npm\node_modules\prettier" />
-    <property name="settings.editor.selected.configurable" value="JavaScript.Libraries" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
     <property name="ts.external.directory.path" value="C:\Users\jghelani\AppData\Local\JetBrains\Toolbox\apps\WebStorm\ch-0\192.5728.87\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
@@ -131,7 +131,7 @@
       <workItem from="1567530334452" duration="22423000" />
       <workItem from="1567693464424" duration="2015000" />
       <workItem from="1567705115121" duration="11000" />
-      <workItem from="1567779136913" duration="34891000" />
+      <workItem from="1567779136913" duration="35363000" />
     </task>
     <task id="LOCAL-00001" summary="custom checkbox styles and handling">
       <created>1567794923358</created>

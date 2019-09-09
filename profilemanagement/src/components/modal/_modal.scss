@@ -1,0 +1,68 @@
+@import "../../css/variables";
+
+
+.modal {
+  &.Base {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scaleY(0);
+    background-color: $babyBlue;
+    opacity: 0;
+    overflow: hidden;
+    transition: all .2s linear;
+  }
+  &.Open {
+    transform: translate(-50%, -50%) scaleY(1);
+    max-width: 380px;
+    width: 90%;
+    box-sizing: border-box;
+    opacity: 1;
+    transition: all .2s linear;
+    box-shadow: 0 0 20px -10px black;
+    overflow: auto;
+  }
+
+  &.Close {
+    //transform: translate(-50%, -50%) scaleY(0);
+    opacity: 0;
+    transition: all .2s linear;
+  }
+  &.Overlay {
+    background-color: rgba($black,.5);
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+  }
+
+  &.Footer {
+    background-color: $grayBlue;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    span {
+      @extend %boldFont;
+      a {
+        display: block;
+        text-align: right;
+        @extend %boldFont;
+        cursor: pointer;
+      }
+    }
+  }
+
+  &.CloseIcon {
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    background-color: transparent;
+    border: none;
+
+    svg {
+      path {
+        fill: $midGray;
+      }
+    }
+  }
+}

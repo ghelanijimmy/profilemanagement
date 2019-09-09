@@ -1,0 +1,35 @@
+{
+  "name": "profilemanagement",
+  "version": "1.0.0",
+  "description": "Describe profilemanagement here",
+  "private": true,
+  "scripts": {
+    "build": "nwb build-react-app",
+    "clean": "nwb clean-app",
+    "start": "nwb serve-react-app --open --reload",
+    "test": "nwb test-react",
+    "test:coverage": "nwb test-react --coverage",
+    "test:watch": "nwb test-react --server"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.21",
+    "@fortawesome/free-solid-svg-icons": "^5.10.1",
+    "@fortawesome/react-fontawesome": "^0.1.4",
+    "marked": "^0.7.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-circular-progressbar": "^2.0.2",
+    "react-dom": "^16.8.6",
+    "react-modal": "^3.9.1",
+    "react-router-dom": "^5.0.0"
+  },
+  "devDependencies": {
+    "nwb": "0.23.x",
+    "nwb-sass": "^0.9.0"
+  },
+  "distName": "profilemanagement",
+  "libraryName": "SWProfileManagement",
+  "author": "",
+  "license": "MIT",
+  "repository": ""
+}
