@@ -2,6 +2,11 @@ const path = require("path");
 const __PACKAGE__ = require("./package.json");
 
 module.exports = {
+  // devServer: {
+  //   //   proxy: {
+  //   //     "/test": "http://localhost:3005"
+  //   //   }
+  //   // },
   type: "react-app",
   webpack: {
     publicPath: "",

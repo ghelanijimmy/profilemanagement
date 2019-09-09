@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import React from "react";
+import React, { useState } from "react";
 import { Input } from "../input/input";
 // import { Oauth } from "../oauth/oauth";
 import styles from "../../css/_index.scss";
@@ -13,6 +13,7 @@ const Login = props => {
     props.data.setModalState();
     props.data.setFirstTime(true);
   };
+
   return (
     <React.Fragment>
       <form

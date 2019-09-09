@@ -9,6 +9,7 @@ const Provider = props => {
   const [modal, modalState] = useState(false);
   const [isLoggedIn, setLoggedInState] = useState(false);
   const [user, setUser] = useState("");
+  const [dbUsers, setDbUsers] = useState([]);
   const [searchOption, changeSearchOption] = useState("search");
   const [firstTime, setFirstTime] = useState(null);
   const [tabOption, setTabOption] = useState("account");
@@ -58,6 +59,17 @@ const Provider = props => {
   // useEffect(() => {
   //   console.log(selectedTravelPrefDestinations);
   // }, [selectedTravelPrefDestinations]);
+
+  //SET INITIAL USERS FROM DB
+  useEffect(() => {
+    fetch("http://localhost:3005/users")
+      .then(res => res.json())
+      .then(data => setDbUsers(data));
+  }, []);
+
+  useEffect(() => {
+    console.log(dbUsers);
+  }, [dbUsers]);
 
   //SET INITIAL AIRPORTS
   const initAirports = airportsList;
@@ -256,6 +268,7 @@ const Provider = props => {
         isLoggedIn,
         setLocalStorageUser,
         user,
+        dbUsers,
         appType,
         setAppType,
         modal,

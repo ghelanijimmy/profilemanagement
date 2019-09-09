@@ -13,6 +13,22 @@ const Form = props => {
   const loginRef = React.createRef();
   const createRef = React.createRef();
 
+  // useEffect(() => {
+  //
+  //   // fetch("http://localhost:3005/users/add", {
+  //   //   method: "post",
+  //   //   headers: {
+  //   //     "Content-type": "application/json"
+  //   //   },
+  //   //   body: JSON.stringify({
+  //   //     username: "ghelanijimmy",
+  //   //     email: "ghelanijimmy@icloud.com"
+  //   //   })
+  //   // })
+  //   //   .then(res => res.json())
+  //   //   .then(data => console.log(data));
+  // }, []);
+
   window.addEventListener("resize", () => {
     props.data.setWindowHeight(window.innerHeight);
   });
