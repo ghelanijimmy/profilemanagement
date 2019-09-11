@@ -14,6 +14,14 @@ export const Input = props => {
   const inputRef = React.createRef();
   const radioRef = [];
 
+  const selectOptionRef = React.createRef();
+
+  useEffect(() => {
+    if (selectOptionRef.current !== null) {
+      selectOptionRef.current.selected = true;
+    }
+  }, []);
+
   const handleInputCheck = () => {
     setChecked(!checked);
   };
@@ -81,6 +89,10 @@ export const Input = props => {
           }
           className={props.block ? styles.dBlock : ""}
           required={props.required ? props.required : false}
+          onChange={
+            props.handleInput ? e => props.handleInput(e.target.value) : null
+          }
+          value={"" || props.updatedValue}
         />
       </span>
     );
@@ -109,6 +121,10 @@ export const Input = props => {
             }
             className={props.block ? styles.dBlock : ""}
             required={props.required ? props.required : false}
+            onChange={
+              props.handleInput ? e => props.handleInput(e.target.value) : null
+            }
+            value={"" || props.updatedValue}
           />
         </span>
         {props.showPasswordButton ? (
@@ -173,8 +189,19 @@ export const Input = props => {
           id={props.id}
           autoComplete={"off"}
           required={props.required ? props.required : false}
+          onChange={
+            props.handleInput ? e => props.handleInput(e.target.value) : null
+          }
         >
-          <option value={"Toronto"} defaultChecked={true}>
+          <option
+            ref={selectOptionRef}
+            value={"Select"}
+            defaultChecked={true}
+            disabled={"disabled"}
+          >
+            Select
+          </option>
+          <option value={"Toronto"} defaultChecked={false}>
             Toronto
           </option>
         </select>
@@ -273,5 +300,6 @@ Input.propTypes = {
   numOptions: PropTypes.number,
   options: PropTypes.array,
   inline: PropTypes.bool,
-  handleInput: PropTypes.func
+  handleInput: PropTypes.func,
+  updatedValue: PropTypes.string
 };

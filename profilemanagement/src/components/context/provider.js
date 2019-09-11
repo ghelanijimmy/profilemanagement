@@ -269,6 +269,7 @@ const Provider = props => {
         setLocalStorageUser,
         user,
         dbUsers,
+        setDbUsers,
         appType,
         setAppType,
         modal,

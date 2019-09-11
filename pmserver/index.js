@@ -29,13 +29,29 @@ const Schema = mongoose.Schema;
 
 const userSchema = new Schema(
   {
-    username: {
-      type: String,
-      required: true
-    },
     email: {
       type: String,
       required: true
+    },
+    firstname: {
+      type: String,
+      required: true
+    },
+    lastname: {
+      type: String,
+      required: true
+    },
+    password: {
+      type: String,
+      required: true
+    },
+    gateway: {
+      type: String,
+      required: true
+    },
+    mobile: {
+      type: Number,
+      required: false
     }
   },
   {
@@ -53,19 +69,27 @@ app.get("/users", (req, res) => {
 });
 
 app.post("/users/add", (req, res) => {
-  const username = req.body.username;
   const email = req.body.email;
+  const firstname = req.body.firstname;
+  const lastname = req.body.lastname;
+  const password = req.body.password;
+  const gateway = req.body.gateway;
+  const mobile = req.body.mobile;
 
   console.log(req.body);
 
   const newUser = new User({
-    username,
-    email
+    email,
+    firstname,
+    lastname,
+    password,
+    gateway,
+    mobile
   });
 
   newUser
     .save()
-    .then(() => res.json("User added!"))
+    .then(data => res.json(data))
     .catch(err => res.json(`Error: ${err}`));
 });
 

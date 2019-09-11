@@ -23,7 +23,7 @@ const HomeSearch = props => {
   hasFavouriteList = false;
 
   // const handleEditProfileClick = e => {
-  //   e.preventDefault();
+  //   e.preventDefault();inp
   //   props.data.setTabOption("account");
   //
   //   props.history.push({
@@ -68,9 +68,7 @@ const HomeSearch = props => {
         hasRecentSearches === true ? (
           <React.Fragment>
             <div
-              className={`${searchStyles.searchContent} ${
-                searchStyles.Wrapper
-              }`}
+              className={`${searchStyles.searchContent} ${searchStyles.Wrapper}`}
             >
               <SearchboxCard
                 headingIcon={faPlane}
@@ -81,16 +79,12 @@ const HomeSearch = props => {
               <SearchboxCard
                 hasBgImg={true}
                 titleText={"Montreal-Montago Bay"}
-                cardContent={`<p class=${
-                  searchCardStyles.title
-                }>Royalton Bavaro Resort and Spa</p>
+                cardContent={`<p class=${searchCardStyles.title}>Royalton Bavaro Resort and Spa</p>
                   <p>Punta Cana, Dominican Republic</p>
                   <p>Superior 4.2/5 (1000+ reviews)</p>
                   <p>All inclusive | 5 days | Aug 25-Aug 30</p>
                   <p>2 Adults, 2 Children</p>
-                  <p class=${
-                    searchCardStyles.searchCardFooterText
-                  }>15+ room types</p>`}
+                  <p class=${searchCardStyles.searchCardFooterText}>15+ room types</p>`}
                 test={searchBoxText}
               />
             </div>
@@ -114,9 +108,7 @@ const HomeSearch = props => {
         ) : null
       ) : hasFavouriteList === true ? null : (
         <div
-          className={`${searchStyles.searchContent} ${searchStyles.Wrapper} ${
-            searchStyles.emptyFavouriteList
-          }`}
+          className={`${searchStyles.searchContent} ${searchStyles.Wrapper} ${searchStyles.emptyFavouriteList}`}
         >
           <div>
             <p>

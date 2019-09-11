@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="657e8360-a140-4cec-96b5-06968fb61210" name="Default Changelist" comment="" />
+    <list default="true" id="657e8360-a140-4cec-96b5-06968fb61210" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/favicon.ico" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/watcherTasks.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pmserver/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pmserver/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/profilemanagement/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/profilemanagement/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/profilemanagement/src/components/context/provider.js" beforeDir="false" afterPath="$PROJECT_DIR$/profilemanagement/src/components/context/provider.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/profilemanagement/src/components/input/input.js" beforeDir="false" afterPath="$PROJECT_DIR$/profilemanagement/src/components/input/input.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/profilemanagement/src/components/login/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/profilemanagement/src/components/login/login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/profilemanagement/src/components/recentsearch/homesearch.js" beforeDir="false" afterPath="$PROJECT_DIR$/profilemanagement/src/components/recentsearch/homesearch.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/profilemanagement/src/components/signup/signup.js" beforeDir="false" afterPath="$PROJECT_DIR$/profilemanagement/src/components/signup/signup.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/profilemanagement/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/profilemanagement/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/profilemanagement/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/profilemanagement/src/index.js" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,13 +39,17 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="NewWatcherDialog.advanced.open" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../gift-certificate" />
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="TypeScript JSX&#10;JavaScript" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="C:\Users\jghelani\AppData\Roaming\npm\node_modules\prettier" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="watcher.settings" />
     <property name="ts.external.directory.path" value="C:\Users\jghelani\AppData\Local\JetBrains\Toolbox\apps\WebStorm\ch-0\192.5728.87\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\jghelani\Documents\Work\profilemanagement" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\jghelani\Documents\Work\profilemanagement\profilemanagement\src\components\commonelements" />
     </key>
@@ -48,8 +66,18 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="npm.start">
+  <component name="RunManager" selected="npm.Start Server &amp; Client">
     <configuration name="ReactApp" type="JavascriptDebugType" uri="http://localhost:3000" useFirstLineBreakpoints="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="Start Server &amp; Client" type="js.build_tools.npm" temporary="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
       <method v="2" />
     </configuration>
     <configuration name="server" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
@@ -62,7 +90,7 @@
       <envs />
       <method v="2" />
     </configuration>
-    <configuration name="start (1)" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+    <configuration name="start server" type="js.build_tools.npm" temporary="true">
       <package-json value="$PROJECT_DIR$/pmserver/package.json" />
       <command value="run" />
       <scripts>
@@ -72,20 +100,16 @@
       <envs />
       <method v="2" />
     </configuration>
-    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="start" />
-      </scripts>
-      <node-interpreter value="project" />
-      <envs />
-      <method v="2" />
-    </configuration>
+    <list>
+      <item itemvalue="JavaScript Debug.ReactApp" />
+      <item itemvalue="npm.server" />
+      <item itemvalue="npm.Start Server &amp; Client" />
+      <item itemvalue="npm.start server" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.start" />
-        <item itemvalue="npm.start (1)" />
+        <item itemvalue="npm.Start Server &amp; Client" />
+        <item itemvalue="npm.start server" />
         <item itemvalue="npm.server" />
       </list>
     </recent_temporary>
@@ -131,7 +155,11 @@
       <workItem from="1567530334452" duration="22423000" />
       <workItem from="1567693464424" duration="2015000" />
       <workItem from="1567705115121" duration="11000" />
-      <workItem from="1567779136913" duration="35363000" />
+      <workItem from="1567779136913" duration="36207000" />
+      <workItem from="1568120458678" duration="5128000" />
+      <workItem from="1568137640676" duration="5845000" />
+      <workItem from="1568213049297" duration="2584000" />
+      <workItem from="1568234229360" duration="1061000" />
     </task>
     <task id="LOCAL-00001" summary="custom checkbox styles and handling">
       <created>1567794923358</created>
@@ -161,6 +189,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/profilemanagement" />
+    </ignored-roots>
     <MESSAGE value="custom checkbox styles and handling" />
     <option name="LAST_COMMIT_MESSAGE" value="custom checkbox styles and handling" />
   </component>

@@ -23,7 +23,7 @@ import "./css/_index.scss";
 const App = () => {
   return (
     <Provider>
-      <Router>
+      <Router basename={"/"}>
         <RenderHeader />
         <Route exact path={"/"} component={Form} />
         <Route path={"/myaccount"} component={Myaccount} />
