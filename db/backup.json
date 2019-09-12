@@ -1,0 +1,12 @@
+[
+  {
+    "_id": { "$oid": "5d795cd1f653a0c75edf079b" },
+    "email": "jghelani@sunwing.ca",
+    "firstname": "Jimmy",
+    "lastname": "Ghelani",
+    "password": "test",
+    "gateway": "Toronto",
+    "mobile": 4.168809896e9,
+    "__v": 0
+  }
+]

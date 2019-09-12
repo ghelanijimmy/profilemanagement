@@ -2,21 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="657e8360-a140-4cec-96b5-06968fb61210" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/favicon.ico" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/watcherTasks.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/db/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/db/backup.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/db/importdb.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pmserver/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/profilemanagement/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pmserver/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pmserver/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pmserver/.env" beforeDir="false" afterPath="$PROJECT_DIR$/pmserver/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/profilemanagement/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/profilemanagement/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/profilemanagement/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/profilemanagement/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/profilemanagement/src/components/context/provider.js" beforeDir="false" afterPath="$PROJECT_DIR$/profilemanagement/src/components/context/provider.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/profilemanagement/src/components/input/input.js" beforeDir="false" afterPath="$PROJECT_DIR$/profilemanagement/src/components/input/input.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/profilemanagement/src/components/login/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/profilemanagement/src/components/login/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/profilemanagement/src/components/recentsearch/homesearch.js" beforeDir="false" afterPath="$PROJECT_DIR$/profilemanagement/src/components/recentsearch/homesearch.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/profilemanagement/src/components/signup/signup.js" beforeDir="false" afterPath="$PROJECT_DIR$/profilemanagement/src/components/signup/signup.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/profilemanagement/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/profilemanagement/src/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/profilemanagement/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/profilemanagement/src/index.js" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -35,15 +31,28 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="autoscrollToSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="NewWatcherDialog.advanced.open" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="TypeScript JSX&#10;JavaScript" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="C:\Users\jghelani\AppData\Roaming\npm\node_modules\prettier" />
-    <property name="settings.editor.selected.configurable" value="watcher.settings" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="ts.external.directory.path" value="C:\Users\jghelani\AppData\Local\JetBrains\Toolbox\apps\WebStorm\ch-0\192.5728.87\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
@@ -66,8 +75,29 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="npm.Start Server &amp; Client">
+  <component name="RunManager" selected="Docker.docker-compose.yml.mongoimport: Compose Deployment">
     <configuration name="ReactApp" type="JavascriptDebugType" uri="http://localhost:3000" useFirstLineBreakpoints="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="docker-compose.yml: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="sourceFilePath" value="docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="docker-compose.yml.mongoimport: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="mongoimport" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="docker-compose.yml" />
+        </settings>
+      </deployment>
       <method v="2" />
     </configuration>
     <configuration name="Start Server &amp; Client" type="js.build_tools.npm" temporary="true">
@@ -101,13 +131,17 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
       <item itemvalue="JavaScript Debug.ReactApp" />
       <item itemvalue="npm.server" />
       <item itemvalue="npm.Start Server &amp; Client" />
       <item itemvalue="npm.start server" />
+      <item itemvalue="Docker.docker-compose.yml.mongoimport: Compose Deployment" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
+        <item itemvalue="Docker.docker-compose.yml.mongoimport: Compose Deployment" />
         <item itemvalue="npm.Start Server &amp; Client" />
         <item itemvalue="npm.start server" />
         <item itemvalue="npm.server" />
@@ -115,13 +149,10 @@
     </recent_temporary>
   </component>
   <component name="ServiceViewManager">
-    <option name="allServicesViewState">
-      <serviceView>
-        <treeState>
-          <expand />
-          <select />
-        </treeState>
-      </serviceView>
+    <option name="viewStates">
+      <list>
+        <serviceView />
+      </list>
     </option>
   </component>
   <component name="SvnConfiguration">
@@ -159,7 +190,9 @@
       <workItem from="1568120458678" duration="5128000" />
       <workItem from="1568137640676" duration="5845000" />
       <workItem from="1568213049297" duration="2584000" />
-      <workItem from="1568234229360" duration="1061000" />
+      <workItem from="1568234229360" duration="1098000" />
+      <workItem from="1568294347173" duration="4856000" />
+      <workItem from="1568299404516" duration="12314000" />
     </task>
     <task id="LOCAL-00001" summary="custom checkbox styles and handling">
       <created>1567794923358</created>
@@ -180,6 +213,7 @@
         <entry key="MAIN">
           <value>
             <State>
+              <option name="BEK_SORT_TYPE" value="1" />
               <option name="COLUMN_ORDER" />
             </State>
           </value>
@@ -194,5 +228,25 @@
     </ignored-roots>
     <MESSAGE value="custom checkbox styles and handling" />
     <option name="LAST_COMMIT_MESSAGE" value="custom checkbox styles and handling" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="-1566" y="304" key="#pmserver/Dockerfile" />
+    <state x="-1566" y="304" key="#pmserver/Dockerfile/1920.1080/1920.1080/2560.1440" />
+    <state x="-1500" y="475" key="FileChooserDialogImpl" />
+    <state x="-1500" y="475" key="FileChooserDialogImpl/1920.1080/1920.1080/2560.1440" />
+    <state width="2539" height="383" key="GridCell.Tab.0.bottom" />
+    <state width="2539" height="383" key="GridCell.Tab.0.bottom/1920.1080/1920.1080/2560.1440" />
+    <state width="2539" height="383" key="GridCell.Tab.0.center" />
+    <state width="2539" height="383" key="GridCell.Tab.0.center/1920.1080/1920.1080/2560.1440" />
+    <state width="2539" height="383" key="GridCell.Tab.0.left" />
+    <state width="2539" height="383" key="GridCell.Tab.0.left/1920.1080/1920.1080/2560.1440" />
+    <state width="2539" height="383" key="GridCell.Tab.0.right" />
+    <state width="2539" height="383" key="GridCell.Tab.0.right/1920.1080/1920.1080/2560.1440" />
+    <state x="-1791" y="376" key="SettingsEditor" />
+    <state x="-1791" y="376" key="SettingsEditor/1920.1080/1920.1080/2560.1440" />
+    <state x="-1512" y="616" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate" />
+    <state x="-1512" y="616" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate/1920.1080/1920.1080/2560.1440" />
+    <state x="-1617" y="347" width="672" height="678" key="search.everywhere.popup" />
+    <state x="-1617" y="347" width="672" height="678" key="search.everywhere.popup/1920.1080/1920.1080/2560.1440" />
   </component>
 </project>

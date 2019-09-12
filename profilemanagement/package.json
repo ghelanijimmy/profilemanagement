@@ -11,7 +11,11 @@
     "test:coverage": "nwb test-react --coverage",
     "test:watch": "nwb test-react --server"
   },
-  "proxy": {"/api/*": {"target": "http://localhost:3005"}},
+  "proxy": {
+    "/api/*": {
+      "target": "http://localhost:3005"
+    }
+  },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.21",
     "@fortawesome/free-solid-svg-icons": "^5.10.1",
