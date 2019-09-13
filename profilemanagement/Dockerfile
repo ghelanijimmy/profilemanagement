@@ -1,15 +1,21 @@
 FROM node:10.0.0
 
-WORKDIR /usr/src/app/
+RUN mkdir -p /usr/src/app
 
-COPY package*.json ./
+WORKDIR /usr/src/app
 
-COPY node_modules ./
+COPY package.json /usr/src/app/
 
-#COPY node_modules/nwb-sass ./node_modules
-#
-#COPY node_modules/node-sass ./node_modules
+RUN npm i -g npm
 
-COPY . ./
+RUN npm i -g nwb --unsafe-perm --scripts-prepend-node-path
+
+RUN npm install --unsafe-perm --scripts-prepend-node-path
+
+COPY . /usr/src/app/
+
+VOLUME ./src:/usr/src/app/src
 
 EXPOSE 3000
+
+CMD ["npm", "start"]

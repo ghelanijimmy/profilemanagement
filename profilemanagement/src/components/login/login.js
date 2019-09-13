@@ -16,6 +16,8 @@ const Login = props => {
 
   const handleLogin = e => {
     e.preventDefault();
+    
+    console.log('hi there sir');
 
     let loginCred = { email: email, password: password };
     let fullName = '';

@@ -17,7 +17,9 @@ services:
       ports:
         - "3000:3000"
       volumes:
-        - ./profilemanagement:/usr/src/app/
+        - ./profilemanagement/src/:/usr/src/app/src/:ro
+      links:
+        - server
       command: npm start
 
   server:
@@ -28,7 +30,7 @@ services:
       ports:
         - "3005:3005"
       volumes:
-        - ./pmserver:/usr/src/server/
+        - ./pmserver:/usr/src/server
       links:
         - mongodb
       command: npm start

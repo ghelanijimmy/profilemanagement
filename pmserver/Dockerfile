@@ -1,11 +1,15 @@
 FROM node:latest
 
-WORKDIR /usr/src/server/
+RUN mkdir -p /usr/src/server
 
-COPY package*.json ./
+WORKDIR /usr/src/server
+
+COPY package.json /usr/src/server/
 
 RUN npm install
 
-COPY . ./
+COPY . /usr/src/server/
 
 EXPOSE 3005
+
+CMD ["npm", "start"]
