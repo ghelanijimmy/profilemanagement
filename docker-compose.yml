@@ -17,7 +17,7 @@ services:
       ports:
         - "3000:3000"
       volumes:
-        - ./profilemanagement/src/:/usr/src/app/src/:ro
+        - ./profilemanagement/src/:/usr/src/app/src/:rw
       links:
         - server
       command: npm start

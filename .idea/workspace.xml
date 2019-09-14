@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="657e8360-a140-4cec-96b5-06968fb61210" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/pmserver/.dockerignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/profilemanagement/.dockerignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pmserver/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/pmserver/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/profilemanagement/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/profilemanagement/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/profilemanagement/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/profilemanagement/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/profilemanagement/src/components/login/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/profilemanagement/src/components/login/login.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -40,7 +38,7 @@
     <property name="NewWatcherDialog.advanced.open" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="TypeScript JSX&#10;JavaScript" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../sov/front-end-design" />
+    <property name="last_opened_file_path" value="$USER_HOME$/sov/front-end-design" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -151,29 +149,58 @@
     </configuration>
     <list>
       <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
-      <item itemvalue="JavaScript Debug.ReactApp" />
       <item itemvalue="Docker.docker-compose.yml.mongoimport: Compose Deployment" />
       <item itemvalue="Docker.docker-compose.yml.app: Compose Deployment" />
       <item itemvalue="Docker.profilemanagement/Dockerfile" />
       <item itemvalue="Docker.Docker Image" />
+      <item itemvalue="JavaScript Debug.ReactApp" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
         <item itemvalue="Docker.Docker Image" />
         <item itemvalue="Docker.profilemanagement/Dockerfile" />
-        <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
         <item itemvalue="Docker.Docker Image" />
         <item itemvalue="Docker.docker-compose.yml.app: Compose Deployment" />
       </list>
     </recent_temporary>
   </component>
   <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <option name="contentProportion" value="0.3003984" />
-        </serviceView>
-      </list>
+    <option name="allServicesViewState">
+      <serviceView>
+        <treeState>
+          <expand>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@2599dfbd" type="9fbbdea:ServiceModel$ServiceNode" />
+            </path>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@2599dfbd" type="9fbbdea:ServiceModel$ServiceNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@1212b28a" type="9fbbdea:ServiceModel$ServiceNode" />
+            </path>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@2599dfbd" type="9fbbdea:ServiceModel$ServiceNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@1212b28a" type="9fbbdea:ServiceModel$ServiceNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@51f831fa" type="9fbbdea:ServiceModel$ServiceNode" />
+            </path>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@2599dfbd" type="9fbbdea:ServiceModel$ServiceNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@1212b28a" type="9fbbdea:ServiceModel$ServiceNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@2a46738b" type="9fbbdea:ServiceModel$ServiceNode" />
+            </path>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@2599dfbd" type="9fbbdea:ServiceModel$ServiceNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@1212b28a" type="9fbbdea:ServiceModel$ServiceNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@88073b1" type="9fbbdea:ServiceModel$ServiceNode" />
+            </path>
+          </expand>
+          <select />
+        </treeState>
+      </serviceView>
     </option>
   </component>
   <component name="SvnConfiguration">

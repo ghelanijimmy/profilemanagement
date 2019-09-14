@@ -14,8 +14,6 @@ RUN npm install --unsafe-perm --scripts-prepend-node-path
 
 COPY . /usr/src/app/
 
-VOLUME ./src:/usr/src/app/src
-
 EXPOSE 3000
 
 CMD ["npm", "start"]
