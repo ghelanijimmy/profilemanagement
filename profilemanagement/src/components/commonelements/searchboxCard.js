@@ -6,7 +6,7 @@ import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import styles from "../../css/_index.scss";
 
 const SearchboxCard = props => {
-  if (!props.hasBgImg)
+  if (!props.hasBgImg) {
     if (props.booking !== true)
       return (
         <React.Fragment>
@@ -61,9 +61,7 @@ const SearchboxCard = props => {
                 </span>
               </p>
               <p
-                className={`${searchStyles.textBlock} ${
-                  searchStyles.buttonBlock
-                }`}
+                className={`${searchStyles.textBlock} ${searchStyles.buttonBlock}`}
               >
                 <button
                   className={`${styles.btn} ${styles.primary}`}
@@ -76,7 +74,7 @@ const SearchboxCard = props => {
           </div>
         </React.Fragment>
       );
-  else
+  } else
     return (
       <React.Fragment>
         <div
@@ -84,7 +82,23 @@ const SearchboxCard = props => {
           className={`${searchStyles.searchBox} ${searchStyles.WithImage}`}
         >
           <div className={searchStyles.bgImage} />
-          <div className={searchStyles.content}>{props.test()}</div>
+          <div className={searchStyles.content}>
+            <p className={searchStyles.iconHeading}>
+              {props.headingText || ""}
+            </p>
+            <p className={searchStyles.titleWithRating}>
+              <span className={searchStyles.title}>
+                {props.titleText || ""}
+              </span>
+              <span className={searchStyles.ratingWrapper}>
+                {props.ratings || ""}
+              </span>
+            </p>
+            <p>{props.destination || ""}</p>
+            <p>{props.reviewsText || ""}</p>
+            <p>{props.legText || ""}</p>
+            <p>{props.travellers || ""}</p>
+          </div>
           <span className={searchStyles.closeWrapper}>
             <FontAwesomeIcon icon={faTimes} />
           </span>
@@ -96,14 +110,17 @@ const SearchboxCard = props => {
 export default SearchboxCard;
 
 SearchboxCard.propTypes = {
-  hasBgImg: PropTypes.bool,
-  headingIcon: PropTypes.object,
-  headingText: PropTypes.string,
-  legText: PropTypes.string,
-  test: PropTypes.func,
-  titleText: PropTypes.string,
-  booking: PropTypes.bool,
-  indexKey: PropTypes.number,
-  date: PropTypes.string,
-  bookingNumber: PropTypes.number
+  hasBgImg     : PropTypes.bool,
+  headingIcon  : PropTypes.object,
+  headingText  : PropTypes.string,
+  legText      : PropTypes.string,
+  titleText    : PropTypes.string,
+  booking      : PropTypes.bool,
+  indexKey     : PropTypes.number,
+  date         : PropTypes.string,
+  bookingNumber: PropTypes.number,
+  destination: PropTypes.string,
+  reviewsText: PropTypes.string,
+  travellers: PropTypes.string,
+  ratings: PropTypes.array
 };

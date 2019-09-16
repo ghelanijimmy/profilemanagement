@@ -14,53 +14,23 @@ import { HeaderBar } from "../commonelements/elements";
 import Consumer from "../context/consumer";
 // import { CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
+import { Link } from "react-router-dom";
 
 const HomeSearch = props => {
   let hasRecentSearches;
   let hasFavouriteList;
 
-  hasRecentSearches = true;
-  hasFavouriteList = false;
-
-  // const handleEditProfileClick = e => {
-  //   e.preventDefault();inp
-  //   props.data.setTabOption("account");
-  //
-  //   props.history.push({
-  //     pathname: "/myaccount"
-  //   });
-  // };
+  hasRecentSearches = props.data.isLoggedIn;
+  hasFavouriteList = props.data.isLoggedIn;
 
   useEffect(() => {
     if (props.data.searchOption === "") props.data.changeSearchOption("search");
   }, []);
 
-  const searchBoxText = () => {
-    let stars = [];
-    for(let x = 0; x<=5; x++){
-      stars.push((
-          <FontAwesomeIcon key={x} icon={faStar} />
-      ))
-    }
-    
-    return (
-      <React.Fragment>
-        <p className={`${searchCardStyles.titleWithRating}`}>
-          <span className={searchCardStyles.title}>
-            Royalton Bavaro Resort and Spa
-          </span>
-          <span className={searchCardStyles.ratingWrapper}>
-            {stars}
-          </span>
-        </p>
-        <p>Punta Cana, Dominican Republic</p>
-        <p>Superior 4.2/5 (1000+ reviews)</p>
-        <p>All inclusive | 5 days | Aug 25-Aug 30</p>
-        <p>2 Adults, 2 Children</p>
-        <p className={searchCardStyles.searchCardFooterText}>15+ room types</p>
-      </React.Fragment>
-    );
-  };
+  let stars = [];
+  for (let x = 0; x <= 5; x++) {
+    stars.push(<FontAwesomeIcon key={x} icon={faStar} />);
+  }
 
   return (
     <section
@@ -81,14 +51,13 @@ const HomeSearch = props => {
               />
               <SearchboxCard
                 hasBgImg={true}
-                titleText={"Montreal-Montago Bay"}
-                cardContent={`<p class=${searchCardStyles.title}>Royalton Bavaro Resort and Spa</p>
-                  <p>Punta Cana, Dominican Republic</p>
-                  <p>Superior 4.2/5 (1000+ reviews)</p>
-                  <p>All inclusive | 5 days | Aug 25-Aug 30</p>
-                  <p>2 Adults, 2 Children</p>
-                  <p class=${searchCardStyles.searchCardFooterText}>15+ room types</p>`}
-                test={searchBoxText}
+                headingText={"From Toronto"}
+                titleText={"Royalton Bavaro Resort and Spa"}
+                destination={"Punta Cana, Dominican Republic"}
+                ratings={stars}
+                reviewsText={"Superior 4.2/5 (1000+ reviews)"}
+                legText={"All inclusive | 5 days | Aug 25-Aug 30"}
+                travellers={"2 Adults, 2 Children"}
               />
             </div>
 
@@ -109,7 +78,22 @@ const HomeSearch = props => {
             </div>
           </React.Fragment>
         ) : null
-      ) : hasFavouriteList === true ? null : (
+      ) : hasFavouriteList === true ? (
+        <div
+          className={`${searchStyles.searchContent} ${searchStyles.Wrapper}`}
+        >
+          <SearchboxCard
+            hasBgImg={true}
+            headingText={"From Toronto"}
+            titleText={"Memories Holguin Beach Resort"}
+            ratings={stars}
+            destination={"Holguin, Cuba"}
+            reviewsText={"Good 3.5/5 (1000+ reviews)"}
+            legText={"All inclusive | 7 days | Aug 21-Aug 28"}
+            travellers={"2 Adults, 2 Children"}
+          />
+        </div>
+      ) : (
         <div
           className={`${searchStyles.searchContent} ${searchStyles.Wrapper} ${searchStyles.emptyFavouriteList}`}
         >
@@ -119,22 +103,40 @@ const HomeSearch = props => {
               on the deal and saves your time when you are ready to book.
             </p>
           </div>
-          <div>
+          <div className={searchStyles.messageWrapper}>
             <p>
-              While looking for the deals...
-              <br />
-              Look for <FontAwesomeIcon icon={faHeart} /> to save your favourite
-              trips and hotels.
+              <span>Get access to your favourite list anytime, anywhere.</span>
+              <span>
+                <Link
+                  to={""}
+                  onClick={() => {
+                    props.data.setAppType("login");
+                    props.data.setModalState();
+                  }}
+                  className={"pmappclick"}
+                >
+                  Sign in
+                </Link>{" "}
+                or{" "}
+                <Link
+                  to={""}
+                  onClick={() => {
+                    props.data.setAppType("create");
+                    props.data.setModalState();
+                  }}
+                  className={"pmappclick"}
+                >
+                  Create Account
+                </Link>
+              </span>
             </p>
-            <br />
-            <p>Get access to your favourite list anytime, anywhere.</p>
             <p>
               <span>
-                <a>Sign In</a>
-              </span>{" "}
-              or{" "}
+                Look for <FontAwesomeIcon icon={faHeart} /> to save your
+                favourite packages, hotels, flights & cruises.
+              </span>
               <span>
-                <a>Create Profile</a>
+                You can also save your favourite article sand excursions
               </span>
             </p>
           </div>

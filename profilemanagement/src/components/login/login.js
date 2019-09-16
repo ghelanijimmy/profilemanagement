@@ -16,8 +16,6 @@ const Login = props => {
 
   const handleLogin = e => {
     e.preventDefault();
-    
-    console.log('hi');
 
     let loginCred = { email: email, password: password };
     let fullName = '';
@@ -25,13 +23,11 @@ const Login = props => {
     let checkUser;
 
     props.data.dbUsers.forEach(user => {
-      console.table([user.email, loginCred.email, user.password, loginCred.password]);
       checkUser = user.email === loginCred.email &&
           user.password === loginCred.password;
       
       fullName = user.email === loginCred.email ? `${user.firstname} ${user.lastname}` : "";
     });
-    console.log(checkUser);
     if (checkUser) {
       props.data.setLocalStorageUser(fullName || "");
       props.data.setModalState();
