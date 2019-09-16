@@ -126,11 +126,59 @@
     .bgImage {
       background-size: cover;
       background: url("http://placehold.it/300x500") no-repeat center;
-      flex-basis: 30%;
+      flex-basis: 25%;
+
+      .recentlyBooked {
+        background: $orange;
+        color: $white;
+        font-size: .65em;
+        padding: .25em;
+        display: inline-block;
+        border-radius: .2755em;
+        margin-top: .5em;
+        filter: drop-shadow(0 1px 1px $black);
+      }
     }
     .content {
-      flex-basis: 70%;
+      flex-basis: 75%;
       padding: .5em;
+
+      &.Flex {
+        flex-basis: 50%;
+      }
+    }
+    .flexContent {
+      flex-basis: 25%;
+      align-self: flex-end;
+
+      .Wrapper {
+        padding: .5em;
+
+        & > p {
+          display: block;
+          text-align: right;
+          font-size: .675em;
+          color: $darkerLightGray;
+
+          .amountInfo {
+            width: 0.5em;
+            height: 0.5em;
+            font-size: 1.25em;
+            line-height: 0;
+            background: $darkerLightGray;
+            color: $white;
+            border-radius: 50%;
+            padding: 0.3em;
+            box-sizing: content-box;
+          }
+        }
+
+        .amount {
+          font-size: 1.25em;
+          font-weight: bold;
+          color: $blue;
+        }
+      }
     }
   }
 
@@ -207,15 +255,19 @@
     }
 
     &.titleWithRating {
+      align-items: flex-start;
 
       .title {
         flex: 0 1 auto;
+        margin-top: 0;
+        margin-bottom: 0;
       }
       .ratingWrapper {
         flex: 1 0 auto;
         font-size: .5em;
         color: $ratingOrange;
         margin-left: .875em;
+        margin-top: .5em;
       }
     }
   }

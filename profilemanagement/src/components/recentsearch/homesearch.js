@@ -91,6 +91,20 @@ const HomeSearch = props => {
             reviewsText={"Good 3.5/5 (1000+ reviews)"}
             legText={"All inclusive | 7 days | Aug 21-Aug 28"}
             travellers={"2 Adults, 2 Children"}
+            flex={true}
+          />
+          <SearchboxCard
+              hasBgImg={true}
+              headingText={"From Toronto"}
+              titleText={"Memories Holguin Beach Resort"}
+              ratings={stars}
+              destination={"Holguin, Cuba"}
+              reviewsText={"Good 3.5/5 (1000+ reviews)"}
+              legText={"All inclusive | 7 days | Aug 21-Aug 28"}
+              travellers={"2 Adults, 2 Children"}
+              flex={true}
+              recentlyBooked={true}
+              recentlyBookedNum={4}
           />
         </div>
       ) : (
