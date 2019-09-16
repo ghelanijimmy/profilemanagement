@@ -36,6 +36,13 @@ const HomeSearch = props => {
   }, []);
 
   const searchBoxText = () => {
+    let stars = [];
+    for(let x = 0; x<=5; x++){
+      stars.push((
+          <FontAwesomeIcon key={x} icon={faStar} />
+      ))
+    }
+    
     return (
       <React.Fragment>
         <p className={`${searchCardStyles.titleWithRating}`}>
@@ -43,11 +50,7 @@ const HomeSearch = props => {
             Royalton Bavaro Resort and Spa
           </span>
           <span className={searchCardStyles.ratingWrapper}>
-            <FontAwesomeIcon icon={faStar} />
-            <FontAwesomeIcon icon={faStar} />
-            <FontAwesomeIcon icon={faStar} />
-            <FontAwesomeIcon icon={faStar} />
-            <FontAwesomeIcon icon={faStar} />
+            {stars}
           </span>
         </p>
         <p>Punta Cana, Dominican Republic</p>

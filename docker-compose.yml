@@ -17,10 +17,13 @@ services:
       ports:
         - "3000:3000"
       volumes:
-        - ./profilemanagement/src/:/usr/src/app/src/:rw
+        - ./profilemanagement:/usr/src/app:rw
       links:
         - server
       command: npm start
+      environment:
+        env_file: .env
+        NODE_ENV: development
 
   server:
       depends_on:
@@ -30,7 +33,7 @@ services:
       ports:
         - "3005:3005"
       volumes:
-        - ./pmserver:/usr/src/server
+        - ./pmserver:/usr/src/server:rw
       links:
         - mongodb
       command: npm start

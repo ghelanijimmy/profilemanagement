@@ -12,6 +12,8 @@ RUN npm i -g nwb --unsafe-perm --scripts-prepend-node-path
 
 RUN npm install --unsafe-perm --scripts-prepend-node-path
 
+RUN npm audit fix
+
 COPY . /usr/src/app/
 
 EXPOSE 3000
