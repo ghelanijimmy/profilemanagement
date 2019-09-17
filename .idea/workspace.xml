@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="657e8360-a140-4cec-96b5-06968fb61210" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/profilemanagement.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/profilemanagement.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/profilemanagement/src/components/voucher/_voucher.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/profilemanagement/src/components/voucher/voucher.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/profilemanagement/src/components/context/provider.js" beforeDir="false" afterPath="$PROJECT_DIR$/profilemanagement/src/components/context/provider.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/profilemanagement/src/components/myaccount/_myaccount.scss" beforeDir="false" afterPath="$PROJECT_DIR$/profilemanagement/src/components/myaccount/_myaccount.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/profilemanagement/src/components/myaccount/myaccount.js" beforeDir="false" afterPath="$PROJECT_DIR$/profilemanagement/src/components/myaccount/myaccount.js" afterDir="false" />
     </list>
@@ -175,7 +174,7 @@
       <workItem from="1568294347173" duration="4856000" />
       <workItem from="1568299404516" duration="29256000" />
       <workItem from="1568645760224" duration="12481000" />
-      <workItem from="1568726495012" duration="7140000" />
+      <workItem from="1568726495012" duration="8964000" />
     </task>
     <task id="LOCAL-00001" summary="custom checkbox styles and handling">
       <created>1567794923358</created>

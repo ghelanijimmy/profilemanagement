@@ -15,6 +15,7 @@ import Booking from "./booking";
 import Account from "./account";
 import Travelpref from "./travelpref";
 import Bookingpref from "./bookingpref";
+import Voucher from "../voucher/voucher";
 
 const Myaccount = props => {
   // const [tabOption, setTabOption] = useState("");
@@ -90,113 +91,112 @@ const Myaccount = props => {
 
   if (props.data.isLoggedIn)
     return (
-      <React.Fragment>
-        <div
-          className={`${dashboardStyles.dashboard} ${dashboardStyles.Wrapper}`}
-        >
-          <HeaderBar
-            expand={false}
-            search={"/recentsearches"}
-            list={"/favlist"}
-          />
-          <section>
-            {/*<p className={styles.Title}>Welcome, {props.data.user}</p>*/}
+      <div
+        className={`${dashboardStyles.dashboard} ${dashboardStyles.Wrapper}`}
+      >
+        <HeaderBar
+          expand={false}
+          search={"/recentsearches"}
+          list={"/favlist"}
+        />
+        <section>
+          {/*<p className={styles.Title}>Welcome, {props.data.user}</p>*/}
+          <div
+            className={`${elementStyles.background} ${elementStyles.searchOptions}`}
+          >
+            <Tabs
+              searchOption={"booking"}
+              text={"My booking"}
+              iconPosition={"right"}
+              icon={faChevronDown}
+              ref={bookingRef}
+              handleTabClick={e =>
+                props.data.handleTabOptionChange(e, bookingRef)
+              }
+              stateOption={props.data.tabOption}
+            />
+            <Tabs
+              searchOption={"account"}
+              text={"My account info"}
+              iconPosition={"right"}
+              icon={faChevronDown}
+              ref={accountRef}
+              handleTabClick={e =>
+                props.data.handleTabOptionChange(e, accountRef)
+              }
+              stateOption={props.data.tabOption}
+            />
+            <Tabs
+              searchOption={"travelpref"}
+              text={"Travel preferences"}
+              iconPosition={"right"}
+              icon={faChevronDown}
+              ref={travelPrefRef}
+              handleTabClick={e =>
+                props.data.handleTabOptionChange(e, travelPrefRef)
+              }
+              stateOption={props.data.tabOption}
+              notSetBox={props.data.travelPref}
+            />
+            <Tabs
+              searchOption={"bookingpref"}
+              text={"Booking preferences"}
+              iconPosition={"right"}
+              icon={faChevronDown}
+              ref={bookingPrefRef}
+              handleTabClick={e =>
+                props.data.handleTabOptionChange(e, bookingPrefRef)
+              }
+              stateOption={props.data.tabOption}
+              notSetBox={props.data.bookingPref}
+            />
+          </div>
+          {dashboardRender !== null ? (
             <div
-              className={`${elementStyles.background} ${elementStyles.searchOptions}`}
+              className={
+                props.data.expandDashTab
+                  ? `${dashboardStyles.collapsible} ${dashboardStyles.expanded}`
+                  : `${dashboardStyles.collapsible} ${dashboardStyles.collapsed}`
+              }
             >
-              <Tabs
-                searchOption={"booking"}
-                text={"My booking"}
-                iconPosition={"right"}
-                icon={faChevronDown}
-                ref={bookingRef}
-                handleTabClick={e =>
-                  props.data.handleTabOptionChange(e, bookingRef)
-                }
-                stateOption={props.data.tabOption}
-              />
-              <Tabs
-                searchOption={"account"}
-                text={"My account info"}
-                iconPosition={"right"}
-                icon={faChevronDown}
-                ref={accountRef}
-                handleTabClick={e =>
-                  props.data.handleTabOptionChange(e, accountRef)
-                }
-                stateOption={props.data.tabOption}
-              />
-              <Tabs
-                searchOption={"travelpref"}
-                text={"Travel preferences"}
-                iconPosition={"right"}
-                icon={faChevronDown}
-                ref={travelPrefRef}
-                handleTabClick={e =>
-                  props.data.handleTabOptionChange(e, travelPrefRef)
-                }
-                stateOption={props.data.tabOption}
-                notSetBox={props.data.travelPref}
-              />
-              <Tabs
-                searchOption={"bookingpref"}
-                text={"Booking preferences"}
-                iconPosition={"right"}
-                icon={faChevronDown}
-                ref={bookingPrefRef}
-                handleTabClick={e =>
-                  props.data.handleTabOptionChange(e, bookingPrefRef)
-                }
-                stateOption={props.data.tabOption}
-                notSetBox={props.data.bookingPref}
-              />
-            </div>
-            {dashboardRender !== null ? (
               <div
                 className={
-                  props.data.expandDashTab
-                    ? `${dashboardStyles.collapsible} ${dashboardStyles.expanded}`
-                    : `${dashboardStyles.collapsible} ${dashboardStyles.collapsed}`
+                  props.data.tabOption === "booking"
+                    ? `${dashboardStyles.infoWrapper} ${styles.section} ${dashboardStyles.infoWrapperBG}`
+                    : `${dashboardStyles.infoWrapper} ${styles.section}`
                 }
               >
-                <div
-                  className={
-                    props.data.tabOption === "booking"
-                      ? `${dashboardStyles.infoWrapper} ${styles.section} ${dashboardStyles.infoWrapperBG}`
-                      : `${dashboardStyles.infoWrapper} ${styles.section}`
-                  }
-                >
-                  {props.data.tabOption === "booking" ? (
-                    <Booking header={dashboardRender} />
-                  ) : props.data.tabOption === "account" ? (
-                    <Account header={dashboardRender} />
-                  ) : props.data.tabOption === "travelpref" ? (
-                    <Travelpref header={dashboardRender} />
-                  ) : props.data.tabOption === "bookingpref" ? (
-                    <Bookingpref header={dashboardRender} />
-                  ) : null}
-                </div>
-                {props.data.tabOption !== "booking" ? (
-                  <div className={dashboardStyles.footer}>
-                    <button
-                      className={`${styles.btn} ${styles.primary}`}
-                      value={"Save"}
-                    >
-                      Save
-                    </button>
-                    <button
-                      className={`${styles.btn} ${styles.secondary}`}
-                      value={"Cancel"}
-                    >
-                      Cancel
-                    </button>
-                  </div>
+                {props.data.tabOption === "booking" ? (
+                  <Booking header={dashboardRender} />
+                ) : props.data.tabOption === "account" ? (
+                  <Account header={dashboardRender} />
+                ) : props.data.tabOption === "travelpref" ? (
+                  <Travelpref header={dashboardRender} />
+                ) : props.data.tabOption === "bookingpref" ? (
+                  <Bookingpref header={dashboardRender} />
                 ) : null}
               </div>
-            ) : null}
-          </section>
-        </div>
-      </React.Fragment>
+              {props.data.tabOption !== "booking" ? (
+                <div className={dashboardStyles.footer}>
+                  <button
+                    className={`${styles.btn} ${styles.primary}`}
+                    value={"Save"}
+                  >
+                    Save
+                  </button>
+                  <button
+                    className={`${styles.btn} ${styles.secondary}`}
+                    value={"Cancel"}
+                  >
+                    Cancel
+                  </button>
+                </div>
+              ) : null}
+            </div>
+          ) : null}
+        </section>
+        <Voucher />
+      </div>
     );
   else return null;
 };
