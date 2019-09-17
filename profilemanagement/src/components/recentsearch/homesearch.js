@@ -6,7 +6,7 @@ import {
   faHeart,
   faEnvelope,
   faPlane,
-  faStar
+  faStar, faList
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import SearchboxCard from "../commonelements/searchboxCard";
@@ -79,34 +79,47 @@ const HomeSearch = props => {
           </React.Fragment>
         ) : null
       ) : hasFavouriteList === true ? (
-        <div
-          className={`${searchStyles.searchContent} ${searchStyles.Wrapper}`}
-        >
-          <SearchboxCard
-            hasBgImg={true}
-            headingText={"From Toronto"}
-            titleText={"Memories Holguin Beach Resort"}
-            ratings={stars}
-            destination={"Holguin, Cuba"}
-            reviewsText={"Good 3.5/5 (1000+ reviews)"}
-            legText={"All inclusive | 7 days | Aug 21-Aug 28"}
-            travellers={"2 Adults, 2 Children"}
-            flex={true}
-          />
-          <SearchboxCard
-              hasBgImg={true}
-              headingText={"From Toronto"}
-              titleText={"Memories Holguin Beach Resort"}
-              ratings={stars}
-              destination={"Holguin, Cuba"}
-              reviewsText={"Good 3.5/5 (1000+ reviews)"}
-              legText={"All inclusive | 7 days | Aug 21-Aug 28"}
-              travellers={"2 Adults, 2 Children"}
-              flex={true}
-              recentlyBooked={true}
-              recentlyBookedNum={4}
-          />
-        </div>
+          <React.Fragment>
+            <div
+                className={`${searchStyles.searchContent} ${searchStyles.Wrapper}`}
+            >
+              <SearchboxCard
+                  hasBgImg={true}
+                  headingText={"From Toronto"}
+                  titleText={"Memories Holguin Beach Resort"}
+                  ratings={stars}
+                  destination={"Holguin, Cuba"}
+                  reviewsText={"Good 3.5/5 (1000+ reviews)"}
+                  legText={"All inclusive | 7 days | Aug 21-Aug 28"}
+                  travellers={"2 Adults, 2 Children"}
+                  flex={true}
+              />
+              <SearchboxCard
+                  hasBgImg={true}
+                  headingText={"From Toronto"}
+                  titleText={"Memories Holguin Beach Resort"}
+                  ratings={stars}
+                  destination={"Holguin, Cuba"}
+                  reviewsText={"Good 3.5/5 (1000+ reviews)"}
+                  legText={"All inclusive | 7 days | Aug 21-Aug 28"}
+                  travellers={"2 Adults, 2 Children"}
+                  flex={true}
+                  recentlyBooked={true}
+                  recentlyBookedNum={4}
+              />
+            </div>
+  
+            <div className={searchStyles.footer}>
+              <p className={searchStyles.fullList}>
+                <span>
+                  <a>
+                    <FontAwesomeIcon icon={faList} />
+                    See full list
+                  </a>
+                </span>
+              </p>
+            </div>
+          </React.Fragment>
       ) : (
         <div
           className={`${searchStyles.searchContent} ${searchStyles.Wrapper} ${searchStyles.emptyFavouriteList}`}

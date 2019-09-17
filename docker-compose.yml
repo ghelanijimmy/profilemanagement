@@ -15,7 +15,7 @@ services:
       build:
         ./profilemanagement
       ports:
-        - "3000:3000"
+        - "3001:3000"
       volumes:
         - ./profilemanagement:/usr/src/app:rw
       links:

@@ -3,8 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="657e8360-a140-4cec-96b5-06968fb61210" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/profilemanagement/src/components/commonelements/_elements.scss" beforeDir="false" afterPath="$PROJECT_DIR$/profilemanagement/src/components/commonelements/_elements.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/profilemanagement/src/components/commonelements/searchboxCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/profilemanagement/src/components/commonelements/searchboxCard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/profilemanagement/src/components/recentsearch/_recentsearch.scss" beforeDir="false" afterPath="$PROJECT_DIR$/profilemanagement/src/components/recentsearch/_recentsearch.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/profilemanagement/src/components/recentsearch/homesearch.js" beforeDir="false" afterPath="$PROJECT_DIR$/profilemanagement/src/components/recentsearch/homesearch.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -37,7 +38,7 @@
     <property name="NewWatcherDialog.advanced.open" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="TypeScript JSX&#10;JavaScript" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Wedding Vacations" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../gift-certificate" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -70,37 +71,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Docker.Docker Image">
+  <component name="RunManager" selected="Docker.profilemanagement/Dockerfile">
     <configuration name="ReactApp" type="JavascriptDebugType" uri="http://localhost:3000" useFirstLineBreakpoints="true">
-      <method v="2" />
-    </configuration>
-    <configuration name="Docker Image" type="docker-deploy" factoryName="docker-image" temporary="true" server-name="Docker">
-      <deployment type="docker-image">
-        <settings>
-          <option name="command" value="" />
-          <option name="containerName" value="testapp" />
-          <option name="entrypoint" value="" />
-          <option name="imageTag" value="c17971708eea" />
-          <option name="portBindings">
-            <list>
-              <DockerPortBindingImpl>
-                <option name="containerPort" value="3000" />
-                <option name="hostIp" value="localhost" />
-                <option name="hostPort" value="3000" />
-              </DockerPortBindingImpl>
-            </list>
-          </option>
-          <option name="commandLineOptions" value="" />
-          <option name="volumeBindings">
-            <list>
-              <DockerVolumeBindingImpl>
-                <option name="containerPath" value="/usr/src/app" />
-                <option name="hostPath" value="C:\Users\jghelani\Documents\Work\profilemanagement\profilemanagement" />
-              </DockerVolumeBindingImpl>
-            </list>
-          </option>
-        </settings>
-      </deployment>
       <method v="2" />
     </configuration>
     <configuration name="docker-compose.yml: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
@@ -111,28 +83,16 @@
       </deployment>
       <method v="2" />
     </configuration>
-    <configuration name="docker-compose.yml.app: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
-      <deployment type="docker-compose.yml">
+    <configuration name="pmserver/Dockerfile" type="docker-deploy" factoryName="dockerfile" server-name="Docker">
+      <deployment type="dockerfile">
         <settings>
-          <option name="services">
-            <list>
-              <option value="app" />
-            </list>
-          </option>
-          <option name="sourceFilePath" value="docker-compose.yml" />
-        </settings>
-      </deployment>
-      <method v="2" />
-    </configuration>
-    <configuration name="docker-compose.yml.mongoimport: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
-      <deployment type="docker-compose.yml">
-        <settings>
-          <option name="services">
-            <list>
-              <option value="mongoimport" />
-            </list>
-          </option>
-          <option name="sourceFilePath" value="docker-compose.yml" />
+          <option name="buildCliOptions" value="" />
+          <option name="command" value="" />
+          <option name="containerName" value="" />
+          <option name="entrypoint" value="" />
+          <option name="imageTag" value="" />
+          <option name="commandLineOptions" value="" />
+          <option name="sourceFilePath" value="pmserver/Dockerfile" />
         </settings>
       </deployment>
       <method v="2" />
@@ -140,27 +100,29 @@
     <configuration name="profilemanagement/Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
       <deployment type="dockerfile">
         <settings>
+          <option name="buildCliOptions" value="" />
           <option name="buildOnly" value="true" />
+          <option name="command" value="" />
+          <option name="containerName" value="" />
+          <option name="entrypoint" value="" />
+          <option name="imageTag" value="" />
+          <option name="commandLineOptions" value="" />
           <option name="sourceFilePath" value="profilemanagement/Dockerfile" />
         </settings>
       </deployment>
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Docker.pmserver/Dockerfile" />
       <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
-      <item itemvalue="Docker.docker-compose.yml.mongoimport: Compose Deployment" />
-      <item itemvalue="Docker.docker-compose.yml.app: Compose Deployment" />
       <item itemvalue="Docker.profilemanagement/Dockerfile" />
-      <item itemvalue="Docker.Docker Image" />
       <item itemvalue="JavaScript Debug.ReactApp" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
-        <item itemvalue="Docker.Docker Image" />
         <item itemvalue="Docker.profilemanagement/Dockerfile" />
         <item itemvalue="Docker.Docker Image" />
-        <item itemvalue="Docker.docker-compose.yml.app: Compose Deployment" />
       </list>
     </recent_temporary>
   </component>
@@ -211,7 +173,8 @@
       <workItem from="1568234229360" duration="1098000" />
       <workItem from="1568294347173" duration="4856000" />
       <workItem from="1568299404516" duration="29256000" />
-      <workItem from="1568645760224" duration="11247000" />
+      <workItem from="1568645760224" duration="12481000" />
+      <workItem from="1568726495012" duration="4372000" />
     </task>
     <task id="LOCAL-00001" summary="custom checkbox styles and handling">
       <created>1567794923358</created>
@@ -255,6 +218,8 @@
     <state x="-1688" y="392" key="#Port_bindings/1920.1080/1920.1080/2560.1440" />
     <state x="-1688" y="392" key="#Push_Image" />
     <state x="-1688" y="392" key="#Push_Image/1920.1080/1920.1080/2560.1440" />
+    <state x="-1826" y="389" key="#com.intellij.execution.impl.EditConfigurationsDialog" />
+    <state x="-1826" y="389" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.1080/1920.1080/2560.1440" />
     <state x="-1532" y="537" key="#com.intellij.fileTypes.FileTypeChooser" />
     <state x="-1532" y="537" key="#com.intellij.fileTypes.FileTypeChooser/1920.1080/1920.1080/2560.1440" />
     <state x="-1566" y="304" key="#pmserver/Dockerfile" />

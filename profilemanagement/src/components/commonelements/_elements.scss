@@ -104,6 +104,14 @@
 
   .content {
     padding: .5em;
+
+    p {
+      font-size: .625em;
+
+      &.title {
+        font-size: .75em;
+      }
+    }
   }
 
   .closeWrapper {
@@ -143,8 +151,16 @@
       flex-basis: 75%;
       padding: .5em;
 
+      p {
+        font-size: .625em;
+      }
+
       &.Flex {
         flex-basis: 50%;
+
+        p {
+          font-size: .625em;
+        }
       }
     }
     .flexContent {
@@ -157,18 +173,18 @@
         & > p {
           display: block;
           text-align: right;
-          font-size: .675em;
+          font-size: .6em;
           color: $darkerLightGray;
 
           .amountInfo {
-            width: 0.5em;
-            height: 0.5em;
-            font-size: 1.25em;
+            width: 0.3em;
+            height: 0.3em;
+            font-size: 1.85em;
             line-height: 0;
-            background: $darkerLightGray;
-            color: $white;
+            background: #9f9f9f;
+            color: #ffffff;
             border-radius: 50%;
-            padding: 0.3em;
+            padding: 0.1em;
             box-sizing: content-box;
           }
         }
@@ -192,7 +208,7 @@
     }
   }
   .title {
-    font-size: 1em;
+    font-size: .75rem;
     font-weight: bold;
     margin-bottom: .25em;
     margin-top: .5em;

@@ -71,7 +71,20 @@
       justify-content: space-between;
       p {
         color: $blue;
-        font-size: .875em;
+        font-size: .75em;
+        font-weight: bold;
+
+        a {
+          font-size: .75em;
+        }
+      }
+      .fullList {
+        flex: 100%;
+        text-align: right;
+
+        svg {
+          margin-right: .5em;
+        }
       }
       .emailSeeAll {
         display: flex;
