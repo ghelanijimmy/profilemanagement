@@ -152,7 +152,13 @@ const Myaccount = props => {
               />
             </div>
             {dashboardRender !== null ? (
-              <React.Fragment>
+              <div
+                className={
+                  props.data.expandDashTab
+                    ? `${dashboardStyles.collapsible} ${dashboardStyles.expanded}`
+                    : `${dashboardStyles.collapsible} ${dashboardStyles.collapsed}`
+                }
+              >
                 <div
                   className={
                     props.data.tabOption === "booking"
@@ -186,7 +192,7 @@ const Myaccount = props => {
                     </button>
                   </div>
                 ) : null}
-              </React.Fragment>
+              </div>
             ) : null}
           </section>
         </div>

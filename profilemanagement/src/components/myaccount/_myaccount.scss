@@ -45,6 +45,19 @@
       }
     }
 
+    .collapsible {
+      transition: .3s all linear;
+      transform-origin: top;
+
+      &.collapsed {
+        transform: scaleY(0);
+      }
+
+      &.expanded {
+        transform: scaleY(1);
+      }
+    }
+
     .infoWrapper {
       border: 1px solid $grayBlue;
       margin-top: 1.25em;

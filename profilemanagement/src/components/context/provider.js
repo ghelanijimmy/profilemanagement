@@ -13,6 +13,7 @@ const Provider = props => {
   const [searchOption, changeSearchOption] = useState("search");
   const [firstTime, setFirstTime] = useState(null);
   const [tabOption, setTabOption] = useState("account");
+  const [expandDashTab, setExpandDashTabState] = useState(false);
   const [hasBooking, setBooking] = useState(false);
   const [profileComplete, setProfileComplete] = useState(25);
   const [welcomeMessage, setWelcomeMessage] = useState("My Account");
@@ -220,6 +221,10 @@ const Provider = props => {
   //TODO Revisit button selection handling
   const handleTabOptionChange = (e, ref) => {
     setTabOption(ref.current.dataset.searchoption);
+
+    if (tabOption === ref.current.dataset.searchoption)
+      setExpandDashTabState(!expandDashTab);
+    else setExpandDashTabState(true);
   };
 
   // SET USER AND LOGGED IN STATE
@@ -283,6 +288,7 @@ const Provider = props => {
         hasBooking,
         tabOption,
         setTabOption,
+        expandDashTab,
         handleTabOptionChange,
         profileComplete,
         setProfileComplete,
