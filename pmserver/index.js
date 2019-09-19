@@ -30,28 +30,22 @@ const Schema = mongoose.Schema;
 const userSchema = new Schema(
   {
     email: {
-      type: String,
-      required: true
+      type: String
     },
     firstname: {
-      type: String,
-      required: true
+      type: String
     },
     lastname: {
-      type: String,
-      required: true
+      type: String
     },
     password: {
-      type: String,
-      required: true
+      type: String
     },
     gateway: {
-      type: String,
-      required: true
+      type: String
     },
     mobile: {
-      type: Number,
-      required: false
+      type: Number
     }
   },
   {
@@ -62,10 +56,25 @@ const userSchema = new Schema(
 const User = mongoose.model("User", userSchema);
 
 app.get("/users", (req, res) => {
-  console.log("here");
   User.find()
     .then(user => res.json(user))
     .catch(err => res.json(`Error: ${err}`));
+});
+
+app.post("/users/login", (req, res) => {
+  User.findOne(
+    { email: req.body.email, password: req.body.password },
+    (err, data) => {
+      if (err) return err;
+      else {
+        res.json(
+          Object.assign({}, data !== null ? data._doc : data, {
+            isValid: data !== null
+          })
+        );
+      }
+    }
+  ).catch(err => res.json(err));
 });
 
 app.post("/users/add", (req, res) => {

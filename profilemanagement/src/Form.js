@@ -100,11 +100,7 @@ const Form = props => {
             <FontAwesomeIcon icon={faTimes} />
           </button>
         </Modal>
-        <Route
-          exact
-          path={"/"}
-          component={() => <HomeSearch user={props.data.user} {...props} />}
-        />
+        <Route exact path={"/"} component={() => <HomeSearch {...props} />} />
       </React.Fragment>
     );
   } else if (props.data.appType === "create") {
@@ -133,29 +129,17 @@ const Form = props => {
             <FontAwesomeIcon icon={faTimes} />
           </button>
         </Modal>
-        <Route
-          exact
-          path={"/"}
-          component={() => <HomeSearch user={props.data.user} {...props} />}
-        />
+        <Route exact path={"/"} component={() => <HomeSearch {...props} />} />
       </React.Fragment>
     );
   } else {
     if (props.data.appType === "" && props.data.user !== "") {
       return (
-        <Route
-          exact
-          path={"/"}
-          component={() => <HomeSearch user={props.data.user} {...props} />}
-        />
+        <Route exact path={"/"} component={() => <HomeSearch {...props} />} />
       );
     } else {
       return (
-        <Route
-          exact
-          path={"/"}
-          component={() => <HomeSearch user={props.data.user} {...props} />}
-        />
+        <Route exact path={"/"} component={() => <HomeSearch {...props} />} />
       );
     }
   }

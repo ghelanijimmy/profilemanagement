@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ProjectTasksOptions">
-    <TaskOptions isEnabled="false">
+    <TaskOptions isEnabled="true">
       <option name="arguments" value="--write $FilePathRelativeToProjectRoot$" />
       <option name="checkSyntaxErrors" value="false" />
       <option name="description" />
@@ -14,7 +14,7 @@
         <array />
       </option>
       <option name="outputFromStdout" value="false" />
-      <option name="program" value="prettier" />
+      <option name="program" value="$USER_HOME$/AppData/Roaming/npm/prettier" />
       <option name="runOnExternalChanges" value="true" />
       <option name="scopeName" value="Open Files" />
       <option name="trackOnlyRoot" value="false" />

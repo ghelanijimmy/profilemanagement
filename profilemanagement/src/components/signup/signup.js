@@ -38,7 +38,6 @@ const SignUp = props => {
       .then(data => {
         console.log(data);
         props.data.setModalState();
-        props.data.setDbUsers(old => [...old, data]);
       });
   };
 

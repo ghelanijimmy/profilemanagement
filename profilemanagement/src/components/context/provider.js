@@ -57,21 +57,6 @@ const Provider = props => {
     }
   };
 
-  // useEffect(() => {
-  //   console.log(selectedTravelPrefDestinations);
-  // }, [selectedTravelPrefDestinations]);
-
-  //SET INITIAL USERS FROM DB
-  useEffect(() => {
-    fetch("http://localhost:3005/users")
-      .then(res => res.json())
-      .then(data => setDbUsers(data));
-  }, []);
-
-  useEffect(() => {
-    console.log(dbUsers);
-  }, [dbUsers]);
-
   //SET INITIAL AIRPORTS
   const initAirports = airportsList;
   let initAirportsObj = {};
@@ -127,13 +112,6 @@ const Provider = props => {
       }
     });
   };
-
-  //SET FIRST TIME LOGIN OR CREATE TO COMPLETE PROFILE
-  // localStorage.setItem("firstTime", true);
-  //
-  // useEffect(() => {
-  //   if (localStorage.getItem("firstTime")) setFirstTime(true);
-  // });
 
   //HANDLE TRAVEL PREF COLLAPSED SECTIONS
   const handleTravelCollapse = (e, section, parentClass) => {
@@ -207,7 +185,6 @@ const Provider = props => {
   //LOGOUT HANDLER
   const handleLogout = () => {
     setAppType("");
-    localStorage.setItem("user", "");
     setUser("");
     setWelcomeMessage("My Account");
   };
@@ -227,33 +204,27 @@ const Provider = props => {
     else setExpandDashTabState(true);
   };
 
-  // SET USER AND LOGGED IN STATE
-  useEffect(() => {
-    if (
-      localStorage.getItem("user") === null ||
-      localStorage.getItem("user") === ""
-    ) {
-      if (user === "") {
-        localStorage.setItem("user", "");
-      }
-    } else {
-      setUser(localStorage.getItem("user"));
-    }
-
-    let isLoggedIn;
-
-    isLoggedIn = user !== "";
-
-    setLoggedInState(isLoggedIn);
-
-    setWelcomeMessage(`Welcome ${user}` || "My Account");
-  }, [user]);
+  //QUERY DB TO GET LOGGED IN DATA
+  const checkLogin = (email, password) => {
+    return fetch("http://localhost:3005/users/login", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json"
+      },
+      body: JSON.stringify({ email, password })
+    });
+  };
 
   //SET LOCAL STORAGE FOR USER
-  const setLocalStorageUser = data => {
-    localStorage.setItem("user", data);
-    setUser(data);
+  const setUserFromDB = data => {
+    setUser(`${data.firstname} ${data.lastname}`);
+    setModalState();
+    setLoggedInState(data.isValid);
   };
+
+  useEffect(() => {
+    setWelcomeMessage(`Welcome ${user}`);
+  }, [user]);
 
   //SET MODAL STATE
   const setModalState = () => {
@@ -271,7 +242,7 @@ const Provider = props => {
     <Context.Provider
       value={{
         isLoggedIn,
-        setLocalStorageUser,
+        setUserFromDB,
         user,
         dbUsers,
         setDbUsers,
@@ -325,7 +296,10 @@ const Provider = props => {
         selectedTravelPrefFacilities,
         setSelectedTravelPrefFacilities,
         selectedTravelPrefOthers,
-        setSelectedTravelPrefOthers
+        setSelectedTravelPrefOthers,
+        checkLogin,
+        setLoggedInState,
+        setWelcomeMessage
       }}
     >
       {props.children}

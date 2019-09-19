@@ -6,6 +6,7 @@ const Consumer = Component => {
     return (
       <Context.Consumer>
         {value => {
+          window.PMData = value;
           return <Component {...props} data={value} />;
         }}
       </Context.Consumer>

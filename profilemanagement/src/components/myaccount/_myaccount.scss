@@ -46,15 +46,20 @@
     }
 
     .collapsible {
-      transition: .3s all linear;
+      opacity: 0;
+      transition: opacity .1s linear, height .3s linear;
       transform-origin: top;
 
       &.collapsed {
+        opacity: 0;
         transform: scaleY(0);
+        height: 0;
       }
 
       &.expanded {
+        opacity: 1;
         transform: scaleY(1);
+        height: auto;
       }
     }
 

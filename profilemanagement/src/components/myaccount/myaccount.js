@@ -100,7 +100,6 @@ const Myaccount = props => {
           list={"/favlist"}
         />
         <section>
-          {/*<p className={styles.Title}>Welcome, {props.data.user}</p>*/}
           <div
             className={`${elementStyles.background} ${elementStyles.searchOptions}`}
           >

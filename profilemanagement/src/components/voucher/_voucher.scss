@@ -1,0 +1,200 @@
+@import "../../css/variables";
+
+.voucher {
+  margin-top: 1em;
+  &.Wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+
+    .column {
+      flex-basis: 49%;
+
+      .banner {
+        background-color: $orange;
+        padding: 1em;
+        position: relative;
+        color: $white;
+        font-weight: bold;
+        overflow: hidden;
+        margin: 0 0 .5em;
+
+        .bannerMessage {
+          color: $white;
+          text-align: left;
+          width: 85%;
+          display: block;
+        }
+
+        .bannerIcon {
+          position: absolute;
+          top: 0;
+          right: -50px;
+          font-size: 5em;
+          z-index: 0;
+          height: 100%;
+          transform: rotate(45deg);
+        }
+
+        //&:after {
+        //  border-top-color: transparent;
+        //  border-top-width: 1.7em;
+        //  border-bottom: 1.7em;
+        //  border-bottom-color: transparent;
+        //  border-left: 0;
+        //  border-left-color: transparent;
+        //  border-right: 1.7em;
+        //  border-right-color: $white;
+        //  border-style: solid;
+        //  background: transparent;
+        //  width: 100%;
+        //  content: " ";
+        //  display: block;
+        //  position: absolute;
+        //  top: 0;
+        //  left: 0;
+        //  padding: 0 1em;
+        //  z-index: 1000;
+        //  box-sizing: border-box;
+        //}
+      }
+
+      .voucherImage {
+        position: relative;
+        overflow: hidden;
+
+        img {
+          width: 100%;
+        }
+        .voucherInfo {
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          margin: 1em;
+          display: flex;
+          flex-wrap: nowrap;
+
+          .valueWrapper {
+            background-color: $white;
+            flex: 1 0 auto;
+            margin: 0;
+            text-align: center;
+            font-size: .875em;
+            padding: .25em;
+            span {
+              font-size: .875em;
+              display: block;
+            }
+            .value {
+              font-size: 2.5em;
+              font-weight: bold;
+              color: $voucherAmount;
+              line-height: 1;
+            }
+          }
+          .codeWrapper {
+            background-color: $grayBlack;
+            flex: 1 0 auto;
+            margin: 0;
+            font-size: .875em;
+            padding: .25em;
+            span {
+              font-size: .875em;
+              display: block;
+              color: $darkerLightGray;
+            }
+            .code {
+              font-size: 1em;
+              color: $darkerLightGray;
+              font-weight: bold;
+              margin-top: .25em;
+            }
+            .expiry {
+              margin-top: .5em;
+            }
+          }
+        }
+      }
+
+      .redeem {
+        &.Wrapper {
+          font-weight: bold;
+
+          * {
+            font-weight: bold;
+          }
+
+          .stepsWrapper {
+            display: flex;
+            flex-wrap: nowrap;
+
+            .steps {
+              flex: 1 1 33%;
+              display: flex;
+              flex-wrap: nowrap;
+              align-items: flex-end;
+
+              .stepsInfo {
+                flex: 1 0 auto;
+                display: block;
+              }
+              .stepsIconWrapper {
+                flex: 0 1 auto;
+                display: block;
+                margin-right: 1em;
+              }
+
+              span {
+                display: block;
+
+                &.stepNumber {
+                  display: inline-block;
+                  background-color: $grayBlue;
+                  width: 1em;
+                  height: 1em;
+                  border-radius: 50%;
+                  color: $white;
+                  line-height: 1;
+                  padding: .125em;
+                  text-align: center;
+                  box-sizing: content-box;
+                  margin-bottom: .5em;
+                }
+              }
+            }
+
+          }
+        }
+      }
+      .ctaWrapper {
+        display: flex;
+        align-items: center;
+        flex-wrap: nowrap;
+        color: $blue;
+
+        p {
+          color: $blue;
+          font-weight: bold;
+        }
+
+        & > *{
+          margin-right: 1em;
+        }
+
+        svg {
+          margin-right: .5em;
+          color: $white;
+          background-color: $blue;
+          border-radius: 50%;
+          line-height: 0;
+          box-sizing: content-box;
+          padding: .25em;
+          text-align: center;
+          width: 10px;
+          height: 10px;
+        }
+      }
+    }
+  }
+}

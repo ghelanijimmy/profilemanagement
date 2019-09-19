@@ -4,7 +4,7 @@
   "description": "pm server dev",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon ./index.js"
+    "start": "CHOKIDAR_USEPOLLING=true nodemon ./index.js"
   },
   "author": "Jimmy Ghelani",
   "license": "ISC",
